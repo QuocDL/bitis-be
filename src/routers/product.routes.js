@@ -1,0 +1,18 @@
+import { Router } from 'express';
+import { productControllers } from '../controllers/index.js';
+import { authenticate } from '../middleware/authenticateMiddleware.js';
+import { authorsize } from '../middleware/authorizeMiddleware.js';
+import { ROLE } from '../constants/role.js';
+import upload from '../middleware/multerMiddleware.js';
+
+const productRoutes = Router();
+
+productRoutes.post(
+    '/create',
+    upload.fields([{ name: 'variantImages', maxCount: 10 }]),
+    authenticate,
+    authorsize(ROLE.ADMIN),
+    productControllers.createProduct,
+);
+
+export default productRoutes;
