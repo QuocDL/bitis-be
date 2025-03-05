@@ -15,4 +15,12 @@ productRoutes.post(
     productControllers.createProduct,
 );
 
+productRoutes.put(
+    '/update/:id',
+    upload.fields([{ name: 'variantImages', maxCount: 10 }]),
+    authenticate,
+    authorsize(ROLE.ADMIN),
+    productControllers.updateProduct,
+);
+
 export default productRoutes;
