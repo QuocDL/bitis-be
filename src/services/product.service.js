@@ -107,3 +107,47 @@ export const createProduct = async (productData, files) => {
     await newProduct.save();
     return newProduct;
 };
+
+export const getAllProducts = async (query) => {
+    const features = new APIQuery(
+        Product.find().populate('variants.color').populate('variants.size').populate('category').populate('tags'),
+        query,
+    );
+    features.filter().sort().limitFields().search().paginate();
+
+    const [products, totalDocs] = await Promise.all([features.query, features.count()]);
+    return { products, totalDocs };
+};
+export const getBestSellingProducts = async () => {
+    const products = await Product.find({ ...clientRequiredFields })
+        .populate('variants.color')
+        .populate('variants.size')
+        .sort({ sold: -1 })
+        .limit(10);
+    return products;
+};
+export const getDiscountProducts = async () => {
+    const products = await Product.find({ ...clientRequiredFields })
+        .populate('variants.color')
+        .populate('variants.size')
+        .sort({ discount: -1 })
+        .limit(10);
+    return products;
+};
+
+export const getRelatedProducts = async (req, res, next) => {
+    const product = await Product.findById(req.params.id).populate('variants.color').populate('variants.size').lean();
+
+    if (!product) throw new NotFoundError(`${ReasonPhrases.NOT_FOUND} product with id: ${req.params.id}`);
+
+    const products = await Product.find({ tags: { $in: product.tags } }).limit(10);
+
+    return res.status(StatusCodes.OK).json(
+        customResponse({
+            data: products,
+            message: ReasonPhrases.OK,
+            status: StatusCodes.OK,
+            success: true,
+        }),
+    );
+};

@@ -32,3 +32,41 @@ export const updateProduct = asyncHandler(async (req, res) => {
         }),
     );
 });
+
+export const getAllProducts = asyncHandler(async (req, res) => {
+    const products = await productService.getAllProducts(req.query);
+    return res.status(StatusCodes.OK).json(
+        customResponse({
+            data: products,
+            success: true,
+            status: StatusCodes.OK,
+            message: ReasonPhrases.OK,
+        }),
+    );
+});
+export const getBestSellingProducts = asyncHandler(async (req, res) => {
+    const products = await productService.getBestSellingProducts();
+    return res.status(StatusCodes.OK).json(
+        customResponse({
+            data: products,
+            success: true,
+            status: StatusCodes.OK,
+            message: ReasonPhrases.OK,
+        }),
+    );
+});
+export const getDiscountProducts = asyncHandler(async (req, res) => {
+    const products = await productService.getDiscountProducts();
+    return res.status(StatusCodes.OK).json(
+        customResponse({
+            data: products,
+            success: true,
+            status: StatusCodes.OK,
+            message: ReasonPhrases.OK,
+        }),
+    );
+});
+
+export const getRelatedProducts = asyncHandler(async (req, res) => {
+    return await productService.getRelatedProducts(req, res);
+});

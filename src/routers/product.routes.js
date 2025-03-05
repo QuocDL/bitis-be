@@ -22,5 +22,8 @@ productRoutes.put(
     authorsize(ROLE.ADMIN),
     productControllers.updateProduct,
 );
-
+productRoutes.get('/all', productControllers.getAllProducts);
+productRoutes.get('/best-selling', productControllers.getBestSellingProducts);
+productRoutes.get('/discount', productControllers.getDiscountProducts);
+productRoutes.get('/related/:id', productControllers.getRelatedProducts);
 export default productRoutes;
