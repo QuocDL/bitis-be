@@ -151,3 +151,14 @@ export const getRelatedProducts = async (req, res, next) => {
         }),
     );
 };
+export const getProductById = async (productId) => {
+    const product = await Product.findOne({
+        _id: productId,
+        ...clientRequiredFields,
+    })
+        .populate('variants.color')
+        .populate('variants.size');
+    if (!product) throw new NotFoundError(`${ReasonPhrases.NOT_FOUND} product with id: ${productId}`);
+
+    return product;
+};
