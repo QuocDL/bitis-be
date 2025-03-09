@@ -16,3 +16,21 @@ export const createNewSize = async (req, res, next) => {
         }),
     );
 };
+// @Get get all size
+export const getAllSizes = async (req, res, next) => {
+    const { data, page, totalDocs, totalPages } = await handleQuery(req, Size);
+
+    return res.status(StatusCodes.OK).json(
+        customResponse({
+            data: {
+                sizes: data,
+                page,
+                totalDocs,
+                totalPages,
+            },
+            message: ReasonPhrases.OK,
+            status: StatusCodes.OK,
+            success: true,
+        }),
+    );
+};
