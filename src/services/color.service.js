@@ -5,3 +5,8 @@ import { colorServices } from '../services/index.js';
 export const createColor = asyncHandler(async (req, res, next) => {
     return colorServices.createNewColor(req, res, next);
 });
+
+// @Get get all colors
+export const getAllColors = asyncHandler(async (req, res, next) => {
+    return colorServices.getAllColors(req, res, next);
+});
