@@ -16,12 +16,6 @@ export const register = async (req, res, next) => {
     }
 
     const user = await User.create(req.body);
-    const payload = {
-        userId: user._id,
-        role: user.role,
-    };
-    const verifyToken = generateToken(payload, envConfig.JWT_VERIFY, '3m');
-    await saveToken(verifyToken, user, 'verify');
 
     return res.status(StatusCodes.CREATED).json(
         customResponse({
