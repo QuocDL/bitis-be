@@ -23,7 +23,6 @@ export const register = async (req, res, next) => {
         userId: user._id,
         role: user.role,
     };
-    console.log(payload);
     const verifyToken = generateToken(payload, envConfig.JWT_VERIFY, '3m');
     await saveToken(verifyToken, user, 'verify');
     const contentEmail = {
