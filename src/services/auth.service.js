@@ -6,6 +6,8 @@ import bcrypt from 'bcryptjs';
 import _ from 'lodash';
 import { envConfig } from '../config/env.js';
 import { generateToken, saveToken } from './token.service.js';
+import { sendMail } from '../utils/sendMail.js';
+import jwt from 'jsonwebtoken';
 
 // @POST register
 export const register = async (req, res, next) => {
@@ -16,6 +18,28 @@ export const register = async (req, res, next) => {
     }
 
     const user = await User.create(req.body);
+
+    const payload = {
+        userId: user._id,
+        role: user.role,
+    };
+    const verifyToken = generateToken(payload, envConfig.JWT_VERIFY, '1m');
+    await saveToken(verifyToken, user, 'verify');
+    const contentEmail = {
+        subject: '[BITISTORE] - Kích Hoạt Tài Khoản',
+        content: {
+            title: 'Kích Hoạt Tài Khoản Của Bạn',
+            warning: 'Nếu bạn không kích hoạt tài khoản, bạn sẽ không sử dụng được toàn bộ dịch vụ của chúng tôi',
+            description:
+                'Cảm ơn bạn vì đã lựa chọn Bitistore! Để hoàn tất việc đăng ký tài khoản, vui lòng nhấn vào đường dẫn dưới đây:',
+            email: req.body.email,
+        },
+        link: {
+            linkName: 'Kích Hoạt Tài Khoản',
+            linkHerf: `http://localhost:3000/verifyAccount?tk=${verifyToken}&email=${user.email}`,
+        },
+    };
+    sendMail({ email: req.body.email, template: contentEmail, type: 'Verify' });
 
     return res.status(StatusCodes.CREATED).json(
         customResponse({
@@ -89,7 +113,24 @@ export const sendMailForgotPassword = async (req, res, next) => {
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(newPassword, saltRounds);
     await User.findByIdAndUpdate(checkedEmail._id, { password: hashedPassword });
-
+    const contentEmail = {
+        subject: '[BITISTORE] - Phục hồi mật khẩu của bạn',
+        content: {
+            title: 'Phục Hồi Lại Mật Khẩu Của Bạn',
+            warning: 'Cảnh báo: Không chia sẻ mail này cho bất kỳ ai khác',
+            description: `Mật khẩu mới của bạn là: ${newPassword}`,
+            email: req.body.email,
+        },
+        link: {
+            linkName: 'Bấm vào đây để đăng nhập',
+            linkHerf: `http://localhost:3000/login`,
+        },
+    };
+    sendMail({
+        email: req.body.email,
+        template: contentEmail,
+        type: 'ResetPassword',
+    });
     return res.status(StatusCodes.OK).json(
         customResponse({
             data: null,
@@ -98,4 +139,69 @@ export const sendMailForgotPassword = async (req, res, next) => {
             status: StatusCodes.NO_CONTENT,
         }),
     );
+};
+
+// @Send Verify account
+export const sendMailverifyAccount = async (req, res, next) => {
+    const checkedEmail = await User.findOne({ email: req.body.email }).lean();
+    if (checkedEmail?.isActive) {
+        throw new BadRequestError('Người dùng này đã được kích hoạt!');
+    }
+    if (!checkedEmail) {
+        throw new BadRequestError('Không tìm thấy người dùng này!');
+    }
+    const payload = {
+        userId: checkedEmail._id,
+        checkedEmail,
+    };
+    const verifyToken = generateToken(payload, envConfig.JWT_VERIFY, '5m');
+    await saveToken(verifyToken, checkedEmail._id, 'verify');
+    const contentEmail = {
+        subject: '[BITISTORE] - Kích Hoạt Tài Khoản',
+        content: {
+            title: 'Kích Hoạt Tài Khoản Của Bạn',
+            warning: 'Nếu bạn không kích hoạt tài khoản, bạn sẽ không sử dụng được toàn bộ dịch vụ của chúng tôi',
+            description:
+                'Cảm ơn bạn vì đã lựa chọn Bitistore! Để hoàn tất việc đăng ký tài khoản, vui lòng nhấn vào đường dẫn dưới đây:',
+            email: req.body.email,
+        },
+        link: {
+            linkName: 'Kích Hoạt Tài Khoản',
+            linkHerf: `http://localhost:3000/verifyAccount/?tk=${verifyToken}&email=${checkedEmail.email}`,
+        },
+    };
+    sendMail({ email: req.body.email, template: contentEmail, type: 'Verify' });
+    return res.status(StatusCodes.OK).json(
+        customResponse({
+            data: null,
+            message: 'Vui Lòng Kiểm Tra Email',
+            success: true,
+            status: StatusCodes.NO_CONTENT,
+        }),
+    );
+};
+// @Verify account
+export const verifyEmail = async (req, res, next) => {
+    const token = req.body.token || req.body.token;
+    jwt.verify(token, envConfig.JWT_VERIFY, async (err, decoded) => {
+        if (err) {
+            if (err.name === 'TokenExpiredError') {
+                return next(new UnAuthenticatedError('Mã đã hết hạn'));
+            }
+            if (err.name === 'JsonWebTokenError') {
+                return next(new UnAuthenticatedError('Mã không hợp lệ'));
+            }
+            return next(new UnAuthenticatedError('Xác thực thất bại vui lòng thử lại!'));
+        }
+        const { userId } = decoded;
+        await User.findByIdAndUpdate(userId, { isActive: true });
+        return res.status(StatusCodes.ACCEPTED).json(
+            customResponse({
+                data: null,
+                status: StatusCodes.ACCEPTED,
+                success: true,
+                message: 'Tài khoản của bạn đã được kích hoạt thành công',
+            }),
+        );
+    });
 };
