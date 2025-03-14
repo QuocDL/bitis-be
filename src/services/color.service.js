@@ -52,6 +52,12 @@ export const getDetailedColor = async (req, res, next) => {
 
 // @Post update color
 export const updateColor = async (req, res, next) => {
+    const currentColor = await Color.findById(req.params.id);
+    if (!currentColor) throw new NotFoundError('Color not found');
+    const checkHexColorExist = await Color.findOne({ hex: req.body.hex, _id: { $ne: req.params.id } });
+    if (checkHexColorExist) throw new BadRequestError('Color already exists');
+    const checkNameColorExist = await Color.findOne({ name: req.body.name, _id: { $ne: req.params.id } });
+    if (checkNameColorExist) throw new BadRequestError('Color already');
     const newColor = await Color.findOneAndUpdate({ _id: req.params.id }, req.body, {
         new: true,
     });
