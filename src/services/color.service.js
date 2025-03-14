@@ -1,22 +1,67 @@
-import asyncHandler from '../helpers/asyncHandler.js';
-import { colorServices } from '../services/index.js';
+import Color from '../models/color.js';
+import { ReasonPhrases, StatusCodes } from 'http-status-codes';
+import customResponse from '../helpers/response.js';
+import handleQuery from '../utils/handleQuery.js';
 
 // @Post create new color
-export const createColor = asyncHandler(async (req, res, next) => {
-    return colorServices.createNewColor(req, res, next);
-});
+export const createNewColor = async (req, res, next) => {
+    const color = await Color.create(req.body);
 
-// @Get get all colors
-export const getAllColors = asyncHandler(async (req, res, next) => {
-    return colorServices.getAllColors(req, res, next);
-});
+    return res.status(StatusCodes.CREATED).json(
+        customResponse({
+            data: color,
+            message: ReasonPhrases.CREATED,
+            status: StatusCodes.OK,
+            success: true,
+        }),
+    );
+};
+
+// @Get get all color
+export const getAllColors = async (req, res, next) => {
+    const { data, page, todalDocs, totalPages } = await handleQuery(req, Color);
+
+    return res.status(StatusCodes.OK).json(
+        customResponse({
+            data: {
+                colors: data,
+                page,
+                todalDocs,
+                totalPages,
+            },
+            message: ReasonPhrases.OK,
+            status: StatusCodes.OK,
+            success: true,
+        }),
+    );
+};
 
 // @Get get detailed color
-export const getDetailedColor = asyncHandler(async (req, res, next) => {
-    return colorServices.getDetailedColor(req, res, next);
-});
+export const getDetailedColor = async (req, res, next) => {
+    const color = await Color.findById(req.params.id).lean();
 
-// @Patch update color
-export const updateColor = asyncHandler(async (req, res, next) => {
-    return colorServices.updateColor(req, res, next);
-});
+    return res.status(StatusCodes.OK).json(
+        customResponse({
+            data: color,
+            message: ReasonPhrases.OK,
+            status: StatusCodes.OK,
+            success: true,
+        }),
+    );
+};
+
+// @Post update color
+export const updateColor = async (req, res, next) => {
+    const newColor = await Color.findOneAndUpdate({ _id: req.params.id }, req.body, {
+        new: true,
+    });
+
+    return res.status(StatusCodes.OK).json(
+        customResponse({
+            data: newColor,
+            message: ReasonPhrases.OK,
+            status: StatusCodes.OK,
+            success: true,
+        }),
+    );
+};
