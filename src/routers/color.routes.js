@@ -12,4 +12,7 @@ const router = Router();
 router.get('/all', colorControllers.getAllColors);
 router.get('/:id', colorControllers.getDetailedColor);
 
+// @Patch
+router.patch('/:id', authenticate, authorsize(ROLE.ADMIN), [updateColorValidation], colorControllers.updateColor);
+
 export default router;
