@@ -17,7 +17,7 @@ export const getMyCart = async (req, res, next) => {
             populate: [{ path: 'variants.color' }, { path: 'variants.size' }, { path: 'category' }],
         })
         .lean();
-    if (!cartUser) throw new NotFoundError('Not found cart or cart is not exist.');
+    if (!cartUser) throw new BadRequestError('Cart is empty');
     const checkStock = cartUser.items
         .filter((itemEl) => itemEl.product !== null)
         .map((item) => {
