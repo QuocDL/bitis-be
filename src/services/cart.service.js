@@ -80,6 +80,48 @@ export const addToCart = async (req, res, next) => {
     userId = new mongoose.Types.ObjectId(userId);
     variantId = new mongoose.Types.ObjectId(variantId);
 
+    let updatedCart = null;
+
+    const [product, currentCart] = await Promise.all([
+        Product.findOne({ _id: productId }).lean(),
+        Cart.findOne({ userId }).lean(),
+    ]);
+
+    if (!product) throw new BadRequestError(`Not found product`);
+    if (quantity < 1) throw new BadRequestError(`Quantity must be at least 1`);
+
+    const item = product.variants.find((item) => item._id.equals(variantId));
+    if (!item) throw new BadRequestError(`Not found variant`);
+
+    if (quantity > item.stock) quantity = item.stock;
+
+    if (!currentCart) {
+        const newCart = new Cart({
+            userId,
+            items: [{ product: productId, variant: variantId, quantity }],
+        });
+        await newCart.save();
+        return newCart;
+    }
+
+    if (currentCart && currentCart.items.length > 0) {
+        const productInThisCart = currentCart.items.find((item) => item.variant.equals(variantId));
+        const currentQuantity = productInThisCart?.quantity || 0;
+        const newQuantity = currentQuantity + quantity;
+        if (newQuantity > item.stock) {
+            throw new BadRequestError('Sản phẩm vượt quá số lượng trong kho');
+        }
+        updatedCart = await Cart.findOneAndUpdate(
+            { userId, 'items.product': productId, 'items.variant': variantId },
+            {
+                $set: {
+                    'items.$.quantity': newQuantity > item.stock ? item.stock : newQuantity,
+                },
+            },
+            { new: true, upsert: false },
+        );
+    }
+
     if (!updatedCart) {
         updatedCart = await Cart.findOneAndUpdate(
             { userId },
