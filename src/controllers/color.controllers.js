@@ -15,3 +15,7 @@ export const getDetailedColor = asyncHandler(async (req, res, next) => {
 export const updateColor = asyncHandler(async (req, res, next) => {
     return colorServices.updateColor(req, res, next);
 });
+// @Post create new color
+export const createColor = asyncHandler(async (req, res, next) => {
+    return colorServices.createNewColor(req, res, next);
+});
