@@ -9,5 +9,6 @@ const router = Router();
 router.use('/auth', authRouter);
 router.use('/products', productRouter);
 router.use('/sizes', sizeRouter);
+router.use('/colors', colorRouter);
 
 export default router;
