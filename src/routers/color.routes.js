@@ -10,5 +10,6 @@ const router = Router();
 
 // @Get
 router.get('/all', colorControllers.getAllColors);
+router.get('/:id', colorControllers.getDetailedColor);
 
 export default router;
