@@ -70,3 +70,25 @@ export const getMyCart = async (req, res, next) => {
 
     return myCart;
 };
+
+// @Add to cart
+export const addToCart = async (req, res, next) => {
+    let { productId, quantity, variantId } = req.body;
+    let userId = req.userId;
+    // Convert ids to ObjectId format if they are strings
+    productId = new mongoose.Types.ObjectId(productId);
+    userId = new mongoose.Types.ObjectId(userId);
+    variantId = new mongoose.Types.ObjectId(variantId);
+
+    if (!updatedCart) {
+        updatedCart = await Cart.findOneAndUpdate(
+            { userId },
+            {
+                $push: { items: { product: productId, variant: variantId, quantity } },
+            },
+            { new: true, upsert: true },
+        );
+    }
+
+    return updatedCart;
+};
