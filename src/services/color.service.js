@@ -6,6 +6,11 @@ import handleQuery from '../utils/handleQuery.js';
 // @Post create new color
 export const createNewColor = async (req, res, next) => {
     const color = await Color.create(req.body);
+    const checkHexColorExist = await Color.findOne({ hex: req.body.hex });
+
+    if (checkHexColorExist) throw new BadRequestError('Color already exists');
+    const checkNameColorExist = await Color.findOne({ name: req.body.name });
+    if (checkNameColorExist) throw new BadRequestError('Color already');
 
     return res.status(StatusCodes.CREATED).json(
         customResponse({
