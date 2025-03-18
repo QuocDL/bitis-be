@@ -1,26 +1,26 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose, { Schema } from 'mongoose';
 
 const TokenSchema = new mongoose.Schema(
-  {
-    token: {
-      type: String,
-      required: true,
-      index: true,
+    {
+        token: {
+            type: String,
+            required: true,
+            index: true,
+        },
+        user: {
+            type: Schema.Types.ObjectId,
+            ref: 'User',
+            required: true,
+        },
+        type: {
+            type: String,
+            enum: ['access', 'refresh', 'verify'],
+            required: true,
+        },
     },
-    user: {
-      type: Schema.Types.ObjectId,
-      ref: "User",
-      required: true,
+    {
+        timestamps: true,
     },
-    type: {
-      type: String,
-      enum: ["access", "refresh", "verify"],
-      required: true,
-    },
-  },
-  {
-    timestamps: true,
-  }
 );
 
-export default mongoose.model("Token", TokenSchema);
+export default mongoose.model('Token', TokenSchema);

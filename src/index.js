@@ -17,28 +17,25 @@ connectDB('mongodb://localhost:27017/bittis');
 
 // cors
 app.use(
-  cors({
-    origin: (origin, callback) => {
-      if (
-        ["http://localhost:5173", "http://localhost:3000"].indexOf(origin) !==
-          -1 ||
-        !origin ||
-        envConfig.NODE_ENV === "development"
-      ) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    credentials: true,
-    optionsSuccessStatus: 200,
-  })
+    cors({
+        origin: (origin, callback) => {
+            if (
+                ['http://localhost:5173', 'http://localhost:3000'].indexOf(origin) !== -1 ||
+                !origin ||
+                envConfig.NODE_ENV === 'development'
+            ) {
+                callback(null, true);
+            } else {
+                callback(new Error('Not allowed by CORS'));
+            }
+        },
+        credentials: true,
+        optionsSuccessStatus: 200,
+    }),
 );
 
 // routers
 app.use('/api', router);
-
-
 
 // health check
 app.get('/ping', (req, res) => {

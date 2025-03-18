@@ -1,17 +1,17 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose, { Schema } from 'mongoose';
 
 const colorSchema = new Schema(
-  {
-    hex: {
-      type: String,
-      required: true,
+    {
+        hex: {
+            type: String,
+            required: true,
+        },
+        name: {
+            type: String,
+            required: true,
+        },
     },
-    name: {
-      type: String,
-      required: true,
-    },
-  },
-  { timestamps: true, versionKey: false }
+    { timestamps: true, versionKey: false },
 );
 
-export default mongoose.model("Color", colorSchema);
+export default mongoose.model('Color', colorSchema);
