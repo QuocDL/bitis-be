@@ -32,3 +32,27 @@ export const getAllUsers = async (req, res) => {
         }),
     );
 };
+
+// @Patch change password
+export const changePassword = async (req, res, next) => {
+    const { password, newPassword } = req.body;
+    const user = await User.findOne({ _id: req.userId });
+
+    const isMatch = await bcrypt.compare(password, user.password);
+
+    if (!isMatch) {
+        throw new BadRequestError('Mật khẩu cũ không chính xác');
+    }
+
+    user.password = newPassword;
+    await user.save();
+
+    return res.status(StatusCodes.OK).json(
+        customResponse({
+            data: null,
+            message: ReasonPhrases.OK,
+            status: StatusCodes.OK,
+            success: true,
+        }),
+    );
+};
