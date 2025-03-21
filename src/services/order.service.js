@@ -197,3 +197,73 @@ export const cancelOrder = async (req, res, next) => {
         }),
     );
 };
+
+// @Set order status to confirmed
+export const confirmOrder = async (req, res, next) => {
+    if (!req.role || req.role !== ROLE.ADMIN) {
+        throw new NotAcceptableError('Only admin can access.');
+    }
+
+    const foundedOrder = await Order.findOne({ _id: req.body.orderId });
+
+    if (!foundedOrder) {
+        throw new BadRequestError(`Not found order with id ${req.body.orderId}`);
+    }
+    const productIds = foundedOrder.items.map((item) => item.productId);
+
+    if (foundedOrder.orderStatus === ORDER_STATUS.PENDING) {
+        foundedOrder.orderStatus = ORDER_STATUS.CONFIRMED;
+        foundedOrder.save();
+        const template = {
+            content: {
+                title: `Đơn hàng của bạn đã được xác nhận`,
+                description: `Chúng tôi xin thông báo rằng đơn hàng của bạn với mã đơn hàng ${req.body.orderId} đã được xác nhận thành công. Đội ngũ của chúng tôi sẽ bắt đầu xử lý đơn hàng trong thời gian sớm nhất.`,
+                email:
+                    foundedOrder.paymentMethod === PAYMENT_METHOD.CARD
+                        ? foundedOrder.customerInfo.email
+                        : foundedOrder.receiverInfo.email,
+            },
+            product: {
+                items: foundedOrder.items,
+                shippingfee: foundedOrder.shippingFee,
+                totalPrice: foundedOrder.totalPrice,
+            },
+            subject: '[AdShop] - Đơn hàng của bạn đã được xác nhận',
+            link: {
+                linkHerf: `http://localhost:3000/my-orders/${req.body.orderId}`,
+                linkName: `Kiểm tra đơn hàng`,
+            },
+            user: {
+                name:
+                    foundedOrder.paymentMethod === PAYMENT_METHOD.CARD
+                        ? foundedOrder.customerInfo.name
+                        : foundedOrder.receiverInfo.name,
+                phone:
+                    foundedOrder.paymentMethod === PAYMENT_METHOD.CARD
+                        ? foundedOrder.customerInfo.phone
+                        : foundedOrder.receiverInfo.phone,
+                email:
+                    foundedOrder.paymentMethod === PAYMENT_METHOD.CARD
+                        ? foundedOrder.customerInfo.email
+                        : foundedOrder.receiverInfo.email,
+                address: `[${foundedOrder.shippingAddress.address}] -${foundedOrder.paymentMethod === PAYMENT_METHOD.CARD ? '' : ` ${foundedOrder.shippingAddress.ward}, ${foundedOrder.shippingAddress.district},`} ${foundedOrder.shippingAddress.province}, ${foundedOrder.shippingAddress.country}`,
+            },
+        };
+        await sendMail({
+            email: foundedOrder.customerInfo.email,
+            template,
+            type: 'UpdateStatusOrder',
+        });
+    } else {
+        throw new BadRequestError(`Your order is confirmed.`);
+    }
+
+    return res.status(StatusCodes.OK).json(
+        customResponse({
+            data: null,
+            success: true,
+            status: StatusCodes.OK,
+            message: 'Your order is confirmed.',
+        }),
+    );
+};
