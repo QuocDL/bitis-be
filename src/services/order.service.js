@@ -267,3 +267,75 @@ export const confirmOrder = async (req, res, next) => {
         }),
     );
 };
+
+// @Set order status to shipping
+export const shippingOrder = async (req, res, next) => {
+    if (!req.role || req.role !== ROLE.ADMIN) {
+        throw new NotAcceptableError('Only admin can access.');
+    }
+
+    const foundedOrder = await Order.findOne({
+        _id: req.body.orderId,
+    });
+
+    if (!foundedOrder) {
+        throw new BadRequestError(`Not found order with id ${req.body.orderId}`);
+    }
+
+    if (foundedOrder.orderStatus === ORDER_STATUS.CONFIRMED) {
+        foundedOrder.orderStatus = ORDER_STATUS.SHIPPING;
+        await foundedOrder.save();
+
+        const template = {
+            content: {
+                title: `Đơn hàng của bạn đang được giao`,
+                description: `Đơn hàng của đang được giao tới bạn vui lòng để ý điện thoại. Dưới đây là thông tin đơn hàng của bạn:`,
+                email:
+                    foundedOrder.paymentMethod === PAYMENT_METHOD.CARD
+                        ? foundedOrder.customerInfo.email
+                        : foundedOrder.receiverInfo.email,
+            },
+            product: {
+                items: foundedOrder.items,
+                shippingfee: foundedOrder.shippingFee,
+                totalPrice: foundedOrder.totalPrice,
+            },
+            subject: '[AdShop] - Đơn hàng của bạn đang được giao',
+            link: {
+                linkHerf: `http://localhost:3000/my-orders/${req.body.orderId}`,
+                linkName: `Kiểm tra đơn hàng`,
+            },
+            user: {
+                name:
+                    foundedOrder.paymentMethod === PAYMENT_METHOD.CARD
+                        ? foundedOrder.customerInfo.name
+                        : foundedOrder.receiverInfo.name,
+                phone:
+                    foundedOrder.paymentMethod === PAYMENT_METHOD.CARD
+                        ? foundedOrder.customerInfo.phone
+                        : foundedOrder.receiverInfo.phone,
+                email:
+                    foundedOrder.paymentMethod === PAYMENT_METHOD.CARD
+                        ? foundedOrder.customerInfo.email
+                        : foundedOrder.receiverInfo.email,
+                address: `[${foundedOrder.shippingAddress.address}] -${foundedOrder.paymentMethod === PAYMENT_METHOD.CARD ? '' : ` ${foundedOrder.shippingAddress.ward}, ${foundedOrder.shippingAddress.district},`} ${foundedOrder.shippingAddress.province}, ${foundedOrder.shippingAddress.country}`,
+            },
+        };
+        await sendMail({
+            email: foundedOrder.customerInfo.email,
+            template,
+            type: 'UpdateStatusOrder',
+        });
+    } else {
+        throw new BadRequestError(`Your order is not confirmed.`);
+    }
+
+    return res.status(StatusCodes.OK).json(
+        customResponse({
+            data: null,
+            success: true,
+            status: StatusCodes.OK,
+            message: 'Your order is on delivery.',
+        }),
+    );
+};
