@@ -36,3 +36,46 @@ export const getAllOrders = async (req, res, next) => {
         }),
     );
 };
+
+//@GET: Get all orders by user
+export const getAllOrdersByUser = async (req, res, next) => {
+    const userId = new mongoose.Types.ObjectId(req.userId);
+    const page = req.query.page ? +req.query.page : 1;
+    req.query.limit = Number(req.query.limit || 10);
+    req.query.userId;
+
+    const features = new APIQuery(Order.find({ userId }), req.query);
+    features.filter().sort().limitFields().search().paginate();
+
+    const [orders, totalDocs] = await Promise.all([features.query, features.count()]);
+    return res.status(StatusCodes.OK).json(
+        customResponse({
+            data: {
+                orders,
+                page,
+                totalDocs,
+            },
+            success: true,
+            status: StatusCodes.OK,
+            message: ReasonPhrases.OK,
+        }),
+    );
+};
+
+//@GET: Get the detailed order
+export const getDetailedOrder = async (req, res, next) => {
+    const order = await Order.findById(req.params.id).lean();
+
+    if (!order) {
+        throw new NotFoundError(`${ReasonPhrases.NOT_FOUND} order with id: ${req.params.id}`);
+    }
+
+    return res.status(StatusCodes.OK).json(
+        customResponse({
+            data: order,
+            success: true,
+            status: StatusCodes.OK,
+            message: ReasonPhrases.OK,
+        }),
+    );
+};
