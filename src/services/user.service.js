@@ -111,3 +111,33 @@ export const updateProfile = async (req, res, next) => {
         }),
     );
 };
+
+// @Patch: Add wishlist
+export const addWishList = async (req, res) => {
+    const userId = req.userId;
+    const productId = req.body.productId;
+    const user = await User.findByIdAndUpdate(userId, { $addToSet: { wishList: productId } }, { new: true }).lean();
+
+    return res.status(StatusCodes.OK).json(
+        customResponse({
+            data: user,
+            success: true,
+            status: StatusCodes.OK,
+            message: ReasonPhrases.OK,
+        }),
+    );
+};
+// @Patch: delete wishlist
+export const deleteWishList = async (req, res) => {
+    const userId = req.userId;
+    const productId = req.body.productId;
+    const user = await User.findByIdAndUpdate(userId, { $pull: { wishList: productId } }, { new: true }).lean();
+    return res.status(StatusCodes.OK).json(
+        customResponse({
+            data: user,
+            success: true,
+            status: StatusCodes.OK,
+            message: ReasonPhrases.OK,
+        }),
+    );
+};
