@@ -56,3 +56,18 @@ export const changePassword = async (req, res, next) => {
         }),
     );
 };
+// @Patch forgot password
+export const forgotPassword = async (req, res, next) => {
+    const user = await User.findById(req.userId);
+    user.password = req.body.password;
+    await user.save();
+
+    return res.status(StatusCodes.OK).json(
+        customResponse({
+            data: null,
+            message: ReasonPhrases.OK,
+            status: StatusCodes.OK,
+            success: true,
+        }),
+    );
+};
