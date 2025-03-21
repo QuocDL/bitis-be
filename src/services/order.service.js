@@ -79,3 +79,40 @@ export const getDetailedOrder = async (req, res, next) => {
         }),
     );
 };
+
+// @POST: Create new order
+export const createOrder = async (req, res, next) => {
+    const order = new Order({
+        ...req.body,
+        userId: req.userId,
+    });
+
+    // Pause for 3 seconds
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    const session = req.session;
+    //   Update stock
+    await inventoryService.updateStockOnCreateOrder(req.body.items, session);
+
+    await Promise.all(
+        req.body.items.map(async (product) => {
+            await Cart.findOneAndUpdate(
+                { userId: req.userId },
+                {
+                    $pull: {
+                        items: { product: product.productId, variant: product.variantId },
+                    },
+                },
+                { new: true },
+            ).session(session);
+        }),
+    );
+    await order.save({ session });
+    return res.status(StatusCodes.OK).json(
+        customResponse({
+            data: order,
+            success: true,
+            status: StatusCodes.OK,
+            message: ReasonPhrases.OK,
+        }),
+    );
+};
