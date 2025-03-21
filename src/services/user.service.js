@@ -141,3 +141,45 @@ export const deleteWishList = async (req, res) => {
         }),
     );
 };
+// @Get: get wishlist by user
+export const getWishListByUser = async (req, res) => {
+    const userId = req.userId;
+
+    const wishlist = await User.findById(userId)
+        .select('wishList')
+        .populate({
+            path: 'wishList',
+            match: clientRequiredFields,
+            populate: [
+                {
+                    path: 'variants',
+                    select: 'color size stock image imageUrlRef',
+                    populate: [
+                        {
+                            path: 'color',
+                            select: 'name hex',
+                        },
+                        {
+                            path: 'size',
+                            select: 'name',
+                        },
+                    ],
+                },
+            ],
+            select: 'name price discount variants description rating reviewCount',
+        })
+        .lean();
+
+    if (!wishlist) {
+        throw new NotFoundError('Không tìm thấy wishlist');
+    }
+
+    return res.status(StatusCodes.OK).json(
+        customResponse({
+            data: wishlist,
+            success: true,
+            status: StatusCodes.OK,
+            message: ReasonPhrases.OK,
+        }),
+    );
+};
