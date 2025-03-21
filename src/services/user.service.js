@@ -85,3 +85,29 @@ export const getProfile = async (req, res, next) => {
         }),
     );
 };
+
+// @Patch update user profile
+export const updateProfile = async (req, res, next) => {
+    const user = await User.findById(req.userId);
+
+    if (req.files['avatar']) {
+        const { downloadURL, imageUrlRef } = await uploadSingleFile(...req.files['avatar']);
+        user.avatar = downloadURL;
+        user.imageUrlRef = imageUrlRef;
+
+        if (user.imageUrlRef) {
+            removeUploadedFile(user.imageUrlRef);
+        }
+    }
+    user.set(req.body);
+    await user.save();
+
+    return res.status(StatusCodes.OK).json(
+        customResponse({
+            data: null,
+            message: ReasonPhrases.OK,
+            status: StatusCodes.OK,
+            success: true,
+        }),
+    );
+};
