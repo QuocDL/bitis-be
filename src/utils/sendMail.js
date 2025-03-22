@@ -14,7 +14,7 @@ const transporter = nodemailer.createTransport({
 
 export const sendMail = async ({ email, template, type }) => {
     const info = await transporter.sendMail({
-        from: 'Bitistore <no-reply@Bitistore.com>',
+        from: 'AdStore <no-reply@AdShop.com>',
         to: email,
         subject: `${template?.subject}`,
         html: templateMail(type, template),
