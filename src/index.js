@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(morgan('tiny'));
 app.use(express.urlencoded({ extended: true }));
 // connect db
-connectDB('mongodb://localhost:27017/bittis');
+connectDB('mongodb://localhost:27017/bitis');
 
 // cors
 app.use(
