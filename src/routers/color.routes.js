@@ -12,9 +12,10 @@ const router = Router();
 router.get('/all', colorControllers.getAllColors);
 router.get('/:id', colorControllers.getDetailedColor);
 
+// @Post
+router.post('/', authenticate, authorsize(ROLE.ADMIN), [createColorValidation], colorControllers.createColor);
+
 // @Patch
 router.patch('/:id', authenticate, authorsize(ROLE.ADMIN), [updateColorValidation], colorControllers.updateColor);
 
-// @Post
-router.post('/', authenticate, authorsize(ROLE.ADMIN), [createColorValidation], colorControllers.createColor);
 export default router;

@@ -16,6 +16,7 @@ export const createNewSize = async (req, res, next) => {
         }),
     );
 };
+
 // @Get get all size
 export const getAllSizes = async (req, res, next) => {
     const { data, page, totalDocs, totalPages } = await handleQuery(req, Size);
