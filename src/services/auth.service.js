@@ -18,20 +18,19 @@ export const register = async (req, res, next) => {
     }
 
     const user = await User.create(req.body);
-
     const payload = {
         userId: user._id,
         role: user.role,
     };
-    const verifyToken = generateToken(payload, envConfig.JWT_VERIFY, '1m');
+    const verifyToken = generateToken(payload, envConfig.JWT_VERIFY, '3m');
     await saveToken(verifyToken, user, 'verify');
     const contentEmail = {
-        subject: '[BITISTORE] - Kích Hoạt Tài Khoản',
+        subject: '[ADSTORE] - Kích Hoạt Tài Khoản',
         content: {
             title: 'Kích Hoạt Tài Khoản Của Bạn',
             warning: 'Nếu bạn không kích hoạt tài khoản, bạn sẽ không sử dụng được toàn bộ dịch vụ của chúng tôi',
             description:
-                'Cảm ơn bạn vì đã lựa chọn Bitistore! Để hoàn tất việc đăng ký tài khoản, vui lòng nhấn vào đường dẫn dưới đây:',
+                'Cảm ơn bạn vì đã lựa chọn ADStore! Để hoàn tất việc đăng ký tài khoản, vui lòng nhấn vào đường dẫn dưới đây:',
             email: req.body.email,
         },
         link: {
@@ -40,7 +39,6 @@ export const register = async (req, res, next) => {
         },
     };
     sendMail({ email: req.body.email, template: contentEmail, type: 'Verify' });
-
     return res.status(StatusCodes.CREATED).json(
         customResponse({
             data: user,
@@ -84,6 +82,8 @@ export const login = async (req, res, next) => {
     );
 };
 
+// @GET logout
+export const logout = async (req, res, next) => {};
 // @ResetPassword
 export const sendMailForgotPassword = async (req, res, next) => {
     const checkedEmail = await User.findOne({ email: req.body.email }).lean();
@@ -114,7 +114,7 @@ export const sendMailForgotPassword = async (req, res, next) => {
     const hashedPassword = await bcrypt.hash(newPassword, saltRounds);
     await User.findByIdAndUpdate(checkedEmail._id, { password: hashedPassword });
     const contentEmail = {
-        subject: '[BITISTORE] - Phục hồi mật khẩu của bạn',
+        subject: '[ADSTORE] - Phục hồi mật khẩu của bạn',
         content: {
             title: 'Phục Hồi Lại Mật Khẩu Của Bạn',
             warning: 'Cảnh báo: Không chia sẻ mail này cho bất kỳ ai khác',
@@ -140,7 +140,6 @@ export const sendMailForgotPassword = async (req, res, next) => {
         }),
     );
 };
-
 // @Send Verify account
 export const sendMailverifyAccount = async (req, res, next) => {
     const checkedEmail = await User.findOne({ email: req.body.email }).lean();
@@ -150,19 +149,15 @@ export const sendMailverifyAccount = async (req, res, next) => {
     if (!checkedEmail) {
         throw new BadRequestError('Không tìm thấy người dùng này!');
     }
-    const payload = {
-        userId: checkedEmail._id,
-        checkedEmail,
-    };
-    const verifyToken = generateToken(payload, envConfig.JWT_VERIFY, '5m');
-    await saveToken(verifyToken, checkedEmail._id, 'verify');
+    const verifyToken = generateToken(checkedEmail, envConfig.JWT_VERIFY, '5m');
+    await saveToken(verifyToken, checkedEmail._id.toString(), 'verify');
     const contentEmail = {
-        subject: '[BITISTORE] - Kích Hoạt Tài Khoản',
+        subject: '[ADSTORE] - Kích Hoạt Tài Khoản',
         content: {
             title: 'Kích Hoạt Tài Khoản Của Bạn',
             warning: 'Nếu bạn không kích hoạt tài khoản, bạn sẽ không sử dụng được toàn bộ dịch vụ của chúng tôi',
             description:
-                'Cảm ơn bạn vì đã lựa chọn Bitistore! Để hoàn tất việc đăng ký tài khoản, vui lòng nhấn vào đường dẫn dưới đây:',
+                'Cảm ơn bạn vì đã lựa chọn ADStore! Để hoàn tất việc đăng ký tài khoản, vui lòng nhấn vào đường dẫn dưới đây:',
             email: req.body.email,
         },
         link: {

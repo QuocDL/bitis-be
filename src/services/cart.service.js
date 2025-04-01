@@ -17,7 +17,7 @@ export const getMyCart = async (req, res, next) => {
             populate: [{ path: 'variants.color' }, { path: 'variants.size' }, { path: 'category' }],
         })
         .lean();
-    if (!cartUser) throw new BadRequestError('Cart is empty');
+    if (!cartUser) throw new NotFoundError('Not found cart or cart is not exist.');
     const checkStock = cartUser.items
         .filter((itemEl) => itemEl.product !== null)
         .map((item) => {
@@ -137,66 +137,55 @@ export const addToCart = async (req, res, next) => {
 
 // @Remove one cart item
 export const removeCartItem = async (req, res, next) => {
-  const userId = req.userId;
-  const updatedCart = await Cart.findOneAndUpdate(
-    { userId: new mongoose.Types.ObjectId(userId) },
-    { $pull: { items: { variant: req.params.variantId } } },
-    { new: true },
-  );
-  if (!updatedCart)
-    throw new BadRequestError(`Not found cart with userId: ${req.body.userId}`);
-  return null;
+    const userId = req.userId;
+    const updatedCart = await Cart.findOneAndUpdate(
+        { userId: new mongoose.Types.ObjectId(userId) },
+        { $pull: { items: { variant: req.params.variantId } } },
+        { new: true },
+    );
+    if (!updatedCart) throw new BadRequestError(`Not found cart with userId: ${req.body.userId}`);
+    return null;
 };
 
 // @Remove all cart items
 export const removeAllCartItems = async (req, res, next) => {
-  const userId = req.userId;
-  const cart = await Cart.findOneAndUpdate(
-    { userId },
-    { items: [] },
-    { new: true },
-  ).lean();
+    const userId = req.userId;
+    const cart = await Cart.findOneAndUpdate({ userId }, { items: [] }, { new: true }).lean();
 
-  if (!cart)
-    throw new BadRequestError(`Not found cart with userId: ${req.body.userId}`);
+    if (!cart) throw new BadRequestError(`Not found cart with userId: ${req.body.userId}`);
 
-  return null;
+    return null;
 };
 
 // @Update  cart item quantity
 export const updateCartItemQuantity = async (req, res, next) => {
-  const userId = req.userId;
-  const product = await Product.findOne({
-    _id: new mongoose.Types.ObjectId(req.body.productId),
-    "variants._id": new mongoose.Types.ObjectId(req.body.variantId),
-  });
-  if (!product) throw new BadRequestError(`Not found product`);
+    const userId = req.userId;
+    const product = await Product.findOne({
+        _id: new mongoose.Types.ObjectId(req.body.productId),
+        'variants._id': new mongoose.Types.ObjectId(req.body.variantId),
+    });
+    if (!product) throw new BadRequestError(`Not found product`);
 
-  if (req.body.quantity <= 0) {
-    req.body.quantity = 1;
-  }
-  if (
-    req.body.quantity >
-    product.variants.find((el) => el._id.equals(req.body.variantId)).stock
-  ) {
-    req.body.quantity = product.variants.find((el) =>
-      el._id.equals(req.body.variantId),
-    ).stock;
-  }
+    if (req.body.quantity <= 0) {
+        req.body.quantity = 1;
+    }
+    if (req.body.quantity > product.variants.find((el) => el._id.equals(req.body.variantId)).stock) {
+        req.body.quantity = product.variants.find((el) => el._id.equals(req.body.variantId)).stock;
+    }
 
-  const updatedQuantity = await Cart.findOneAndUpdate(
-    {
-      userId: new mongoose.Types.ObjectId(userId),
-      "items.product": new mongoose.Types.ObjectId(req.body.productId),
-      "items.variant": new mongoose.Types.ObjectId(req.body.variantId),
-    },
-    { $set: { "items.$.quantity": req.body.quantity } },
-    { new: true },
-  );
-  if (!updatedQuantity)
-    throw new BadRequestError(
-      `Not found product with Id: ${req.body.productId} inside this cart or cart not found`,
+    const updatedQuantity = await Cart.findOneAndUpdate(
+        {
+            userId: new mongoose.Types.ObjectId(userId),
+            'items.product': new mongoose.Types.ObjectId(req.body.productId),
+            'items.variant': new mongoose.Types.ObjectId(req.body.variantId),
+        },
+        { $set: { 'items.$.quantity': req.body.quantity } },
+        { new: true },
     );
+    if (!updatedQuantity)
+        throw new BadRequestError(
+            `Not found product with Id: ${req.body.productId} inside this cart or cart not found`,
+        );
 
-  return null;
+    return null;
 };
