@@ -25,12 +25,12 @@ export const register = async (req, res, next) => {
     const verifyToken = generateToken(payload, envConfig.JWT_VERIFY, '3m');
     await saveToken(verifyToken, user, 'verify');
     const contentEmail = {
-        subject: '[bittis] - Kích Hoạt Tài Khoản',
+        subject: '[ADSTORE] - Kích Hoạt Tài Khoản',
         content: {
             title: 'Kích Hoạt Tài Khoản Của Bạn',
             warning: 'Nếu bạn không kích hoạt tài khoản, bạn sẽ không sử dụng được toàn bộ dịch vụ của chúng tôi',
             description:
-                'Cảm ơn bạn vì đã lựa chọn bittis! Để hoàn tất việc đăng ký tài khoản, vui lòng nhấn vào đường dẫn dưới đây:',
+                'Cảm ơn bạn vì đã lựa chọn ADStore! Để hoàn tất việc đăng ký tài khoản, vui lòng nhấn vào đường dẫn dưới đây:',
             email: req.body.email,
         },
         link: {
@@ -114,7 +114,7 @@ export const sendMailForgotPassword = async (req, res, next) => {
     const hashedPassword = await bcrypt.hash(newPassword, saltRounds);
     await User.findByIdAndUpdate(checkedEmail._id, { password: hashedPassword });
     const contentEmail = {
-        subject: '[bittis] - Phục hồi mật khẩu của bạn',
+        subject: '[ADSTORE] - Phục hồi mật khẩu của bạn',
         content: {
             title: 'Phục Hồi Lại Mật Khẩu Của Bạn',
             warning: 'Cảnh báo: Không chia sẻ mail này cho bất kỳ ai khác',
@@ -152,12 +152,12 @@ export const sendMailverifyAccount = async (req, res, next) => {
     const verifyToken = generateToken(checkedEmail, envConfig.JWT_VERIFY, '5m');
     await saveToken(verifyToken, checkedEmail._id.toString(), 'verify');
     const contentEmail = {
-        subject: '[bittis] - Kích Hoạt Tài Khoản',
+        subject: '[ADSTORE] - Kích Hoạt Tài Khoản',
         content: {
             title: 'Kích Hoạt Tài Khoản Của Bạn',
             warning: 'Nếu bạn không kích hoạt tài khoản, bạn sẽ không sử dụng được toàn bộ dịch vụ của chúng tôi',
             description:
-                'Cảm ơn bạn vì đã lựa chọn bittis! Để hoàn tất việc đăng ký tài khoản, vui lòng nhấn vào đường dẫn dưới đây:',
+                'Cảm ơn bạn vì đã lựa chọn ADStore! Để hoàn tất việc đăng ký tài khoản, vui lòng nhấn vào đường dẫn dưới đây:',
             email: req.body.email,
         },
         link: {

@@ -1,8 +1,7 @@
 import moment from 'moment-timezone';
-import Order from '../models/order.js'
-import User from '../models/user.js'
-import Product from '../models/product.js'
-
+import Order from '../models/order.js';
+import User from '../models/user.js';
+import Product from '../models/product.js';
 
 export const totalStats = async (req, res, next) => {
     const { dateFilter, startDate, endDate, month, year } = req.query;
@@ -11,14 +10,8 @@ export const totalStats = async (req, res, next) => {
     let start, end;
 
     if (dateFilter === 'range' && startDate && endDate) {
-        start = moment
-            .tz(startDate, 'DD-MM-YYYY', vietnamTZ)
-            .startOf('day')
-            .toDate();
-        end = moment
-            .tz(endDate, 'DD-MM-YYYY', vietnamTZ)
-            .endOf('day')
-            .toDate();
+        start = moment.tz(startDate, 'DD-MM-YYYY', vietnamTZ).startOf('day').toDate();
+        end = moment.tz(endDate, 'DD-MM-YYYY', vietnamTZ).endOf('day').toDate();
     } else if (month && year) {
         start = moment.tz(`01-${month}-${year}`, 'DD-MM-YYYY', vietnamTZ).startOf('month').toDate();
         end = moment.tz(`01-${month}-${year}`, 'DD-MM-YYYY', vietnamTZ).endOf('month').toDate();
@@ -26,14 +19,8 @@ export const totalStats = async (req, res, next) => {
         start = moment.tz(`01-01-${year}`, 'DD-MM-YYYY', vietnamTZ).startOf('year').toDate();
         end = moment.tz(`31-12-${year}`, 'DD-MM-YYYY', vietnamTZ).endOf('year').toDate();
     } else if (dateFilter === 'single' && startDate) {
-        start = moment
-            .tz(startDate, 'DD-MM-YYYY', vietnamTZ)
-            .startOf('day')
-            .toDate();
-        end = moment
-            .tz(startDate, 'DD-MM-YYYY', vietnamTZ)
-            .endOf('day')
-            .toDate();
+        start = moment.tz(startDate, 'DD-MM-YYYY', vietnamTZ).startOf('day').toDate();
+        end = moment.tz(startDate, 'DD-MM-YYYY', vietnamTZ).endOf('day').toDate();
     } else {
         return res.status(400).json({ message: 'Invalid date filter' });
     }
@@ -117,7 +104,7 @@ export const totalStats = async (req, res, next) => {
 export const orderByDayStats = async (req, res, next) => {
     let year = new Date().getFullYear();
     let month = new Date().getMonth() + 1;
-    
+
     if (req.query.year) {
         year = parseInt(req.query.year);
     }
@@ -127,15 +114,9 @@ export const orderByDayStats = async (req, res, next) => {
     }
 
     const vietnamTZ = 'Asia/Ho_Chi_Minh';
-    
-    const startDate = moment.tz(`01-${month}-${year}`, 'DD-MM-YYYY', vietnamTZ)
-        .startOf('month')
-        .utc()
-        .toDate();
-    const endDate = moment.tz(`01-${month}-${year}`, 'DD-MM-YYYY', vietnamTZ)
-        .endOf('month')
-        .utc()
-        .toDate();
+
+    const startDate = moment.tz(`01-${month}-${year}`, 'DD-MM-YYYY', vietnamTZ).startOf('month').utc().toDate();
+    const endDate = moment.tz(`01-${month}-${year}`, 'DD-MM-YYYY', vietnamTZ).endOf('month').utc().toDate();
 
     const data = await Order.aggregate([
         {
@@ -165,7 +146,7 @@ export const orderByDayStats = async (req, res, next) => {
                     year: { $year: { $toDate: '$createdAtVN' } },
                 },
                 totalOrders: { $sum: 1 },
-                totalRevenue: { $sum: '$totalPrice' },  
+                totalRevenue: { $sum: '$totalPrice' },
             },
         },
         {
@@ -179,7 +160,7 @@ export const orderByDayStats = async (req, res, next) => {
                     },
                 },
                 totalOrders: 1,
-                totalRevenue: 1, 
+                totalRevenue: 1,
             },
         },
         {
@@ -236,7 +217,7 @@ export const orderByMonthStats = async (req, res, next) => {
                     year: { $year: { $toDate: '$createdAtVN' } },
                 },
                 totalOrders: { $sum: 1 },
-                totalRevenue: { $sum: '$totalPrice' },  
+                totalRevenue: { $sum: '$totalPrice' },
             },
         },
         {
@@ -250,10 +231,10 @@ export const orderByMonthStats = async (req, res, next) => {
                 },
                 year: '$_id.year',
                 totalOrders: 1,
-                totalRevenue: 1,  
+                totalRevenue: 1,
             },
         },
-       
+
         {
             $sort: { '_id.month': 1 },
         },
@@ -261,7 +242,6 @@ export const orderByMonthStats = async (req, res, next) => {
 
     const data = await Order.aggregate(pipeline);
 
-   
     const fullYearData = Array.from({ length: 12 }, (_, i) => ({
         month: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][i],
         year: parseInt(year),
@@ -323,11 +303,7 @@ export const orderByYearStats = async (req, res, next) => {
                 totalOrders: { $sum: 1 },
                 totalRevenue: {
                     $sum: {
-                        $cond: [
-                            { $eq: ['$orderStatus', 'done'] },
-                            '$totalPrice', 
-                            0,
-                        ],
+                        $cond: [{ $eq: ['$orderStatus', 'done'] }, '$totalPrice', 0],
                     },
                 },
             },
@@ -364,16 +340,8 @@ export const orderByDateRangeStats = async (req, res, next) => {
     let start, end;
 
     if (startDate && endDate) {
-        start = moment
-            .tz(startDate, 'DD-MM-YYYY', 'Asia/Ho_Chi_Minh')
-            .startOf('day')
-            .utc()
-            .toDate();
-        end = moment
-            .tz(endDate, 'DD-MM-YYYY', 'Asia/Ho_Chi_Minh')
-            .endOf('day')
-            .utc()
-            .toDate();
+        start = moment.tz(startDate, 'DD-MM-YYYY', 'Asia/Ho_Chi_Minh').startOf('day').utc().toDate();
+        end = moment.tz(endDate, 'DD-MM-YYYY', 'Asia/Ho_Chi_Minh').endOf('day').utc().toDate();
     } else {
         return res.status(400).json({ message: 'Invalid date range' });
     }
@@ -404,16 +372,12 @@ export const orderByDateRangeStats = async (req, res, next) => {
                         format: '%Y-%m-%d',
                         date: '$createdAt',
                         timezone: '+07:00',
-                    }
+                    },
                 },
                 totalOrders: { $sum: 1 },
                 totalRevenue: {
                     $sum: {
-                        $cond: [
-                            { $eq: ['$orderStatus', 'done'] },
-                            '$totalPrice',  
-                            0,
-                        ],
+                        $cond: [{ $eq: ['$orderStatus', 'done'] }, '$totalPrice', 0],
                     },
                 },
             },
@@ -458,16 +422,8 @@ export const getProductStats = async (req, res, next) => {
     let start, end;
 
     if (startDate && endDate) {
-        start = moment
-            .tz(startDate, 'DD-MM-YYYY', 'Asia/Ho_Chi_Minh')
-            .startOf('day')
-            .utc()
-            .toDate();
-        end = moment
-            .tz(endDate, 'DD-MM-YYYY', 'Asia/Ho_Chi_Minh')
-            .endOf('day')
-            .utc()
-            .toDate();
+        start = moment.tz(startDate, 'DD-MM-YYYY', 'Asia/Ho_Chi_Minh').startOf('day').utc().toDate();
+        end = moment.tz(endDate, 'DD-MM-YYYY', 'Asia/Ho_Chi_Minh').endOf('day').utc().toDate();
     } else {
         return res.status(400).json({ message: 'Invalid date range' });
     }
@@ -477,7 +433,7 @@ export const getProductStats = async (req, res, next) => {
             $match: {
                 createdAt: { $gte: start, $lte: end },
                 orderStatus: 'done',
-                isPaid: true
+                isPaid: true,
             },
         },
         { $unwind: '$items' },
@@ -487,10 +443,10 @@ export const getProductStats = async (req, res, next) => {
                 name: { $first: '$items.name' },
                 totalQuantity: { $sum: '$items.quantity' },
                 totalRevenue: {
-                    $sum: { $multiply: ['$items.quantity', '$items.price'] } 
+                    $sum: { $multiply: ['$items.quantity', '$items.price'] },
                 },
                 image: { $first: '$items.image' },
-                price: { $first: '$items.price' } 
+                price: { $first: '$items.price' },
             },
         },
         { $sort: { totalQuantity: -1 } },
@@ -499,14 +455,14 @@ export const getProductStats = async (req, res, next) => {
                 from: 'products',
                 localField: '_id',
                 foreignField: '_id',
-                as: 'productDetails'
-            }
+                as: 'productDetails',
+            },
         },
         {
             $addFields: {
-                variants: { $first: '$productDetails.variants' }
-            }
-        }
+                variants: { $first: '$productDetails.variants' },
+            },
+        },
     ];
 
     const allProductStats = await Order.aggregate(pipeline);
@@ -516,7 +472,7 @@ export const getProductStats = async (req, res, next) => {
 
     const totalStock = await Product.aggregate([
         {
-            $unwind: '$variants'
+            $unwind: '$variants',
         },
         {
             $group: {
@@ -532,7 +488,8 @@ export const getProductStats = async (req, res, next) => {
         return Promise.all(
             products.map(async (product) => {
                 const productData = await Product.findById(product._id);
-                const productTotalStock = productData?.variants.reduce((sum, variant) => sum + (variant.stock || 0), 0) || 0;
+                const productTotalStock =
+                    productData?.variants.reduce((sum, variant) => sum + (variant.stock || 0), 0) || 0;
 
                 return {
                     _id: product._id,
@@ -540,7 +497,7 @@ export const getProductStats = async (req, res, next) => {
                     totalQuantity: product.totalQuantity,
                     totalRevenue: parseFloat(product.totalRevenue.toFixed(2)),
                     image: product.image,
-                    price: product.price, 
+                    price: product.price,
                     percentageOfTotal: (
                         (product.totalQuantity / (product.totalQuantity + productTotalStock)) *
                         100
@@ -572,34 +529,14 @@ export const findTop5Buyers = async (req, res, next) => {
     let start, end;
 
     if (dateFilter === 'range' && startDate && endDate) {
-        start = moment
-            .tz(startDate, 'DD-MM-YYYY', vietnamTZ)
-            .startOf('day')
-            .utc()
-            .toDate();
-        end = moment
-            .tz(endDate, 'DD-MM-YYYY', vietnamTZ)
-            .endOf('day')
-            .utc()
-            .toDate();
+        start = moment.tz(startDate, 'DD-MM-YYYY', vietnamTZ).startOf('day').utc().toDate();
+        end = moment.tz(endDate, 'DD-MM-YYYY', vietnamTZ).endOf('day').utc().toDate();
     } else if (month && year) {
-        start = moment.tz(`01-${month}-${year}`, 'DD-MM-YYYY', vietnamTZ)
-            .startOf('month')
-            .utc()
-            .toDate();
-        end = moment.tz(`01-${month}-${year}`, 'DD-MM-YYYY', vietnamTZ)
-            .endOf('month')
-            .utc()
-            .toDate();
+        start = moment.tz(`01-${month}-${year}`, 'DD-MM-YYYY', vietnamTZ).startOf('month').utc().toDate();
+        end = moment.tz(`01-${month}-${year}`, 'DD-MM-YYYY', vietnamTZ).endOf('month').utc().toDate();
     } else if (year) {
-        start = moment.tz(`01-01-${year}`, 'DD-MM-YYYY', vietnamTZ)
-            .startOf('year')
-            .utc()
-            .toDate();
-        end = moment.tz(`31-12-${year}`, 'DD-MM-YYYY', vietnamTZ)
-            .endOf('year')
-            .utc()
-            .toDate();
+        start = moment.tz(`01-01-${year}`, 'DD-MM-YYYY', vietnamTZ).startOf('year').utc().toDate();
+        end = moment.tz(`31-12-${year}`, 'DD-MM-YYYY', vietnamTZ).endOf('year').utc().toDate();
     } else {
         return res.status(StatusCodes.BAD_REQUEST).json({ message: 'Invalid date filter' });
     }
@@ -711,7 +648,6 @@ export const findTop5Buyers = async (req, res, next) => {
         },
     ];
 
-
     const [topBuyers, latestOrders] = await Promise.all([
         Order.aggregate(topBuyersPipeline),
         Order.aggregate(latestOrdersPipeline),
@@ -725,5 +661,4 @@ export const findTop5Buyers = async (req, res, next) => {
             end: moment(end).tz(vietnamTZ).format('DD-MM-YYYY'),
         },
     };
-}  
-
+};
