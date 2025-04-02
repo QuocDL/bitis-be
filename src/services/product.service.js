@@ -134,10 +134,22 @@ export const updateProduct = async (productId, oldImageUrlRefs, files, variants,
     return await product.save();
 };
 
+// @details
 export const getProductById = async (productId) => {
     const product = await Product.findOne({
         _id: productId,
         ...clientRequiredFields,
+    })
+        .populate('variants.color')
+        .populate('variants.size');
+    if (!product) throw new NotFoundError(`${ReasonPhrases.NOT_FOUND} product with id: ${productId}`);
+
+    return product;
+};
+// @details for admin
+export const getProductByIdForAdmin = async (productId) => {
+    const product = await Product.findOne({
+        _id: productId,
     })
         .populate('variants.color')
         .populate('variants.size');

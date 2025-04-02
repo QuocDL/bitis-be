@@ -47,6 +47,17 @@ export const getProductById = asyncHandler(async (req, res) => {
         }),
     );
 });
+export const getProductByIdForAdmin = asyncHandler(async (req, res) => {
+    const products = await productService.getProductByIdForAdmin(req.params.id);
+    return res.status(StatusCodes.OK).json(
+        customResponse({
+            data: products,
+            success: true,
+            status: StatusCodes.OK,
+            message: ReasonPhrases.OK,
+        }),
+    );
+});
 
 export const getRelatedProducts = asyncHandler(async (req, res) => {
     return await productService.getRelatedProducts(req, res);

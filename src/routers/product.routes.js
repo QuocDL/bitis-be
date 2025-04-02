@@ -12,6 +12,7 @@ productRoutes.get('/best-selling', productControllers.getBestSellingProducts);
 productRoutes.get('/discount', productControllers.getDiscountProducts);
 productRoutes.get('/related/:id', productControllers.getRelatedProducts);
 productRoutes.get('/:id', productControllers.getProductById);
+productRoutes.get('/admin/:id', authenticate, authorsize(ROLE.ADMIN), productControllers.getProductByIdForAdmin);
 productRoutes.put(
     '/update/:id',
     upload.fields([{ name: 'variantImages', maxCount: 10 }]),
