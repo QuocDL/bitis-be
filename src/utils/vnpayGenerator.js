@@ -3,71 +3,59 @@ import crypto from 'crypto';
 import moment from 'moment';
 import querystring from 'qs';
 
-export const buildSigned = (vnp_Params) => {
-    delete vnp_Params['vnp_SecureHash'];
-    delete vnp_Params['vnp_SecureHashType'];
-
-    vnp_Params = sortObject(vnp_Params);
-
-    const secretKey = envConfig.VN_PAY_CONFIG.vnp_HashSecret;
-
-    const signData = querystring.stringify(vnp_Params, { encode: false });
-    const hmac = crypto.createHmac('sha512', secretKey);
-    const signed = hmac.update(Buffer.from(signData, 'utf-8')).digest('hex');
-
-    return signed;
-};
 export const sortObject = (obj) => {
     const sorted = {};
-    const str = [];
-    for (const key in obj) {
-        if (Object.prototype.hasOwnProperty.call(obj, key)) {
-            str.push(encodeURIComponent(key));
-        }
+    const keys = Object.keys(obj)
+        .filter((key) => Object.prototype.hasOwnProperty.call(obj, key))
+        .map((key) => encodeURIComponent(key))
+        .sort();
+
+    for (const encodedKey of keys) {
+        const originalKey = decodeURIComponent(encodedKey);
+        sorted[encodedKey] = encodeURIComponent(obj[originalKey]).replace(/%20/g, '+');
     }
-    str.sort();
-    for (let key = 0; key < str.length; key++) {
-        sorted[str[key]] = encodeURIComponent(obj[str[key]]).replace(/%20/g, '+');
-    }
+
     return sorted;
+};
+
+export const buildSigned = (vnp_Params) => {
+    const params = { ...vnp_Params };
+    delete params.vnp_SecureHash;
+    delete params.vnp_SecureHashType;
+
+    const sortedParams = sortObject(params);
+    const secretKey = envConfig.VN_PAY_CONFIG.vnp_HashSecret;
+    const signData = querystring.stringify(sortedParams, { encode: false });
+
+    return crypto.createHmac('sha512', secretKey).update(Buffer.from(signData, 'utf-8')).digest('hex');
 };
 
 export const createVpnUrl = ({ ipAddr, amount, bankCode, locale, orderId, vnPayReturnUrl }) => {
     process.env.TZ = 'Asia/Ho_Chi_Minh';
+    const createDate = moment(new Date()).format('YYYYMMDDHHmmss');
 
-    const date = new Date();
-    const createDate = moment(date).format('YYYYMMDDHHmmss');
+    const vnp_Params = {
+        vnp_Version: '2.1.0',
+        vnp_Command: 'pay',
+        vnp_TmnCode: envConfig.VN_PAY_CONFIG.vnpTmnCode,
+        vnp_Locale: locale,
+        vnp_CurrCode: 'VND',
+        vnp_TxnRef: orderId,
+        vnp_OrderInfo: `Thanh toan cho ma GD:${orderId}`,
+        vnp_OrderType: 'other',
+        vnp_Amount: amount * 100,
+        vnp_ReturnUrl: vnPayReturnUrl,
+        vnp_IpAddr: ipAddr,
+        vnp_CreateDate: createDate,
+    };
 
-    const tmnCode = envConfig.VN_PAY_CONFIG.vnpTmnCode;
-    const secretKey = envConfig.VN_PAY_CONFIG.vnp_HashSecret;
-
-    let vnpUrl = envConfig.VN_PAY_CONFIG.vnp_Url;
-    const currCode = 'VND';
-
-    let vnp_Params = {};
-    vnp_Params['vnp_Version'] = '2.1.0';
-    vnp_Params['vnp_Command'] = 'pay';
-    vnp_Params['vnp_TmnCode'] = tmnCode;
-    vnp_Params['vnp_Locale'] = locale;
-    vnp_Params['vnp_CurrCode'] = currCode;
-    vnp_Params['vnp_TxnRef'] = orderId;
-    vnp_Params['vnp_OrderInfo'] = 'Thanh toan cho ma GD:' + orderId;
-    vnp_Params['vnp_OrderType'] = 'other';
-    vnp_Params['vnp_Amount'] = amount * 100;
-    vnp_Params['vnp_ReturnUrl'] = vnPayReturnUrl;
-    vnp_Params['vnp_IpAddr'] = ipAddr;
-    vnp_Params['vnp_CreateDate'] = createDate;
     if (bankCode !== null && bankCode !== '') {
-        vnp_Params['vnp_BankCode'] = bankCode;
+        vnp_Params.vnp_BankCode = bankCode;
     }
 
-    vnp_Params = sortObject(vnp_Params);
+    const sortedParams = sortObject(vnp_Params);
+    const signed = buildSigned(vnp_Params);
+    sortedParams.vnp_SecureHash = signed;
 
-    const signData = querystring.stringify(vnp_Params, { encode: false });
-    const hmac = crypto.createHmac('sha512', secretKey);
-    const signed = hmac.update(Buffer.from(signData, 'utf-8')).digest('hex');
-    vnp_Params['vnp_SecureHash'] = signed;
-    vnpUrl += '?' + querystring.stringify(vnp_Params, { encode: false });
-
-    return vnpUrl;
+    return `${envConfig.VN_PAY_CONFIG.vnp_Url}?${querystring.stringify(sortedParams, { encode: false })}`;
 };
