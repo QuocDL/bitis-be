@@ -1,51 +1,42 @@
 import { BadRequestError, NotFoundError } from '../errors/customError.js';
 import Product from '../models/product.js';
 
-export const updateStockOnCreateOrder = async (dataItems, session) => {
-    return await Promise.all(
+const updateStock = async (dataItems, decreaseStock, session = null) => {
+    return Promise.all(
         dataItems.map(async (item) => {
-            const productTarget = await Product.findOne({
-                _id: item.productId,
-            }).session(session);
+            const productTarget = session
+                ? await Product.findOne({ _id: item.productId }).session(session)
+                : await Product.findOne({ _id: item.productId });
+
             if (!productTarget) {
                 throw new NotFoundError('Product not found');
             }
-            const newVariants = productTarget.variants.map((variant) => {
+
+            productTarget.variants = productTarget.variants.map((variant) => {
                 if (variant._id.toString() === item.variantId.toString()) {
-                    const newStock = variant.stock - item.quantity;
-                    if (newStock < 0) {
-                        throw new BadRequestError('Sản phẩm đã hết hàng!');
+                    if (decreaseStock) {
+                        const newStock = variant.stock - item.quantity;
+                        if (newStock < 0) {
+                            throw new BadRequestError('Sản phẩm đã hết hàng!');
+                        }
+                        variant.stock = newStock;
+                    } else {
+                        variant.stock += item.quantity;
                     }
-                    variant.stock = newStock;
                 }
                 return variant;
             });
-            productTarget.sold += item.quantity;
-            productTarget.variants = newVariants;
-            await productTarget.save();
+
+            productTarget.sold += decreaseStock ? item.quantity : -item.quantity;
+            return productTarget.save();
         }),
     );
 };
 
+export const updateStockOnCreateOrder = async (dataItems, session) => {
+    return updateStock(dataItems, true, session);
+};
+
 export const updateStockOnCancelOrder = async (dataItems) => {
-    return await Promise.all(
-        dataItems.map(async (item) => {
-            const target = await Product.findOne({
-                _id: item.productId,
-                'variants._id': item.variantId,
-            });
-            if (!target) {
-                throw new NotFoundError('Product not found');
-            }
-            const newVariants = target.variants.map((variant) => {
-                if (variant._id.toString() === item.variantId.toString()) {
-                    variant.stock += item.quantity;
-                }
-                return variant;
-            });
-            target.sold -= item.quantity;
-            target.variants = newVariants;
-            await target.save();
-        }),
-    );
+    return updateStock(dataItems, false);
 };
