@@ -3,7 +3,6 @@ import { ReasonPhrases, StatusCodes } from 'http-status-codes';
 import customResponse from '../helpers/response.js';
 import handleQuery from '../utils/handleQuery.js';
 
-// @Post create new color
 export const createNewColor = async (req, res, next) => {
     const color = await Color.create(req.body);
 
@@ -17,7 +16,6 @@ export const createNewColor = async (req, res, next) => {
     );
 };
 
-// @Get get all color
 export const getAllColors = async (req, res, next) => {
     const { data, page, todalDocs, totalPages } = await handleQuery(req, Color);
 
@@ -36,7 +34,6 @@ export const getAllColors = async (req, res, next) => {
     );
 };
 
-// @Get get detailed color
 export const getDetailedColor = async (req, res, next) => {
     const color = await Color.findById(req.params.id).lean();
 
@@ -50,7 +47,6 @@ export const getDetailedColor = async (req, res, next) => {
     );
 };
 
-// @Post update color
 export const updateColor = async (req, res, next) => {
     const newColor = await Color.findOneAndUpdate({ _id: req.params.id }, req.body, {
         new: true,
