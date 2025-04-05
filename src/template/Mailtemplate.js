@@ -6,7 +6,7 @@ export const templateMail = (template, mailContent) => {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xác Nhận Đơn Hàng - AdStore</title>
+    <title>Xác Nhận Đơn Hàng - BITTIS</title>
       <style>
       body {
         font-family: "Poppins", sans-serif;
@@ -82,13 +82,13 @@ export const templateMail = (template, mailContent) => {
 <body style="font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; background-color: #f4f4f4;">
     <div style="max-width: 700px; margin: 20px auto; background-color: white; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
         <div style="background: linear-gradient(135deg, #2c3e50, #3498db); color: white; padding: 30px; text-align: center; border-top-left-radius: 10px; border-top-right-radius: 10px;">
-            <img src="https://res.cloudinary.com/dn1s3axok/image/upload/v1732159969/adstore/logo_zhcecc.png" alt="AdStore Logo" style="max-height: 80px; margin-bottom: 15px;">
+            <img src="https://res.cloudinary.com/dn1s3axok/image/upload/v1732159969/BITTIS/logo_zhcecc.png" alt="BITTIS Logo" style="max-height: 80px; margin-bottom: 15px;">
             <h1 style="margin: 0; font-size: 24px;">${mailContent?.content?.title}</h1>
         </div>
-        
+
         <div style="padding: 30px;">
             <h2 style="color: #2c3e50;">Xin chào, ${mailContent?.content?.email}!</h2>
-            
+
             <p style="color: #333;">${mailContent.content.description}</p>
             <div style="background-color: #f9f9f9; border-left: 4px solid #3498db; padding: 15px; margin: 20px 0;">
                <a style="color: white" href="${mailContent?.link?.linkHerf}" class="btn"
@@ -107,7 +107,7 @@ export const templateMail = (template, mailContent) => {
         </div>
 
         <div style="background-color: #2c3e50; color: white; padding: 20px; text-align: center;">
-            <p>© 2024 AdStore. Đã đăng ký bản quyền</p>
+            <p>© 2024 BITTIS. Đã đăng ký bản quyền</p>
             <p>Trải nghiệm mua sắm hoàn hảo</p>
         </div>
     </div>
@@ -120,7 +120,7 @@ export const templateMail = (template, mailContent) => {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Khôi phục mật khẩu - AdStore</title>
+    <title>Khôi phục mật khẩu - BITTIS</title>
       <style>
       body {
         font-family: "Poppins", sans-serif;
@@ -196,13 +196,13 @@ export const templateMail = (template, mailContent) => {
 <body style="font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; background-color: #f4f4f4;">
     <div style="max-width: 700px; margin: 20px auto; background-color: white; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
         <div style="background: linear-gradient(135deg, #2c3e50, #3498db); color: white; padding: 30px; text-align: center; border-top-left-radius: 10px; border-top-right-radius: 10px;">
-            <img src="https://res.cloudinary.com/dn1s3axok/image/upload/v1732159969/adstore/logo_zhcecc.png" alt="AdStore Logo" style="max-height: 80px; margin-bottom: 15px;">
+            <img src="https://res.cloudinary.com/dn1s3axok/image/upload/v1732159969/BITTIS/logo_zhcecc.png" alt="BITTIS Logo" style="max-height: 80px; margin-bottom: 15px;">
             <h1 style="margin: 0; font-size: 24px;">${mailContent?.content?.title}</h1>
         </div>
-        
+
         <div style="padding: 30px;">
             <h2 style="color: #2c3e50;">Xin chào, ${mailContent?.content?.email}!</h2>
-            
+
             <p style="color: #333;">${mailContent.content.description}</p>
             <div style="background-color: #f9f9f9; border-left: 4px solid #3498db; padding: 15px; margin: 20px 0;">
                <a target='_blank' style="color: white" href="${mailContent?.link?.linkHerf}" class="btn"
@@ -221,7 +221,7 @@ export const templateMail = (template, mailContent) => {
         </div>
 
         <div style="background-color: #2c3e50; color: white; padding: 20px; text-align: center;">
-            <p>© 2024 AdStore. Đã đăng ký bản quyền</p>
+            <p>© 2024 BITTIS. Đã đăng ký bản quyền</p>
             <p>Trải nghiệm mua sắm hoàn hảo</p>
         </div>
     </div>
@@ -234,20 +234,20 @@ export const templateMail = (template, mailContent) => {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xác Nhận Đơn Hàng - AdStore</title>
+    <title>Xác Nhận Đơn Hàng - BITTIS</title>
 </head>
 <body style="font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; background-color: #f4f4f4;">
     <div style="max-width: 700px; margin: 20px auto; background-color: white; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
         <div style="background: linear-gradient(135deg, #2c3e50, #3498db); color: white; padding: 30px; text-align: center; border-top-left-radius: 10px; border-top-right-radius: 10px;">
-            <img src="https://res.cloudinary.com/dn1s3axok/image/upload/v1732159969/adstore/logo_zhcecc.png" alt="AdStore Logo" style="max-height: 80px; margin-bottom: 15px;">
+            <img src="https://res.cloudinary.com/dn1s3axok/image/upload/v1732159969/BITTIS/logo_zhcecc.png" alt="BITTIS Logo" style="max-height: 80px; margin-bottom: 15px;">
             <h1 style="margin: 0; font-size: 24px;">${mailContent?.content?.title || 'Xác Nhận Đơn Hàng'}</h1>
         </div>
-        
+
         <div style="padding: 30px;">
             <h2 style="color: #2c3e50;">Xin chào, ${mailContent?.user?.name}!</h2>
-            
+
             <p style="color: #333;">${mailContent.content.description}</p>
-            
+
             <div style="background-color: #f9f9f9; border-left: 4px solid #3498db; padding: 15px; margin: 20px 0;">
                 <h3 style="margin-top: 0; color: #2c3e50;">Thông Tin Giao Hàng</h3>
                 <p><strong>Tên người nhận:</strong> ${mailContent?.user?.name}</p>
@@ -296,13 +296,13 @@ export const templateMail = (template, mailContent) => {
     </div>
     <div style="text-align: right;">
         <p style="margin: 0; color: #34495e; font-size: 14px;">
-            <strong>Phí Giao Hàng:</strong> 
+            <strong>Phí Giao Hàng:</strong>
             <span style="color: #2980b9; font-weight: bold;">
                 ${new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(mailContent.product?.shippingfee || 0)}
             </span>
         </p>
         <p style="margin: 5px 0 0; color: #34495e; font-size: 16px;">
-            <strong>Tổng Tiền:</strong> 
+            <strong>Tổng Tiền:</strong>
             <span style="color: #e74c3c; font-weight: bold; font-size: 18px;">
                 ${new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(mailContent.product?.totalPrice || 0)}
             </span>
@@ -323,7 +323,7 @@ export const templateMail = (template, mailContent) => {
         </div>
 
         <div style="background-color: #2c3e50; color: white; padding: 20px; text-align: center;">
-            <p>© 2024 AdStore. Đã đăng ký bản quyền</p>
+            <p>© 2024 BITTIS. Đã đăng ký bản quyền</p>
             <p>Trải nghiệm mua sắm hoàn hảo</p>
         </div>
     </div>
