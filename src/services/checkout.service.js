@@ -14,7 +14,7 @@ export const createPaymentUrlWithVNpay = async (req, res, next) => {
     await new Promise((resolve) => setTimeout(resolve, 2000));
     const ipAddr = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
     const bankCode = '';
-    const locale = 'en';
+    const locale = 'vn';
     const totalPrice = req.body.totalPrice;
     const paymentMethod = PAYMENT_METHOD.CARD;
     const session = req.session;
