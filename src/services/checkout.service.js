@@ -18,7 +18,7 @@ export const createPaymentUrlWithVNpay = async (req, res, next) => {
     const totalPrice = req.body.totalPrice;
     const paymentMethod = PAYMENT_METHOD.CARD;
     const session = req.session;
-    await inventoryService.updateStockOnCreateOrder(req.body.items, session);
+    // await inventoryService.updateStockOnCreateOrder(req.body.items, session);
     const datacache = {
         ...req.body,
         paymentMethod,
