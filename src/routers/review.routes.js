@@ -7,11 +7,11 @@ import { ROLE } from '../constants/role.js';
 const ReviewRouter = Router();
 
 // Get
-ReviewRouter.get('/all', reviewControllers.getAllAdminReviews);
-ReviewRouter.get('/detail/:id', reviewControllers.getProductDetailReviews);
-ReviewRouter.get('/all/:id', reviewControllers.getAllReviewByProductId);
+ReviewRouter.get('/all', authenticate, authorsize(ROLE.ADMIN), reviewControllers.getAllAdminReviews);
+ReviewRouter.get('/all/:productId', reviewControllers.getAllReviewsProduct);
+ReviewRouter.get('/rating/:productId', reviewControllers.getAllRatingProduct);
 
 // Post
-ReviewRouter.post('/', authenticate, authorsize(ROLE.ADMIN), reviewControllers.createReview);
+ReviewRouter.post('/create', authenticate, reviewControllers.createReview);
 
 export default ReviewRouter;

@@ -3,19 +3,25 @@ import { reviewServices } from '../services/index.js';
 
 // @Post create new review
 export const createReview = asyncHandler(async (req, res, next) => {
-    return reviewServices.createNewReview(req, res, next);
+    return reviewServices.createReview(req, res, next);
 });
 
 // @Get get all reviews
 export const getAllAdminReviews = asyncHandler(async (req, res, next) => {
-    return reviewServices.getAllAdminReviews(req, res, next);
+    return reviewServices.getAllReviews(req, res, next);
 });
 
-// @Get get top 3 review by product id
-export const getProductDetailReviews = asyncHandler(async (req, res, next) => {
-    return reviewServices.getProductDetailReviews(req, res, next);
-});
 // @Get get all review by product id
-export const getAllReviewByProductId = asyncHandler(async (req, res, next) => {
-    return reviewServices.getAllReviewsByProductId(req, res, next);
+export const getAllReviewsProduct = asyncHandler(async (req, res, next) => {
+    return reviewServices.getAllReviewsProduct(req, res, next);
+});
+
+export const getAllRatingProduct = asyncHandler(async (req, res, next) => {
+    return reviewServices.useGetAllReviewStar(req, res, next);
+});
+export const activeReview = asyncHandler(async (req, res, next) => {
+    return reviewServices.activeReview(req, res, next);
+});
+export const hiddenReview = asyncHandler(async (req, res, next) => {
+    return reviewServices.hiddenReview(req, res, next);
 });

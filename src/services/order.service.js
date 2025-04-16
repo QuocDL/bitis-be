@@ -65,7 +65,6 @@ export const getAllOrdersByUser = async (req, res, next) => {
 //@GET: Get the detailed order
 export const getDetailedOrder = async (req, res, next) => {
     const order = await Order.findById(req.params.id).lean();
-
     if (!order) {
         throw new NotFoundError(`${ReasonPhrases.NOT_FOUND} order with id: ${req.params.id}`);
     }

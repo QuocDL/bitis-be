@@ -23,7 +23,7 @@ router.use('/orders', orderRouter);
 router.use('/sizes', sizeRouter);
 router.use('/colors', colorRouter);
 router.use('/shipping', shippingRouter);
-router.use('/reviews', reviewRouter);
+router.use('/review', reviewRouter);
 router.use('/tags', tagRouter);
 router.use('/users', userRouter);
 router.use('/stats', statsRouter);
