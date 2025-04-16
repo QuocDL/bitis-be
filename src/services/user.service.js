@@ -13,7 +13,7 @@ export const getAllUsers = async (req, res) => {
     const page = req.query.page ? +req.query.page : 1;
     req.query.limit = String(req.query.limit || 10);
 
-    const features = new APIQuery(User.find({}).select('-password'), req.query);
+    const features = new APIQuery(User.find({role:'user'}).select('-password'), req.query);
     features.filter().sort().limitFields().search().paginate();
 
     const [data, totalDocs] = await Promise.all([features.query, features.count()]);
