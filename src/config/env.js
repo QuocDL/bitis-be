@@ -6,6 +6,9 @@ export const envConfig = {
     JWT_VERIFY: process.env.JWT_VERIFY || '1234567890ahihi',
     NODE_ENV: process.env.NODE_ENV || '12345678hehe',
     DB_URL: process.env.DB_URL || 'mongodb://localhost:27017/dev',
+    USER_DEFAULT_AVATAR:
+        process.env.DEFAULT_IMAGE_URL ||
+        'https://res.cloudinary.com/dbbontzg4/image/upload/v1744950612/anhdd_bo9rqp.png',
     shipping: {
         apiToken: process.env.SHIPPING_API_TOKEN,
         apiEndpoint: process.env.SHIPPING_API_ENDPOINT,

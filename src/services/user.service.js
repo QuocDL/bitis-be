@@ -74,7 +74,7 @@ export const forgotPassword = async (req, res, next) => {
 
 // @Get get user profile
 export const getProfile = async (req, res, next) => {
-    const user = await User.findById(req.userId).lean();
+    const user = await User.findById(req.userId);
 
     return res.status(StatusCodes.OK).json(
         customResponse({

@@ -79,6 +79,7 @@ const orderSchema = new mongoose.Schema(
                 type: String,
                 default: 'Viet Nam',
             },
+            ward:String,
             province: String,
             district: String,
             address: String,

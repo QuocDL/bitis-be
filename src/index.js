@@ -30,6 +30,8 @@ app.use(express.urlencoded({ extended: true }));
 // connect db
 connectDB(envConfig.DB_URL);
 
+app.use('/static', express.static('public'));
+
 // routers
 app.use('/api', router);
 app.use('/api/import-data', handleInsertData);
