@@ -24,3 +24,4 @@ yarn-debug.log*
 yarn-error.log*
 .eslintrc.json
 .eslintignore
+*test
