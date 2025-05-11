@@ -7,194 +7,179 @@ import bcrypt from 'bcryptjs';
 import { removeUploadedFile, uploadSingleFile } from '../utils/upload.js';
 import { clientRequiredFields } from '../helpers/filterRequiredClient.js';
 
-// Helper function to create standard responses
-const createSuccessResponse = (res, data = null) => {
+// GET: Get all users
+// @Get: getAllUsers
+export const getAllUsers = async (req, res) => {
+    const page = req.query.page ? +req.query.page : 1;
+    req.query.limit = String(req.query.limit || 10);
+
+    const features = new APIQuery(User.find({role:'user'}).select('-password'), req.query);
+    features.filter().sort().limitFields().search().paginate();
+
+    const [data, totalDocs] = await Promise.all([features.query, features.count()]);
+    const totalPages = Math.ceil(Number(totalDocs) / +req.query.limit);
     return res.status(StatusCodes.OK).json(
         customResponse({
-            data,
-            message: ReasonPhrases.OK,
-            status: StatusCodes.OK,
+            data: {
+                users: data,
+                page: page,
+                totalDocs: totalDocs,
+                totalPages: totalPages,
+            },
             success: true,
-        })
+            status: StatusCodes.OK,
+            message: ReasonPhrases.OK,
+        }),
     );
 };
 
-// GET: Get all users
-export const getAllUsers = async (req, res) => {
-    try {
-        const page = Number(req.query.page) || 1;
-        const limit = Number(req.query.limit) || 10;
-
-        const features = new APIQuery(User.find({role:'user'}).select('-password'), req.query);
-        features.filter().sort().limitFields().search().paginate();
-
-        const [users, totalDocs] = await Promise.all([features.query, features.count()]);
-        const totalPages = Math.ceil(totalDocs / limit);
-
-        return createSuccessResponse(res, {
-            users,
-            page,
-            totalDocs,
-            totalPages,
-        });
-    } catch (error) {
-        next(error);
-    }
-};
-
-// Change password
+// @Patch change password
 export const changePassword = async (req, res, next) => {
-    try {
-        const { password, newPassword } = req.body;
-        const user = await User.findById(req.userId);
+    const { password, newPassword } = req.body;
+    const user = await User.findOne({ _id: req.userId });
 
-        if (!user) {
-            throw new NotFoundError('User not found');
-        }
+    const isMatch = await bcrypt.compare(password, user.password);
 
-        if (!(await bcrypt.compare(password, user.password))) {
-            throw new BadRequestError('Mật khẩu cũ không chính xác');
-        }
-
-        user.password = newPassword;
-        await user.save();
-
-        return createSuccessResponse(res);
-    } catch (error) {
-        next(error);
+    if (!isMatch) {
+        throw new BadRequestError('Mật khẩu cũ không chính xác');
     }
-};
 
-// Forgot password
+    user.password = newPassword;
+    await user.save();
+
+    return res.status(StatusCodes.OK).json(
+        customResponse({
+            data: null,
+            message: ReasonPhrases.OK,
+            status: StatusCodes.OK,
+            success: true,
+        }),
+    );
+};
+// @Patch forgot password
 export const forgotPassword = async (req, res, next) => {
-    try {
-        const user = await User.findById(req.userId);
-        if (!user) {
-            throw new NotFoundError('User not found');
-        }
+    const user = await User.findById(req.userId);
+    user.password = req.body.password;
+    await user.save();
 
-        user.password = req.body.password;
-        await user.save();
-
-        return createSuccessResponse(res);
-    } catch (error) {
-        next(error);
-    }
+    return res.status(StatusCodes.OK).json(
+        customResponse({
+            data: null,
+            message: ReasonPhrases.OK,
+            status: StatusCodes.OK,
+            success: true,
+        }),
+    );
 };
 
-// Get user profile
+// @Get get user profile
 export const getProfile = async (req, res, next) => {
-    try {
-        const user = await User.findById(req.userId);
-        if (!user) {
-            throw new NotFoundError('User not found');
-        }
+    const user = await User.findById(req.userId);
 
-        return createSuccessResponse(res, user);
-    } catch (error) {
-        next(error);
-    }
+    return res.status(StatusCodes.OK).json(
+        customResponse({
+            data: user,
+            message: ReasonPhrases.OK,
+            status: StatusCodes.OK,
+            success: true,
+        }),
+    );
 };
 
-// Update user profile
+// @Patch update user profile
 export const updateProfile = async (req, res, next) => {
-    try {
-        const user = await User.findById(req.userId);
-        if (!user) {
-            throw new NotFoundError('User not found');
+    const user = await User.findById(req.userId);
+
+    if (req.files['avatar']) {
+        const { downloadURL, imageUrlRef } = await uploadSingleFile(...req.files['avatar']);
+        user.avatar = downloadURL;
+        user.imageUrlRef = imageUrlRef;
+
+        if (user.imageUrlRef) {
+            removeUploadedFile(user.imageUrlRef);
         }
-
-        if (req.files?.['avatar']) {
-            const { downloadURL, imageUrlRef } = await uploadSingleFile(...req.files['avatar']);
-
-            // Remove old image if it exists
-            if (user.imageUrlRef) {
-                removeUploadedFile(user.imageUrlRef);
-            }
-
-            user.avatar = downloadURL;
-            user.imageUrlRef = imageUrlRef;
-        }
-
-        user.set(req.body);
-        await user.save();
-
-        return createSuccessResponse(res);
-    } catch (error) {
-        next(error);
     }
+    user.set(req.body);
+    await user.save();
+
+    return res.status(StatusCodes.OK).json(
+        customResponse({
+            data: null,
+            message: ReasonPhrases.OK,
+            status: StatusCodes.OK,
+            success: true,
+        }),
+    );
 };
 
-// Wishlist operations
-export const addWishList = async (req, res, next) => {
-    try {
-        const { userId } = req;
-        const { productId } = req.body;
+// @Patch: Add wishlist
+export const addWishList = async (req, res) => {
+    const userId = req.userId;
+    const productId = req.body.productId;
+    const user = await User.findByIdAndUpdate(userId, { $addToSet: { wishList: productId } }, { new: true }).lean();
 
-        const user = await User.findByIdAndUpdate(
-            userId,
-            { $addToSet: { wishList: productId } },
-            { new: true }
-        ).lean();
-
-        if (!user) {
-            throw new NotFoundError('User not found');
-        }
-
-        return createSuccessResponse(res, user);
-    } catch (error) {
-        next(error);
-    }
+    return res.status(StatusCodes.OK).json(
+        customResponse({
+            data: user,
+            success: true,
+            status: StatusCodes.OK,
+            message: ReasonPhrases.OK,
+        }),
+    );
 };
-
-export const deleteWishList = async (req, res, next) => {
-    try {
-        const { userId } = req;
-        const { productId } = req.body;
-
-        const user = await User.findByIdAndUpdate(
-            userId,
-            { $pull: { wishList: productId } },
-            { new: true }
-        ).lean();
-
-        if (!user) {
-            throw new NotFoundError('User not found');
-        }
-
-        return createSuccessResponse(res, user);
-    } catch (error) {
-        next(error);
-    }
+// @Patch: delete wishlist
+export const deleteWishList = async (req, res) => {
+    const userId = req.userId;
+    const productId = req.body.productId;
+    const user = await User.findByIdAndUpdate(userId, { $pull: { wishList: productId } }, { new: true }).lean();
+    return res.status(StatusCodes.OK).json(
+        customResponse({
+            data: user,
+            success: true,
+            status: StatusCodes.OK,
+            message: ReasonPhrases.OK,
+        }),
+    );
 };
+// @Get: get wishlist by user
+export const getWishListByUser = async (req, res) => {
+    const userId = req.userId;
 
-export const getWishListByUser = async (req, res, next) => {
-    try {
-        const wishlist = await User.findById(req.userId)
-            .select('wishList')
-            .populate({
-                path: 'wishList',
-                match: clientRequiredFields,
-                populate: [
-                    {
-                        path: 'variants',
-                        select: 'color size stock image imageUrlRef',
-                        populate: [
-                            { path: 'color', select: 'name hex' },
-                            { path: 'size', select: 'name' },
-                        ],
-                    },
-                ],
-                select: 'name price discount variants description rating reviewCount',
-            })
-            .lean();
+    const wishlist = await User.findById(userId)
+        .select('wishList')
+        .populate({
+            path: 'wishList',
+            match: clientRequiredFields,
+            populate: [
+                {
+                    path: 'variants',
+                    select: 'color size stock image imageUrlRef',
+                    populate: [
+                        {
+                            path: 'color',
+                            select: 'name hex',
+                        },
+                        {
+                            path: 'size',
+                            select: 'name',
+                        },
+                    ],
+                },
+            ],
+            select: 'name price discount variants description rating reviewCount',
+        })
+        .lean();
 
-        if (!wishlist) {
-            throw new NotFoundError('Không tìm thấy wishlist');
-        }
-
-        return createSuccessResponse(res, wishlist);
-    } catch (error) {
-        next(error);
+    if (!wishlist) {
+        throw new NotFoundError('Không tìm thấy wishlist');
     }
+
+    return res.status(StatusCodes.OK).json(
+        customResponse({
+            data: wishlist,
+            success: true,
+            status: StatusCodes.OK,
+            message: ReasonPhrases.OK,
+        }),
+    );
 };
