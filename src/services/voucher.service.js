@@ -1,8 +1,7 @@
-/**
- * Service to create a new voucher
- * @param {Object} voucherData - Voucher data
- * @returns {Promise<Object>} - Created voucher
- */
+import { BadRequestError } from "../errors/customError.js";
+import voucher from "../models/voucher.js";
+import { generateCode } from "../utils/gennerateCode.js";
+
 export const createVoucher = async (voucherData) => {
   const {
     startDate,
@@ -21,7 +20,7 @@ export const createVoucher = async (voucherData) => {
 
   const currentDate = new Date();
 
-  const existingVoucherByName = await Voucher.findOne({ name, isOnlyForNewUser });
+  const existingVoucherByName = await voucher.findOne({ name, isOnlyForNewUser });
   if (existingVoucherByName) {
     throw new BadRequestError('Tên voucher đã tồn tại');
   }
@@ -67,7 +66,7 @@ export const createVoucher = async (voucherData) => {
     throw new BadRequestError('Giá trị giảm giá phải nhỏ hơn giá trị đơn hàng tối thiểu');
   }
 
-  const newVoucher = await Voucher.create({
+  const newVoucher = await voucher.create({
     startDate,
     endDate,
     name,
@@ -75,7 +74,7 @@ export const createVoucher = async (voucherData) => {
     minimumOrderPrice,
     status,
     isOnlyForNewUser,
-    code: code || generateVoucherCode(),
+    code: code || generateCode(),
     maxUsage,
     usagePerUser,
     discountType: discountType || 'percentage',
