@@ -3,62 +3,63 @@ import customResponse from '../helpers/response.js';
 import Tag from '../models/tag.js';
 import handleQuery from '../utils/handleQuery.js';
 
-// Helper function to create consistent responses
-const sendResponse = (res, status, data, message = ReasonPhrases.OK) => {
-    return res.status(status).json(
+export const createNewTag = async (req, res, next) => {
+    const tag = await Tag.create(req.body);
+
+    return res.status(StatusCodes.CREATED).json(
         customResponse({
-            data,
-            message,
-            status,
+            data: tag,
+            message: ReasonPhrases.CREATED,
+            status: StatusCodes.OK,
             success: true,
-        })
+        }),
     );
 };
 
-export const createNewTag = async (req, res, next) => {
-    try {
-        const tag = await Tag.create(req.body);
-        return sendResponse(res, StatusCodes.CREATED, tag, ReasonPhrases.CREATED);
-    } catch (error) {
-        next(error);
-    }
-};
-
+// @Get get tag
 export const getDetailedTag = async (req, res, next) => {
-    try {
-        const tag = await Tag.findById(req.params.id).lean();
-        if (!tag) return sendResponse(res, StatusCodes.NOT_FOUND, null, 'Tag not found');
-        return sendResponse(res, StatusCodes.OK, tag);
-    } catch (error) {
-        next(error);
-    }
-};
+    const tag = await Tag.findById(req.params.id).lean();
 
+    return res.status(StatusCodes.OK).json(
+        customResponse({
+            data: tag,
+            message: ReasonPhrases.OK,
+            status: StatusCodes.OK,
+            success: true,
+        }),
+    );
+};
+// @Get get all tag
 export const getAllTag = async (req, res, next) => {
-    try {
-        const { data, page, totalDocs, totalPages } = await handleQuery(req, Tag);
-        return sendResponse(res, StatusCodes.OK, {
-            tags: data,
-            page,
-            totalDocs,
-            totalPages,
-        });
-    } catch (error) {
-        next(error);
-    }
+    const { data, page, totalDocs, totalPages } = await handleQuery(req, Tag);
+
+    return res.status(StatusCodes.OK).json(
+        customResponse({
+            data: {
+                tags: data,
+                page,
+                totalDocs,
+                totalPages,
+            },
+            status: StatusCodes.OK,
+            message: ReasonPhrases.OK,
+            success: true,
+        }),
+    );
 };
 
+// @Post update tag
 export const updateTag = async (req, res, next) => {
-    try {
-        const tag = await Tag.findOneAndUpdate(
-            { _id: req.params.id },
-            req.body,
-            { new: true }
-        ).lean();
+    const tag = await Tag.findOneAndUpdate({ _id: req.params.id }, req.body, {
+        new: true,
+    }).lean();
 
-        if (!tag) return sendResponse(res, StatusCodes.NOT_FOUND, null, 'Tag not found');
-        return sendResponse(res, StatusCodes.OK, tag);
-    } catch (error) {
-        next(error);
-    }
+    return res.status(StatusCodes.OK).json(
+        customResponse({
+            data: tag,
+            message: ReasonPhrases.OK,
+            status: StatusCodes.OK,
+            success: true,
+        }),
+    );
 };
