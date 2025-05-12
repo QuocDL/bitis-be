@@ -81,3 +81,43 @@ export const createVoucher = async (voucherData) => {
 
   return newVoucher;
 };
+
+
+export const updateVoucher = async (id, voucherData) => {
+  const {
+    startDate,
+    endDate,
+    name,
+    voucherDiscount,
+    minimumOrderPrice,
+    status,
+    maxUsage,
+    isOnlyForNewUser,
+    usagePerUser,
+    discountType,
+    maxDiscountAmount,
+    resetCode,
+  } = voucherData;
+
+ 
+
+  existingVoucher.name = name;
+  existingVoucher.voucherDiscount = voucherDiscount;
+  existingVoucher.usagePerUser = usagePerUser;
+  existingVoucher.isOnlyForNewUser = isOnlyForNewUser;
+  existingVoucher.startDate = startDate;
+  existingVoucher.endDate = endDate;
+  existingVoucher.maxUsage = maxUsage;
+  existingVoucher.minimumOrderPrice = minimumOrderPrice;
+  existingVoucher.status = status;
+  existingVoucher.discountType = discountType || 'percentage';
+  existingVoucher.maxDiscountAmount = discountType === 'percentage' ? maxDiscountAmount : 0;
+
+  if (resetCode) {
+    existingVoucher.code = generateCode();
+  }
+
+  await existingVoucher.save();
+
+  return existingVoucher;
+};
