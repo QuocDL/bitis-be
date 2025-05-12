@@ -35,10 +35,6 @@ const voucherSchema = new Schema(
             type: Boolean,
             default: true,
         },
-        isOnlyForNewUser: {
-            type: Boolean,
-            default: false,
-        },
         minimumOrderPrice: {
             required: true,
             type: Number,

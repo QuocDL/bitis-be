@@ -15,7 +15,6 @@ export const createVoucher = async (voucherData) => {
     discountType,
     maxDiscountAmount,
     code,
-    isOnlyForNewUser = false,
   } = voucherData;
 
   const currentDate = new Date();
@@ -73,7 +72,6 @@ export const createVoucher = async (voucherData) => {
     voucherDiscount,
     minimumOrderPrice,
     status,
-    isOnlyForNewUser,
     code: code || generateCode(),
     maxUsage,
     usagePerUser,
