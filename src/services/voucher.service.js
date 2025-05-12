@@ -92,7 +92,6 @@ export const updateVoucher = async (id, voucherData) => {
     minimumOrderPrice,
     status,
     maxUsage,
-    isOnlyForNewUser,
     usagePerUser,
     discountType,
     maxDiscountAmount,
@@ -156,7 +155,6 @@ export const updateVoucher = async (id, voucherData) => {
   existingVoucher.name = name;
   existingVoucher.voucherDiscount = voucherDiscount;
   existingVoucher.usagePerUser = usagePerUser;
-  existingVoucher.isOnlyForNewUser = isOnlyForNewUser;
   existingVoucher.startDate = startDate;
   existingVoucher.endDate = endDate;
   existingVoucher.maxUsage = maxUsage;
