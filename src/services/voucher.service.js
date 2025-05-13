@@ -171,3 +171,17 @@ export const updateVoucher = async (id, voucherData) => {
 
   return existingVoucher;
 };
+
+
+export const updateVoucherStatus = async (id) => {
+  const existingVoucher = await voucher.findById(id);
+
+  if (!existingVoucher) {
+    throw new BadRequestError('Voucher không tồn tại');
+  }
+
+  existingVoucher.status = !existingVoucher.status;
+  await existingVoucher.save();
+
+  return existingVoucher;
+};
