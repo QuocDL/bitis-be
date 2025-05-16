@@ -4,6 +4,8 @@ import Voucher from '../models/voucher.js';
 import { BadRequestError } from "../errors/customError.js";
 import { generateCode } from "../utils/gennerateCode.js";
 import customResponse from "../helpers/response.js";
+import { StatusCodes } from "http-status-codes";
+import UsedVoucher from "../models/usedVoucher.js";
 
 
 
@@ -241,7 +243,7 @@ export const getAllVoucher = asyncHandler(async (req, res) => {
             const voucherUsedByUser = await UsedVoucher.findOne({ userId, voucherCode: voucher.code });
 
             // Get total usage count across all users
-            const voucherUsageAggregate = await UsedVoucher.aggregate([
+            const voucherUsageAggregate = await usedVoucher.aggregate([
                 { $match: { voucherCode: voucher.code } },
                 { $group: { _id: null, totalUsage: { $sum: '$usageCount' } } },
             ]);
