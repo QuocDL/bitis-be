@@ -38,7 +38,7 @@ export const handleInsertData = async (req, res) => {
             email: 'test@gmail.com',
             name: 'Admin',
             isActive: true,
-            password: '11222212',
+            password: '88888888',
             phone: '0976878654',
             role: ROLE.USER,
         });
