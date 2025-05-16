@@ -1,6 +1,6 @@
 import { ReasonPhrases, StatusCodes } from 'http-status-codes';
 import { BadRequestError, NotFoundError } from '../errors/customError.js';
-import Product from '../models/product.js';
+import Product from '../models/product.js';¸
 import APIQuery from '../utils/APIQuery.js';
 import { removeUploadedFile, uploadFiles } from '../utils/upload.js';
 import { clientRequiredFields } from '../helpers/filterRequiredClient.js';
