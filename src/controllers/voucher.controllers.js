@@ -224,3 +224,46 @@ export const getVoucherDetails = asyncHandler(async (req, res) => {
     );
 });
 
+export const getAllVoucher = asyncHandler(async (req, res) => {
+    const userId = req.userId;
+    const currentDate = new Date();
+
+    const ListVouchers = await Voucher.find({
+        status: true,
+        isOnlyForNewUser: false,
+        startDate: { $lte: currentDate },
+        endDate: { $gte: currentDate },
+        maxUsage: { $gt: 0 },
+    }).lean();
+
+    const processedVouchers = await Promise.all(
+        ListVouchers.map(async (voucher) => {
+            const voucherUsedByUser = await UsedVoucher.findOne({ userId, voucherCode: voucher.code });
+
+            // Get total usage count across all users
+            const voucherUsageAggregate = await UsedVoucher.aggregate([
+                { $match: { voucherCode: voucher.code } },
+                { $group: { _id: null, totalUsage: { $sum: '$usageCount' } } },
+            ]);
+
+            const totalUsageCount = voucherUsageAggregate[0]?.totalUsage || 0;
+            const remainingQuantity = voucher.maxUsage - totalUsageCount;
+
+            return {
+                ...voucher,
+                usedCount: voucherUsedByUser?.usageCount || 0,
+                remainingQuantity,
+            };
+        }),
+    );
+
+    return res.status(StatusCodes.OK).json(
+        customResponse({
+            data: processedVouchers,
+            message: 'Danh sách voucher cho người dùng',
+            status: StatusCodes.OK,
+            success: true,
+        }),
+    );
+});
+
