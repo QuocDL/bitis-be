@@ -267,3 +267,38 @@ export const getAllVoucher = asyncHandler(async (req, res) => {
     );
 });
 
+export const getAllVoucherForAdmin = asyncHandler(async (req, res) => {
+    const features = new APIQuery(Voucher.find(), req.query);
+    features.filter().sort().limitFields().search().paginate();
+    const [vouchers, totalDocs] = await Promise.all([features.query, features.count()]);
+
+    const processedVouchers = await Promise.all(
+        vouchers.map(async (voucher) => {
+            const voucherUsageAggregate = await UsedVoucher.aggregate([
+                { $match: { voucherCode: voucher.code } },
+                { $group: { _id: null, totalUsage: { $sum: '$usageCount' } } },
+            ]);
+
+            const totalUsageCount = voucherUsageAggregate[0]?.totalUsage || 0;
+            const remainingQuantity = voucher.maxUsage - totalUsageCount;
+
+            const voucherObj = voucher.toObject();
+            return {
+                ...voucherObj,
+                remainingQuantity,
+            };
+        }),
+    );
+
+    return res.status(StatusCodes.OK).json(
+        customResponse({
+            data: {
+                vouchers: processedVouchers,
+                totalDocs,
+            },
+            message: 'Danh sách tất cả voucher',
+            status: StatusCodes.OK,
+            success: true,
+        }),
+    );
+});
