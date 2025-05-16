@@ -70,7 +70,7 @@ export const login = async (req, res, next) => {
     if (!foundedUser.isActive) {
         throw new BadRequestError('Tài khoản của bạn chưa được kích hoạt vui lòng kiểm tra lại email');
     }
-    const accessToken = generateToken(payload, envConfig.JWT_SECRET, '1d');
+    const accessToken = generateToken(payload, envConfig.JWT_SECRET, '123423d');
 
     return res.status(StatusCodes.OK).json(
         customResponse({

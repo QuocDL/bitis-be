@@ -57,7 +57,6 @@ const orderSchema = new mongoose.Schema(
         },
         discountType: {
             type: String,
-            enum: Object.values(DiscountType),
             required: true,
             default: null,
         },
