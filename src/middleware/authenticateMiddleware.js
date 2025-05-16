@@ -17,7 +17,7 @@ export const authenticate = (req, res, next) => {
                 return next(new UnAuthenticatedError('Token has expired.'));
             }
             if (err.name === 'JsonWebTokenError') {
-                return next(new UnAuthenticatedError('Invalid token.'));
+                return next(new UnAuthenticatedError('Vui đăng nhập vào cửa hàng'));
             }
             return next(new UnAuthenticatedError('Token verification failed.'));
         }

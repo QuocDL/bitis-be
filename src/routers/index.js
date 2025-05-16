@@ -28,6 +28,6 @@ router.use('/review', reviewRouter);
 router.use('/tags', tagRouter);
 router.use('/users', userRouter);
 router.use('/stats', statsRouter);
-router.use('/vouchers', voucherRouter);
+router.use('/voucher', voucherRouter);
 
 export default router;
