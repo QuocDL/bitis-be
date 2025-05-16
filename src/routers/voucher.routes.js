@@ -1,18 +1,14 @@
-import express from 'express';
+import { Router } from 'express';
+import { createVoucher, getAllVoucher, getAllVoucherForAdmin, getVoucherDetails, updateVoucher, updateVoucherStatus } from '../controllers/voucher.controllers.js';
 import { authenticate } from '../middleware/authenticateMiddleware.js';
-import * as voucherController from '../controllers/voucher.controllers.js';
 
-const router = express.Router();
+const voucherRouter = Router();
 
-// User accessible routes
-router.get('/all', authenticate, voucherController.getAllVouchers);
-router.get('/details/:id', authenticate, voucherController.getVoucherById);
-router.get('/admin/all', authenticate, voucherController.getAllVouchers); // You may want to add authorization here
+voucherRouter.post('/create', authenticate, createVoucher);
+voucherRouter.put('/update/:id', authenticate, updateVoucher);
+voucherRouter.get('/details/:id', authenticate, getVoucherDetails);
+voucherRouter.patch('/update-status/:id', authenticate, updateVoucherStatus);
+voucherRouter.get('/all', authenticate, getAllVoucher);
+voucherRouter.get('/admin/all', authenticate, getAllVoucherForAdmin);
 
-// Admin/management routes
-router.post('/create', authenticate, voucherController.createVoucher);
-router.put('/update/:id', authenticate, voucherController.updateVoucher);
-router.patch('/update-status/:id', authenticate, voucherController.updateVoucherStatus);
-router.delete('/:id', authenticate, voucherController.deleteVoucher);
-
-export default router;
+export default voucherRouter;
