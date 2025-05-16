@@ -51,6 +51,24 @@ const OrderItemSchema = new mongoose.Schema(
 
 const orderSchema = new mongoose.Schema(
     {
+         voucherDiscount: {
+            type: Number,
+            default: 0,
+        },
+        discountType: {
+            type: String,
+            enum: Object.values(DiscountType),
+            required: true,
+            default: null,
+        },
+        voucherName: {
+            type: String,
+            default: null,
+        },
+        voucherCode: {
+            type: String,
+            default: null,
+        },
         userId: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'User',

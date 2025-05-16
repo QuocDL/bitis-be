@@ -9,6 +9,7 @@ import { ORDER_STATUS, PAYMENT_METHOD } from '../constants/orderStatus.js';
 import { ROLE } from '../constants/role.js';
 import mongoose, { set } from 'mongoose';
 import Cart from '../models/cart.js';
+import { checkVoucherIsValid } from './voucherChecking.service.js';
 
 // @GET:  Get all orders
 export const getAllOrders = async (req, res, next) => {
@@ -81,9 +82,42 @@ export const getDetailedOrder = async (req, res, next) => {
 
 // @POST: Create new order
 export const createOrder = async (req, res, next) => {
+   const userId = req.userId;
+    const voucherCode = req.body.voucherCode;
+    let totalPrice = req.body.totalPrice;
+    let shippingFee = 0;
+    let isVoucherForNewUser = false;
+    let discountType = 'fixed';
+    if (req.body.shippingFee) {
+        shippingFee = req.body.shippingFee;
+    }
+    const totalPriceNoShip = req.body.totalPrice - shippingFee;
+    let voucherName = '';
+    let voucherDiscount = 0;
+    const currentUser = await User.findById(userId);
+    if (!currentUser) {
+        throw new NotFoundError(`Không tìm thấy người dùng với id: ${userId}`);
+    }
+
+    // Check voucher
+    if (voucherCode) {
+        const data = await voucherService.checkVoucherIsValid(voucherCode, userId, totalPriceNoShip, shippingFee);
+        voucherName = data.voucherName;
+        voucherDiscount = data.voucherDiscount;
+        totalPrice = data.totalPrice;
+        isVoucherForNewUser = data.isNew;
+        discountType = data.discountType;
+    }
     const order = new Order({
         ...req.body,
         userId: req.userId,
+        orderCode,
+        voucherName,
+        voucherDiscount,
+        shippingFee,
+        voucherCode,
+        totalPrice,
+        discountType,
     });
 
     // Pause for 3 seconds
