@@ -101,11 +101,10 @@ export const createOrder = async (req, res, next) => {
 
     // Check voucher
     if (voucherCode) {
-        const data = await voucherService.checkVoucherIsValid(voucherCode, userId, totalPriceNoShip, shippingFee);
+        const data = await checkVoucherIsValid(voucherCode, userId, totalPriceNoShip, shippingFee);
         voucherName = data.voucherName;
         voucherDiscount = data.voucherDiscount;
         totalPrice = data.totalPrice;
-        isVoucherForNewUser = data.isNew;
         discountType = data.discountType;
     }
     const order = new Order({

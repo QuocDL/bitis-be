@@ -10,21 +10,55 @@ import Cart from '../models/cart.js';
 import Product from '../models/product.js';
 import { BadRequestError, NotFoundError } from '../errors/customError.js';
 import { inventoryService } from './index.js';
+import { rollbackVoucher } from './voucherChecking.service.js';
 export const createPaymentUrlWithVNpay = async (req, res, next) => {
     await new Promise((resolve) => setTimeout(resolve, 2000));
     const ipAddr = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
     const bankCode = '';
     const locale = 'vn';
-    const totalPrice = req.body.totalPrice;
     const paymentMethod = PAYMENT_METHOD.CARD;
     const session = req.session;
     // await inventoryService.updateStockOnCreateOrder(req.body.items, session);
+
+    const userId = req.userId;
+        const voucherCode = req.body.voucherCode;
+        let totalPrice = req.body.totalPrice;
+        let shippingFee = 0;
+        let discountType = 'fixed';
+        if (req.body.shippingFee) {
+            shippingFee = req.body.shippingFee;
+        }
+        const totalPriceNoShip = req.body.totalPrice - shippingFee;
+        let voucherName = '';
+        let voucherDiscount = 0;
+        const currentUser = await User.findById(userId);
+        if (!currentUser) {
+            throw new NotFoundError(`Không tìm thấy người dùng với id: ${userId}`);
+        }
+
+        // Check voucher
+        if (voucherCode) {
+            const data = await checkVoucherIsValid(voucherCode, userId, totalPriceNoShip, shippingFee);
+            voucherName = data.voucherName;
+            voucherDiscount = data.voucherDiscount;
+            totalPrice = data.totalPrice;
+            discountType = data.discountType;
+        }
+
+
     const datacache = {
         ...req.body,
         paymentMethod,
-        totalPrice: totalPrice,
         orderStatus: 'cancelled',
         canceledBy: 'system',
+        userId: req.userId,
+            orderCode,
+            voucherName,
+            voucherDiscount,
+            shippingFee,
+            voucherCode,
+            totalPrice,
+            discountType,
     };
     const order = new Order(datacache);
     await order.save({ session });
@@ -120,6 +154,8 @@ export const vnpayReturn = async (req, res, next) => {
                 },
                 { new: true },
             );
+           await rollbackVoucher(data.voucherCode, data.userId);
+
 
             return res.status(200).json({
                 code: responseCode,
@@ -184,6 +220,7 @@ export const vnpayIpn = async (req, res, next) => {
                 },
                 { new: true },
             );
+           await rollbackVoucher(order.voucherCode, order.userId);
             console.log('Order cancelled in IPN:', updatedOrder);
             return res.status(200).json({
                 code: rspCode,

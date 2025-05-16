@@ -13,7 +13,6 @@ export const checkVoucherIsValid = async (
     Voucher.findOne({ code: voucherCode }).lean(),
     User.findById(userId).lean(),
   ]);
-  const isNewUser = currentUser?.userIsOldWhen > new Date();
 
   if (!voucherCode) {
     return {
@@ -35,9 +34,7 @@ export const checkVoucherIsValid = async (
     throw new BadRequestError(`Người dùng không tồn tại`);
   }
 
-  if (voucherData.isOnlyForNewUser && !isNewUser) {
-    throw new BadRequestError(`Voucher này chỉ dành cho người dùng mới`);
-  }
+  
 
   const now = new Date();
   const startDate = new Date(voucherData.startDate);
