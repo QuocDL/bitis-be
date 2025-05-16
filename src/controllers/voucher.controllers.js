@@ -185,3 +185,24 @@ export const updateVoucher = asyncHandler(async (req, res) => {
     );
 });
 
+export const updateVoucherStatus = asyncHandler(async (req, res) => {
+    const { id } = req.params;
+
+    const existingVoucher = await Voucher.findById(id);
+    if (!existingVoucher) {
+        throw new BadRequestError('Voucher không tồn tại');
+    }
+
+    existingVoucher.status = !existingVoucher.status;
+    await existingVoucher.save();
+
+    return res.status(StatusCodes.OK).json(
+        customResponse({
+            data: existingVoucher,
+            message: 'Cập nhật trạng thái voucher thành công',
+            status: StatusCodes.OK,
+            success: true,
+        }),
+    );
+});
+
