@@ -206,3 +206,21 @@ export const updateVoucherStatus = asyncHandler(async (req, res) => {
     );
 });
 
+export const getVoucherDetails = asyncHandler(async (req, res) => {
+    const { id } = req.params;
+
+    const voucher = await Voucher.findById(id);
+    if (!voucher) {
+        throw new BadRequestError('Voucher không tồn tại');
+    }
+
+    return res.status(StatusCodes.OK).json(
+        customResponse({
+            data: voucher,
+            message: 'Chi tiết voucher',
+            status: StatusCodes.OK,
+            success: true,
+        }),
+    );
+});
+
