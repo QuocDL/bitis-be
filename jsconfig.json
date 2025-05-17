@@ -3,6 +3,12 @@
         "module": "NodeNext",
         "moduleResolution": "NodeNext",
         "target": "ES2022",
-        "allowJs": true
+        "allowJs": true,
+        "baseUrl": ".",
+        "paths": {
+            "*": ["*", "src/*"]
+        },
+        "esModuleInterop": true,
+        "resolveJsonModule": true
     }
 }
