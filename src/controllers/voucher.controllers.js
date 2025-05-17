@@ -257,6 +257,10 @@ export const getAllVoucher = asyncHandler(async (req, res) => {
         }),
     );
 
+    // // Split vouchers by discount type
+    // const percentageVouchers = processedVouchers.filter((voucher) => voucher.discountType === DiscountType.Percentage);
+    // const fixedVouchers = processedVouchers.filter((voucher) => voucher.discountType === DiscountType.Fixed);
+
     return res.status(StatusCodes.OK).json(
         customResponse({
             data: processedVouchers,

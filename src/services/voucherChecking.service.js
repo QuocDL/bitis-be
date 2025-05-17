@@ -34,7 +34,7 @@ export const checkVoucherIsValid = async (
     throw new BadRequestError(`Người dùng không tồn tại`);
   }
 
-  
+
 
   const now = new Date();
   const startDate = new Date(voucherData.startDate);
@@ -87,7 +87,6 @@ export const checkVoucherIsValid = async (
     discountType: voucherData.discountType,
     maxDiscountAmount: voucherData.maxDiscountAmount || 0,
     totalPrice,
-    isNew: voucherData.isOnlyForNewUser,
   };
 };
 
