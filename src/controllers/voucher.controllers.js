@@ -1,13 +1,12 @@
-import asyncHandler from "../helpers/asyncHandler.js";
-import APIQuery from "../utils/APIQuery.js";
+import asyncHandler from '../helpers/asyncHandler.js';
+import APIQuery from '../utils/APIQuery.js';
 import Voucher from '../models/voucher.js';
-import { BadRequestError } from "../errors/customError.js";
-import { generateCode } from "../utils/gennerateCode.js";
-import customResponse from "../helpers/response.js";
-import { StatusCodes } from "http-status-codes";
-import UsedVoucher from "../models/usedVoucher.js";
-
-
+import { BadRequestError } from '../errors/customError.js';
+import { generateCode } from '../utils/gennerateCode.js';
+import customResponse from '../helpers/response.js';
+import { StatusCodes } from 'http-status-codes';
+import UsedVoucher from '../models/usedVoucher.js';
+// import usedVoucher from '../models/usedVoucher.js';
 
 export const createVoucher = asyncHandler(async (req, res) => {
     const {
@@ -48,7 +47,7 @@ export const createVoucher = asyncHandler(async (req, res) => {
         throw new BadRequestError('Số lần sử dụng mỗi người phải lớn hơn 0');
     }
 
-    if (new Date(startDate) < currentDate || new Date(endDate) < currentDate) {
+    if (new Date(endDate) < currentDate) {
         throw new BadRequestError('Ngày bắt đầu và ngày kết thúc phải sau ngày hiện tại');
     }
 
@@ -232,7 +231,6 @@ export const getAllVoucher = asyncHandler(async (req, res) => {
 
     const ListVouchers = await Voucher.find({
         status: true,
-        isOnlyForNewUser: false,
         startDate: { $lte: currentDate },
         endDate: { $gte: currentDate },
         maxUsage: { $gt: 0 },
@@ -243,7 +241,7 @@ export const getAllVoucher = asyncHandler(async (req, res) => {
             const voucherUsedByUser = await UsedVoucher.findOne({ userId, voucherCode: voucher.code });
 
             // Get total usage count across all users
-            const voucherUsageAggregate = await usedVoucher.aggregate([
+            const voucherUsageAggregate = await UsedVoucher.aggregate([
                 { $match: { voucherCode: voucher.code } },
                 { $group: { _id: null, totalUsage: { $sum: '$usageCount' } } },
             ]);
