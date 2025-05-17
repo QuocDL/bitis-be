@@ -11,6 +11,7 @@ import Product from '../models/product.js';
 import { BadRequestError, NotFoundError } from '../errors/customError.js';
 import { inventoryService } from './index.js';
 import { rollbackVoucher } from './voucherChecking.service.js';
+import User from '../models/user.js';
 export const createPaymentUrlWithVNpay = async (req, res, next) => {
     await new Promise((resolve) => setTimeout(resolve, 2000));
     const ipAddr = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
