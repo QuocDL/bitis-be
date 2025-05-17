@@ -10,6 +10,7 @@ import { ROLE } from '../constants/role.js';
 import mongoose, { set } from 'mongoose';
 import Cart from '../models/cart.js';
 import { checkVoucherIsValid } from './voucherChecking.service.js';
+import User from '../models/user.js';
 
 // @GET:  Get all orders
 export const getAllOrders = async (req, res, next) => {
@@ -110,7 +111,6 @@ export const createOrder = async (req, res, next) => {
     const order = new Order({
         ...req.body,
         userId: req.userId,
-        orderCode,
         voucherName,
         voucherDiscount,
         shippingFee,
