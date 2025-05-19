@@ -8,7 +8,7 @@ voucherRouter.post('/create', authenticate, createVoucher);
 voucherRouter.put('/update/:id', authenticate, updateVoucher);
 voucherRouter.get('/details/:id', authenticate, getVoucherDetails);
 voucherRouter.patch('/update-status/:id', authenticate, updateVoucherStatus);
-voucherRouter.get('/all', getAllVoucher);
+voucherRouter.get('/all', authenticate, getAllVoucher);
 voucherRouter.get('/admin/all', authenticate, getAllVoucherForAdmin);
 
 export default voucherRouter;

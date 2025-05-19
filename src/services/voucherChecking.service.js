@@ -3,6 +3,10 @@ import UsedVoucher from '../models/usedVoucher.js';
 import User from '../models/user.js';
 import { BadRequestError } from '../errors/customError.js';
 
+const DiscountType = {
+    Percentage: 'percentage',
+    fixed: 'fixed'
+}
 export const checkVoucherIsValid = async (voucherCode, userId, totalPriceNoShip, shippingFee) => {
     const [voucherData, currentUser] = await Promise.all([
         Voucher.findOne({ code: voucherCode }).lean(),

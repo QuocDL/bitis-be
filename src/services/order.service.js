@@ -103,6 +103,7 @@ export const createOrder = async (req, res, next) => {
     // Check voucher
     if (voucherCode) {
         const data = await checkVoucherIsValid(voucherCode, userId, totalPriceNoShip, shippingFee);
+        console.log(data)
         voucherName = data.voucherName;
         voucherDiscount = data.voucherDiscount;
         totalPrice = data.totalPrice;
