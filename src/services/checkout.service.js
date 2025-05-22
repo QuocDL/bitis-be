@@ -66,7 +66,7 @@ export const createPaymentUrlWithVNpay = async (req, res, next) => {
         bankCode,
         locale,
         amount: totalPrice,
-        vnPayReturnUrl: envConfig.VN_PAY_CONFIG.vnp_ReturnUrl,
+        vnPayReturnUrl: `${envConfig.VN_PAY_CONFIG.vnp_ReturnUrl}/${order._id.toString()}`,
         orderId: order._id.toString(),
     });
 
