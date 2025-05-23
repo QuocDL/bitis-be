@@ -38,7 +38,10 @@ export const getDiscountProducts = async () => {
 
 export const createProduct = async (productData, files) => {
     let variationList;
-
+    const checkName = await Product.findOne({ name: productData.name });
+    if (checkName && checkName._id.toString() !== productId) {
+        throw new BadRequestError('Tên sản phẩm đã tồn tại');
+    }
     // @upload images
     if (files && files['variantImages']) {
         const { fileUrls, fileUrlRefs, originNames } = await uploadFiles(files['variantImages']);
