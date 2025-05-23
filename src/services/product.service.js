@@ -88,6 +88,10 @@ export const updateProduct = async (productId, oldImageUrlRefs, files, variants,
     const product = await Product.findById(productId);
     let newVariants = [];
     let oldVariants = [];
+    const checkName = await Product.findOne({ name: productNew.name });
+    if (checkName && checkName._id.toString() !== productId) {
+        throw new BadRequestError('Tên sản phẩm đã tồn tại');
+    }
     // if (hasDuplicates(variants.map((item) => item.imageUrlRef))) {
     //   throw new BadRequestError("File ảnh không được trùng nhau");
     // }
