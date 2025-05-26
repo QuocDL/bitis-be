@@ -7,9 +7,11 @@ import handleQuery from '../utils/handleQuery.js';
 export const createNewColor = async (req, res, next) => {
     // Check if a color with the same name already exists
     const existingColor = await Color.findOne({ name: req.body.name.toLowerCase() });
+    const existingColorUpperCase = await Color.findOne({ name: req.body.name });
     req.body.name = req.body.name.toLowerCase();
 
-    if (existingColor) {
+
+    if (existingColor ||existingColorUpperCase) {
         return res.status(StatusCodes.CONFLICT).json(
             customResponse({
                 data: null,
@@ -19,6 +21,7 @@ export const createNewColor = async (req, res, next) => {
             }),
         );
     }
+
 
     const color = await Color.create(req.body);
 

@@ -190,8 +190,12 @@ export const updateVoucherStatus = asyncHandler(async (req, res) => {
     const { id } = req.params;
 
     const existingVoucher = await Voucher.findById(id);
+    const existingVoucherName = await Voucher.findOne({ name: req.name, _id: { $ne: id } });
     if (!existingVoucher) {
         throw new BadRequestError('Voucher không tồn tại');
+    }
+    if (existingVoucherName) {
+        throw new BadRequestError('Tên voucher đã tồn tại');
     }
 
     existingVoucher.status = !existingVoucher.status;
