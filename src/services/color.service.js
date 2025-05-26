@@ -5,13 +5,27 @@ import handleQuery from '../utils/handleQuery.js';
 
 // @Post create new color
 export const createNewColor = async (req, res, next) => {
+    // Check if a color with the same name already exists
+    const existingColor = await Color.findOne({ name: req.body.name.toLowerCase() });
+
+    if (existingColor) {
+        return res.status(StatusCodes.CONFLICT).json(
+            customResponse({
+                data: null,
+                message: 'Tên màu đã tồn tại',
+                status: StatusCodes.CONFLICT,
+                success: false,
+            }),
+        );
+    }
+
     const color = await Color.create(req.body);
 
     return res.status(StatusCodes.CREATED).json(
         customResponse({
             data: color,
             message: ReasonPhrases.CREATED,
-            status: StatusCodes.OK,
+            status: StatusCodes.CREATED,
             success: true,
         }),
     );
