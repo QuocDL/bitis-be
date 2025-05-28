@@ -69,7 +69,7 @@ export const login = async (req, res, next) => {
     }
     if (!foundedUser.isActive) {
          const verifyToken = generateToken(payload, envConfig.JWT_VERIFY, '3m');
-    await saveToken(verifyToken, user, 'verify');
+    await saveToken(verifyToken, foundedUser, 'verify');
     const contentEmail = {
         subject: '[BITTIS] - Kích Hoạt Tài Khoản',
         content: {
@@ -81,7 +81,7 @@ export const login = async (req, res, next) => {
         },
         link: {
             linkName: 'Kích Hoạt Tài Khoản',
-            linkHerf: `http://localhost:3000/verifyAccount?tk=${verifyToken}&email=${user.email}`,
+            linkHerf: `http://localhost:3000/verifyAccount?tk=${verifyToken}&email=${foundedUser.email}`,
         },
     };
     sendMail({ email: req.body.email, template: contentEmail, type: 'Verify' });
