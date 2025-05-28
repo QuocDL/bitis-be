@@ -206,7 +206,7 @@ export const getRelatedProducts = async (req, res, next) => {
 
     if (!product) throw new NotFoundError(`${ReasonPhrases.NOT_FOUND} product with id: ${req.params.id}`);
 
-    const products = await Product.find({ tags: { $in: product.tags } }).limit(10);
+    const products = await Product.find({ tags: { $in: product.tags }, ...clientRequiredFields }).limit(10);
 
     return res.status(StatusCodes.OK).json(
         customResponse({
