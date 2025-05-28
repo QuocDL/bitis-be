@@ -8,7 +8,14 @@ export const getProvince = async (req, res) => {
         method: HTTP_METHOD.GET,
         url: ENDPOINT.GET_PROVINCE,
     });
-    return response;
+    const filterProvinceId = [2002, 298, 290, 286];
+    const dataFiltered = response.data.filter((item) => !filterProvinceId.includes(item.ProvinceID));
+    const newResponse = {
+        code: response.code,
+        message: response.message,
+        data: dataFiltered
+    }
+    return newResponse;
 };
 
 export const getDistrict = async (req, res) => {
