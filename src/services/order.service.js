@@ -83,7 +83,9 @@ export const getDetailedOrder = async (req, res, next) => {
 
 // @POST: Create new order
 export const createOrder = async (req, res, next) => {
-   const userId = req.userId;
+    await new Promise((resolve) => setTimeout(resolve, Math.floor(Math.random() * 900) + 100));
+
+    const userId = req.userId;
     const voucherCode = req.body.voucherCode;
     let totalPrice = req.body.totalPrice;
     let shippingFee = 0;
@@ -103,7 +105,7 @@ export const createOrder = async (req, res, next) => {
     // Check voucher
     if (voucherCode) {
         const data = await checkVoucherIsValid(voucherCode, userId, totalPriceNoShip, shippingFee);
-        console.log(data)
+        console.log(data);
         voucherName = data.voucherName;
         voucherDiscount = data.voucherDiscount;
         totalPrice = data.totalPrice;
