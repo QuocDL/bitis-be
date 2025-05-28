@@ -49,20 +49,27 @@ export const checkVoucherIsValid = async (voucherCode, userId, totalPriceNoShip,
         throw new BadRequestError(`Voucher ${voucherCode} đã hết hạn quý khách vui lòng chọn voucher khác`);
     }
 
-    const userVoucher = await UsedVoucher.findOne({ userId, voucherCode: voucherCode });
+    const usedVoucherByUser = await UsedVoucher.findOne({ userId, voucherCode: voucherCode });
+    const voucherList = await UsedVoucher.find({ voucherCode: voucherCode });
+    const totalUsed = voucherList.reduce((acc, item) => acc + item.usageCount, 0);
+    if (voucherData.maxUsage > 0 && totalUsed >= voucherData.maxUsage) {
+        throw new BadRequestError(`Voucher ${voucherCode} đã hết lượt sử dụng`);
+    }
 
-    if (!userVoucher) {
+
+
+    if (!usedVoucherByUser) {
         await UsedVoucher.create({
             userId: userId,
             voucherCode: voucherCode,
             usageCount: 1,
         });
     } else {
-        if (userVoucher && userVoucher.usageCount >= voucherData.usagePerUser) {
+        if (usedVoucherByUser && usedVoucherByUser.usageCount >= voucherData.usagePerUser) {
             throw new BadRequestError(`Voucher ${voucherCode} đã hết lượt sử dụng`);
         }
-        userVoucher.usageCount = userVoucher.usageCount + 1;
-        await userVoucher.save();
+        usedVoucherByUser.usageCount = usedVoucherByUser.usageCount + 1;
+        await usedVoucherByUser.save();
     }
 
     let actualDiscount = voucherData.voucherDiscount;
