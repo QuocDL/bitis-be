@@ -9,7 +9,7 @@ import { ORDER_STATUS, PAYMENT_METHOD } from '../constants/orderStatus.js';
 import { ROLE } from '../constants/role.js';
 import mongoose, { set } from 'mongoose';
 import Cart from '../models/cart.js';
-import { checkVoucherIsValid } from './voucherChecking.service.js';
+import { checkVoucherIsValid, rollbackVoucher } from './voucherChecking.service.js';
 import User from '../models/user.js';
 
 // @GET:  Get all orders
@@ -246,6 +246,7 @@ export const cancelOrder = async (req, res, next) => {
                 address: `[${foundedOrder.shippingAddress.address}] -${foundedOrder.paymentMethod === PAYMENT_METHOD.CARD ? '' : ` ${foundedOrder.shippingAddress.ward}, ${foundedOrder.shippingAddress.district},`} ${foundedOrder.shippingAddress.province}, ${foundedOrder.shippingAddress.country}`,
             },
         };
+        await rollbackVoucher(foundedOrder.voucherCode, foundedOrder.userId);
         await sendMail({
             email: foundedOrder.customerInfo.email,
             template,
