@@ -68,6 +68,23 @@ export const login = async (req, res, next) => {
         throw new BadRequestError('Thông tin đăng nhập không chính xác');
     }
     if (!foundedUser.isActive) {
+         const verifyToken = generateToken(payload, envConfig.JWT_VERIFY, '3m');
+    await saveToken(verifyToken, user, 'verify');
+    const contentEmail = {
+        subject: '[BITTIS] - Kích Hoạt Tài Khoản',
+        content: {
+            title: 'Kích Hoạt Tài Khoản Của Bạn',
+            warning: 'Nếu bạn không kích hoạt tài khoản, bạn sẽ không sử dụng được toàn bộ dịch vụ của chúng tôi',
+            description:
+                'Cảm ơn bạn vì đã lựa chọn BITTIS! Để hoàn tất việc đăng ký tài khoản, vui lòng nhấn vào đường dẫn dưới đây:',
+            email: req.body.email,
+        },
+        link: {
+            linkName: 'Kích Hoạt Tài Khoản',
+            linkHerf: `http://localhost:3000/verifyAccount?tk=${verifyToken}&email=${user.email}`,
+        },
+    };
+    sendMail({ email: req.body.email, template: contentEmail, type: 'Verify' });
         throw new BadRequestError('Tài khoản của bạn chưa được kích hoạt vui lòng kiểm tra lại email');
     }
     const accessToken = generateToken(payload, envConfig.JWT_SECRET, '123423d');
