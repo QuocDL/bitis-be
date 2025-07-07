@@ -10,7 +10,7 @@ import { initializeApp } from 'firebase/app';
 import { handleInsertData } from './data/index.js';
 const app = express();
 const corsOptions = {
-    origin: 'http://localhost:3000',
+    origin: 'https://bittis.tuananhlab.com/',
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
