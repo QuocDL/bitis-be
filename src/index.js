@@ -9,7 +9,7 @@ import { envConfig } from './config/env.js';
 import { initializeApp } from 'firebase/app';
 import { handleInsertData } from './data/index.js';
 const app = express();
-export const corsOptions = {
+const corsOptions = {
     origin: (origin: any, callback: any) => {
         if (["https://bittis.tuananhlab.com/"].indexOf(origin) !== -1 || !origin) {
             callback(null, true);
