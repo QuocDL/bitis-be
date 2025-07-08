@@ -10,8 +10,8 @@ import { initializeApp } from 'firebase/app';
 import { handleInsertData } from './data/index.js';
 const app = express();
 const corsOptions = {
-    origin: (origin: any, callback: any) => {
-        if (["https://bittis.tuananhlab.com/"].indexOf(origin) !== -1 || !origin) {
+    origin: (origin, callback) => {
+        if (["https://bittis.tuananhlab.com"].indexOf(origin) !== -1 || !origin) {
             callback(null, true);
         } else {
             callback(new Error('Not allowed by CORS'));
