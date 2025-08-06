@@ -1,0 +1,1893 @@
+[{
+  "_id": {
+    "$oid": "68935032b9d0f63966929267"
+  },
+  "name": "Áo Bóng Đá Chuyên Nghiệp ProKick",
+  "isActive": true,
+  "category": {
+    "$oid": "68935032b9d0f639669292de"
+  },
+  "discount": 16,
+  "price": 525000,
+  "variants": [
+    {
+      "color": {
+        "$oid": "68935033b9d0f63966929301"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292f0"
+      },
+      "stock": 195,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2Ff4dec1a3-6315-449f-a9ff-9aac6f749f65_____2.jpg_____.jpg%2F2025-05-17-18%3A33%3A34?alt=media&token=872f408c-d834-473e-b83a-c4eaa3b552f7",
+      "imageUrlRef": "files/f4dec1a3-6315-449f-a9ff-9aac6f749f65_____2.jpg_____.jpg/2025-05-17-18:33:34",
+      "_id": {
+        "$oid": "68935a4b07c28c5f2ab41735"
+      }
+    }
+  ],
+  "description": "New\r\n",
+  "sold": 26,
+  "rating": 0,
+  "reviewCount": 0,
+  "tags": [
+    {
+      "$oid": "68935033b9d0f639669292ea"
+    },
+    {
+      "$oid": "68935033b9d0f639669292e7"
+    },
+    {
+      "$oid": "68935033b9d0f639669292e6"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-03-28T08:10:32.613Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-06T13:36:11.863Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935032b9d0f63966929269"
+  },
+  "name": "Áo GameDay - Phong Cách Chiến Đấu",
+  "isActive": true,
+  "category": {
+    "$oid": "68935032b9d0f639669292e3"
+  },
+  "discount": 13,
+  "price": 525000,
+  "variants": [
+    {
+      "color": {
+        "$oid": "68935033b9d0f639669292f5"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292f2"
+      },
+      "stock": 213,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2F18af4cce-c73e-445a-a26c-44323c5f45e9_____5.jpg_____.jpg%2F2025-05-17-20%3A11%3A17?alt=media&token=20e45707-2a73-42d2-968f-2f3a04ff8b6a",
+      "imageUrlRef": "files/18af4cce-c73e-445a-a26c-44323c5f45e9_____5.jpg_____.jpg/2025-05-17-20:11:17",
+      "_id": {
+        "$oid": "689359d407c28c5f2ab415e3"
+      }
+    }
+  ],
+  "description": "New",
+  "sold": 8,
+  "rating": 0,
+  "reviewCount": 0,
+  "tags": [
+    {
+      "$oid": "68935033b9d0f639669292e7"
+    },
+    {
+      "$oid": "68935033b9d0f639669292ea"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-03-28T08:10:32.614Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-06T13:34:12.101Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935032b9d0f6396692926b"
+  },
+  "name": "Áo Bóng Đá Golden Goal Jersey",
+  "isActive": true,
+  "category": {
+    "$oid": "68935032b9d0f639669292e4"
+  },
+  "discount": 28,
+  "price": 525000,
+  "variants": [
+    {
+      "color": {
+        "$oid": "68935033b9d0f639669292f7"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292f2"
+      },
+      "stock": 213,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2F07a65df7-5333-49f9-b8a3-f98cf13fa8c1_____14.jpg_____.jpg%2F2025-05-17-18%3A43%3A25?alt=media&token=64b2d441-acbd-4ed5-9c6e-4ac48d5659c0",
+      "imageUrlRef": "files/07a65df7-5333-49f9-b8a3-f98cf13fa8c1_____14.jpg_____.jpg/2025-05-17-18:43:25",
+      "_id": {
+        "$oid": "689359df07c28c5f2ab415ef"
+      }
+    }
+  ],
+  "description": "New",
+  "sold": 9,
+  "rating": 0,
+  "reviewCount": 0,
+  "tags": [
+    {
+      "$oid": "68935033b9d0f639669292e6"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-03-28T08:10:32.614Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-06T13:34:23.024Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935032b9d0f6396692926d"
+  },
+  "name": "Áo Training Bóng Đá SpeedRun",
+  "isActive": true,
+  "category": {
+    "$oid": "68935032b9d0f639669292de"
+  },
+  "discount": 48,
+  "price": 525000,
+  "variants": [
+    {
+      "color": {
+        "$oid": "68935033b9d0f639669292fa"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292f3"
+      },
+      "stock": 212,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2Fc327ba5d-285d-4229-9c86-3b32298aa0b8_____11.jpg_____.jpg%2F2025-05-17-18%3A42%3A28?alt=media&token=027d2dfe-7e0f-40f6-b7e4-badf16c0a451",
+      "imageUrlRef": "files/c327ba5d-285d-4229-9c86-3b32298aa0b8_____11.jpg_____.jpg/2025-05-17-18:42:28",
+      "_id": {
+        "$oid": "68935a4107c28c5f2ab41727"
+      }
+    }
+  ],
+  "description": "New",
+  "sold": 9,
+  "rating": 0,
+  "reviewCount": 0,
+  "tags": [
+    {
+      "$oid": "68935033b9d0f639669292e7"
+    },
+    {
+      "$oid": "68935033b9d0f639669292e6"
+    },
+    {
+      "$oid": "68935033b9d0f639669292ec"
+    },
+    {
+      "$oid": "68935033b9d0f639669292e9"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-03-28T08:10:32.613Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-06T13:36:01.356Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935032b9d0f6396692926f"
+  },
+  "name": "Áo Đấu Sân Nhà Victory Jersey",
+  "isActive": false,
+  "category": {
+    "$oid": "68935032b9d0f639669292e4"
+  },
+  "discount": 22,
+  "price": 525000,
+  "variants": [
+    {
+      "color": {
+        "$oid": "68935033b9d0f639669292fd"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292f2"
+      },
+      "stock": 172,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2F29be1b62-4d1d-4363-9630-15583193dab8_____7.jpg_____.jpg%2F2025-05-17-18%3A36%3A09?alt=media&token=466eed29-8ed8-4138-a8de-f4760d151430",
+      "imageUrlRef": "files/29be1b62-4d1d-4363-9630-15583193dab8_____7.jpg_____.jpg/2025-05-17-18:36:09",
+      "_id": {
+        "$oid": "68935a3807c28c5f2ab41713"
+      }
+    }
+  ],
+  "description": "Áo khoác dạ lông cừu cao cấp mang đến phong cách thanh lịch và ấm áp, phù hợp với mọi phong cách và hoàn cảnh.\r\n    Với chất liệu mềm mại và thiết kế tinh tế, sản phẩm là lựa chọn hoàn hảo cho mùa đông này.\r\n",
+  "sold": 262,
+  "rating": 0,
+  "reviewCount": 0,
+  "tags": [
+    {
+      "$oid": "68935033b9d0f639669292e7"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-03-28T08:10:32.613Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-06T13:35:52.308Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935032b9d0f63966929271"
+  },
+  "name": "Áo Đội Tuyển Nam KingPower Jersey",
+  "isActive": true,
+  "category": {
+    "$oid": "68935032b9d0f639669292e1"
+  },
+  "discount": 34,
+  "price": 525000,
+  "variants": [
+    {
+      "color": {
+        "$oid": "68935033b9d0f639669292fe"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292f2"
+      },
+      "stock": 206,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2Fb167eda4-e2b2-4f87-aeba-2455616f6210_____18.jpg_____.jpg%2F2025-05-17-19%3A00%3A36?alt=media&token=963d26fd-172b-44a4-80cf-c3f23eb6926b",
+      "imageUrlRef": "files/b167eda4-e2b2-4f87-aeba-2455616f6210_____18.jpg_____.jpg/2025-05-17-19:00:36",
+      "_id": {
+        "$oid": "68935a3207c28c5f2ab41705"
+      }
+    }
+  ],
+  "description": "New",
+  "sold": 16,
+  "rating": 0,
+  "reviewCount": 0,
+  "tags": [
+    {
+      "$oid": "68935033b9d0f639669292e9"
+    },
+    {
+      "$oid": "68935033b9d0f639669292e6"
+    },
+    {
+      "$oid": "68935033b9d0f639669292ec"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-03-28T08:10:32.613Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-06T13:35:46.086Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935032b9d0f63966929273"
+  },
+  "name": "Áo Đấu Đội Tuyển YoungLions",
+  "isActive": true,
+  "category": {
+    "$oid": "68935032b9d0f639669292de"
+  },
+  "discount": 0,
+  "price": 525000,
+  "variants": [
+    {
+      "color": {
+        "$oid": "68935033b9d0f639669292fa"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292ee"
+      },
+      "stock": 213,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2Fd7ea0956-50e1-4d0a-a26c-8b87a0bf7172_____16.jpg_____.jpg%2F2025-05-17-18%3A43%3A58?alt=media&token=3b8a53d2-5906-4986-9773-ea6bc6964d5c",
+      "imageUrlRef": "files/d7ea0956-50e1-4d0a-a26c-8b87a0bf7172_____16.jpg_____.jpg/2025-05-17-18:43:58",
+      "_id": {
+        "$oid": "689359e807c28c5f2ab415ff"
+      }
+    }
+  ],
+  "description": "New",
+  "sold": 8,
+  "rating": 0,
+  "reviewCount": 0,
+  "tags": [
+    {
+      "$oid": "68935033b9d0f639669292eb"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-03-28T08:10:32.614Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-06T13:34:32.881Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935032b9d0f63966929275"
+  },
+  "name": "Áo Bóng Đá Thiết Kế FC Style",
+  "isActive": true,
+  "category": {
+    "$oid": "68935032b9d0f639669292e1"
+  },
+  "discount": 9,
+  "price": 525000,
+  "variants": [
+    {
+      "color": {
+        "$oid": "68935033b9d0f63966929305"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292f3"
+      },
+      "stock": 213,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2F4b11bf5e-0d05-40cf-adc9-f3005a164b8e_____12.jpg_____.jpg%2F2025-05-17-18%3A42%3A45?alt=media&token=244a72ff-ecf2-4352-a81d-8a98f4c6e0bb",
+      "imageUrlRef": "files/4b11bf5e-0d05-40cf-adc9-f3005a164b8e_____12.jpg_____.jpg/2025-05-17-18:42:45",
+      "_id": {
+        "$oid": "689359f907c28c5f2ab41655"
+      }
+    }
+  ],
+  "description": "New",
+  "sold": 8,
+  "rating": 0,
+  "reviewCount": 0,
+  "tags": [
+    {
+      "$oid": "68935033b9d0f639669292e7"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-03-28T08:10:32.613Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-06T13:34:49.343Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935032b9d0f63966929277"
+  },
+  "name": "Áo Đá Banh Không Logo Freedom Fit",
+  "isActive": false,
+  "category": {
+    "$oid": "68935032b9d0f639669292e4"
+  },
+  "discount": 34,
+  "price": 500000,
+  "variants": [
+    {
+      "color": {
+        "$oid": "68935033b9d0f63966929300"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292ee"
+      },
+      "stock": 197,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2Fa0278930-2575-4218-bf68-4b77a561fb39_____8.jpg_____.jpg%2F2025-05-17-19%3A07%3A52?alt=media&token=7d61c589-908c-4c9c-b715-49c92102fd51",
+      "imageUrlRef": "files/a0278930-2575-4218-bf68-4b77a561fb39_____8.jpg_____.jpg/2025-05-17-19:07:52",
+      "_id": {
+        "$oid": "68935a0aa35cdcffbf92b998"
+      }
+    }
+  ],
+  "description": "New",
+  "sold": 26,
+  "rating": 0,
+  "reviewCount": 0,
+  "tags": [
+    {
+      "$oid": "68935033b9d0f639669292e9"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-03-28T08:10:32.613Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-06T13:35:06.054Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935032b9d0f63966929279"
+  },
+  "name": "Áo Bóng Đá CoolFit Thoáng Khí",
+  "isActive": true,
+  "category": {
+    "$oid": "68935032b9d0f639669292e3"
+  },
+  "discount": 11,
+  "price": 525000,
+  "variants": [
+    {
+      "color": {
+        "$oid": "68935033b9d0f63966929304"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292f0"
+      },
+      "stock": 213,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2F96038133-0a73-4fde-a23f-c0ba76f4ce53_____8.jpg_____.jpg%2F2025-05-17-18%3A36%3A56?alt=media&token=00cfbf0c-9c6a-48e2-a852-f67a6eace37a",
+      "imageUrlRef": "files/96038133-0a73-4fde-a23f-c0ba76f4ce53_____8.jpg_____.jpg/2025-05-17-18:36:56",
+      "_id": {
+        "$oid": "68935a1207c28c5f2ab416b5"
+      }
+    }
+  ],
+  "description": "New\r\n",
+  "sold": 8,
+  "rating": 0,
+  "reviewCount": 0,
+  "tags": [
+    {
+      "$oid": "68935033b9d0f639669292e7"
+    },
+    {
+      "$oid": "68935033b9d0f639669292e9"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-03-28T08:10:32.613Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-06T13:35:14.870Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935032b9d0f6396692927b"
+  },
+  "name": "Áo Thể Thao Sân 5 StreetBall",
+  "isActive": true,
+  "category": {
+    "$oid": "68935032b9d0f639669292e3"
+  },
+  "discount": 16,
+  "price": 525000,
+  "variants": [
+    {
+      "color": {
+        "$oid": "68935033b9d0f63966929306"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292f2"
+      },
+      "stock": 213,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2F0b728f5f-e72c-49b1-92dc-b80b8f34eb00_____6.jpg_____.jpg%2F2025-05-17-18%3A35%3A43?alt=media&token=9c5616ac-39e1-4509-9538-7634780872b9",
+      "imageUrlRef": "files/0b728f5f-e72c-49b1-92dc-b80b8f34eb00_____6.jpg_____.jpg/2025-05-17-18:35:43",
+      "_id": {
+        "$oid": "68287e44f0911d8bffca9fb0"
+      }
+    }
+  ],
+  "description": "New",
+  "sold": 8,
+  "rating": 0,
+  "reviewCount": 0,
+  "tags": [
+    {
+      "$oid": "67e65978fcc355be76ef6bb8"
+    },
+    {
+      "$oid": "67e65978fcc355be76ef6bb9"
+    },
+    {
+      "$oid": "67e65978fcc355be76ef6bba"
+    },
+    {
+      "$oid": "67e65978fcc355be76ef6bbb"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-03-28T08:10:32.613Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-06T13:07:20.333Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935032b9d0f6396692927d"
+  },
+  "name": "Áo Đấu Phủi WinnerWear",
+  "isActive": true,
+  "category": {
+    "$oid": "68935032b9d0f639669292e1"
+  },
+  "discount": 27,
+  "price": 525000,
+  "variants": [
+    {
+      "color": {
+        "$oid": "68935033b9d0f639669292f9"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292f3"
+      },
+      "stock": 213,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2Fab2facf1-7a5a-497c-abc1-972733bc1caf_____12.jpg_____.jpg%2F2025-05-17-19%3A09%3A00?alt=media&token=8ea51b9f-aa53-4524-903f-9746e598a55d",
+      "imageUrlRef": "files/ab2facf1-7a5a-497c-abc1-972733bc1caf_____12.jpg_____.jpg/2025-05-17-19:09:00",
+      "_id": {
+        "$oid": "68287e57f0911d8bffcaa0e9"
+      }
+    }
+  ],
+  "description": "New\r\n",
+  "sold": 8,
+  "rating": 0,
+  "reviewCount": 0,
+  "tags": [
+    {
+      "$oid": "67e65978fcc355be76ef6bb8"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-03-28T08:10:32.613Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-06T13:07:20.439Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935032b9d0f6396692927f"
+  },
+  "name": "Áo Bóng Đá Phối Màu Dynamic Line",
+  "isActive": true,
+  "category": {
+    "$oid": "68935032b9d0f639669292df"
+  },
+  "discount": 4,
+  "price": 525000,
+  "variants": [
+    {
+      "color": {
+        "$oid": "68935033b9d0f639669292f6"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292f1"
+      },
+      "stock": 205,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2F8584dcf7-332e-4e9a-9d89-63e7f69615c1_____3.jpg_____.jpg%2F2025-05-17-18%3A34%3A05?alt=media&token=d60926ae-63f0-4c5a-8bdb-74e356e52250",
+      "imageUrlRef": "files/8584dcf7-332e-4e9a-9d89-63e7f69615c1_____3.jpg_____.jpg/2025-05-17-18:34:05",
+      "_id": {
+        "$oid": "68935a2307c28c5f2ab416f9"
+      }
+    }
+  ],
+  "description": "New\r\n",
+  "sold": 16,
+  "rating": 0,
+  "reviewCount": 0,
+  "tags": [
+    {
+      "$oid": "68935033b9d0f639669292ea"
+    },
+    {
+      "$oid": "68935033b9d0f639669292e7"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-03-28T08:10:32.613Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-06T13:35:31.744Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935032b9d0f63966929281"
+  },
+  "name": "Áo Đấu Phủi Cá Tính StreetVibe",
+  "isActive": true,
+  "category": {
+    "$oid": "68935032b9d0f639669292e4"
+  },
+  "discount": 42,
+  "price": 525000,
+  "variants": [
+    {
+      "color": {
+        "$oid": "68935033b9d0f639669292f6"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292f3"
+      },
+      "stock": 211,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2F6293426f-21ce-4452-862a-a367d1dbc3e3_____13.jpg_____.jpg%2F2025-05-17-18%3A43%3A10?alt=media&token=72e2988a-490b-458e-99e5-db2e299b4519",
+      "imageUrlRef": "files/6293426f-21ce-4452-862a-a367d1dbc3e3_____13.jpg_____.jpg/2025-05-17-18:43:10",
+      "_id": {
+        "$oid": "689359f107c28c5f2ab41629"
+      }
+    }
+  ],
+  "description": "New",
+  "sold": 10,
+  "rating": 0,
+  "reviewCount": 0,
+  "tags": [
+    {
+      "$oid": "68935033b9d0f639669292e9"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-03-28T08:10:32.614Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-06T13:34:41.675Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935032b9d0f63966929283"
+  },
+  "name": "Áo khoác bòsdfsdf",
+  "isActive": false,
+  "category": {
+    "$oid": "68935032b9d0f639669292e0"
+  },
+  "discount": 0,
+  "price": 234234,
+  "variants": [
+    {
+      "color": {
+        "$oid": "68935033b9d0f639669292fe"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292f1"
+      },
+      "stock": 23423,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2Fa17df268-7818-409c-b5b6-ade4dcdcf2a7_____18.jpg_____.jpg%2F2025-05-17-18%3A44%3A37?alt=media&token=30dcad59-3016-402d-a27e-ffad59ef9b97",
+      "imageUrlRef": "files/a17df268-7818-409c-b5b6-ade4dcdcf2a7_____18.jpg_____.jpg/2025-05-17-18:44:37",
+      "_id": {
+        "$oid": "689359caa35cdcffbf92b8ec"
+      }
+    }
+  ],
+  "description": "sdfsdf",
+  "sold": 0,
+  "rating": 0,
+  "reviewCount": 0,
+  "tags": [
+    {
+      "$oid": "68935033b9d0f639669292e7"
+    },
+    {
+      "$oid": "68935033b9d0f639669292e6"
+    },
+    {
+      "$oid": "68935033b9d0f639669292ea"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-03-28T14:38:47.796Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-06T13:34:02.313Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935032b9d0f63966929285"
+  },
+  "name": "Áo Bóng Đá NeoSport – Chuẩn Phủi",
+  "isActive": true,
+  "category": {
+    "$oid": "68935032b9d0f639669292e3"
+  },
+  "discount": 0,
+  "price": 250000,
+  "variants": [
+    {
+      "color": {
+        "$oid": "68935033b9d0f63966929301"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292ef"
+      },
+      "stock": 0,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2F12462e00-8f65-4824-a724-70192ee68728_____6.jpg_____.jpg%2F2025-05-17-18%3A57%3A52?alt=media&token=8435ae88-e11b-46f3-b6c8-35c80d0f1191",
+      "imageUrlRef": "files/12462e00-8f65-4824-a724-70192ee68728_____6.jpg_____.jpg/2025-05-17-18:57:52",
+      "_id": {
+        "$oid": "689359bda35cdcffbf92b8b0"
+      }
+    }
+  ],
+  "description": "Mẫu mới ra mắt",
+  "sold": 249,
+  "rating": 0,
+  "reviewCount": 0,
+  "tags": [
+    {
+      "$oid": "68935033b9d0f639669292ea"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-04-08T08:02:52.887Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-06T13:33:49.901Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935032b9d0f63966929287"
+  },
+  "name": "Áo Barcalona",
+  "isActive": false,
+  "category": {
+    "$oid": "68935032b9d0f639669292df"
+  },
+  "discount": 0,
+  "price": 250000,
+  "variants": [
+    {
+      "color": {
+        "$oid": "68935033b9d0f639669292f7"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292ee"
+      },
+      "stock": 200,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2F6bd04438-b5e0-49cd-b31b-032883998a44_____37.jpg_____.jpg%2F2025-05-17-18%3A54%3A10?alt=media&token=ce9cd742-9084-4c9a-94bb-d5bcecc0c0f6",
+      "imageUrlRef": "files/6bd04438-b5e0-49cd-b31b-032883998a44_____37.jpg_____.jpg/2025-05-17-18:54:10",
+      "_id": {
+        "$oid": "689359b5a35cdcffbf92b8a0"
+      }
+    }
+  ],
+  "description": "Mẫu mới 2025",
+  "sold": 0,
+  "rating": 0,
+  "reviewCount": 0,
+  "tags": [
+    {
+      "$oid": "68935033b9d0f639669292e7"
+    },
+    {
+      "$oid": "68935033b9d0f639669292ea"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-04-09T14:54:38.536Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-06T13:33:41.875Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935032b9d0f63966929289"
+  },
+  "name": "Áo Barcelona",
+  "isActive": false,
+  "category": {
+    "$oid": "68935032b9d0f639669292e3"
+  },
+  "discount": 0,
+  "price": 250000,
+  "variants": [
+    {
+      "color": {
+        "$oid": "68935033b9d0f639669292f7"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292ee"
+      },
+      "stock": 200,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2Ff46d5151-6d40-49ff-a7d7-cc12921bf63e_____37.jpg_____.jpg%2F2025-05-17-18%3A53%3A49?alt=media&token=25f88501-fdae-4398-b416-715a3c156895",
+      "imageUrlRef": "files/f46d5151-6d40-49ff-a7d7-cc12921bf63e_____37.jpg_____.jpg/2025-05-17-18:53:49",
+      "_id": {
+        "$oid": "689359aaa35cdcffbf92b88c"
+      }
+    }
+  ],
+  "description": "Mẫu mới 2025",
+  "sold": 0,
+  "rating": 0,
+  "reviewCount": 0,
+  "tags": [
+    {
+      "$oid": "68935033b9d0f639669292ec"
+    },
+    {
+      "$oid": "68935033b9d0f639669292e6"
+    },
+    {
+      "$oid": "68935033b9d0f639669292e8"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-04-09T15:10:33.844Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-06T13:33:30.593Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935032b9d0f6396692928b"
+  },
+  "name": "Áo Đấu Tự Thiết Kế DIY Jersey",
+  "isActive": true,
+  "category": {
+    "$oid": "68935032b9d0f639669292e2"
+  },
+  "discount": 0,
+  "price": 250000,
+  "variants": [
+    {
+      "color": {
+        "$oid": "68935033b9d0f639669292f5"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292f0"
+      },
+      "stock": 15,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2F44ebfb7a-1d2a-4e82-9da4-1d41f4d11300_____mc.png_____.png%2F2025-04-09-22%3A11%3A31?alt=media&token=049c9e56-53cf-4a52-b080-286569e93605",
+      "imageUrlRef": "files/44ebfb7a-1d2a-4e82-9da4-1d41f4d11300_____mc.png_____.png/2025-04-09-22:11:31",
+      "_id": {
+        "$oid": "689359a3a35cdcffbf92b880"
+      }
+    }
+  ],
+  "description": "Mẫu mới",
+  "sold": 5,
+  "rating": 0,
+  "reviewCount": 0,
+  "tags": [
+    {
+      "$oid": "68935033b9d0f639669292e8"
+    },
+    {
+      "$oid": "68935033b9d0f639669292ea"
+    },
+    {
+      "$oid": "68935033b9d0f639669292e6"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-04-09T15:11:32.858Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-06T13:33:23.716Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935032b9d0f6396692928e"
+  },
+  "name": "Áo Game ProMotion – Bứt Phá Tốc Độ",
+  "isActive": true,
+  "category": {
+    "$oid": "68935032b9d0f639669292e4"
+  },
+  "discount": 0,
+  "price": 350000,
+  "variants": [
+    {
+      "color": {
+        "$oid": "68935033b9d0f639669292fd"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292ef"
+      },
+      "stock": 18,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2Fc1738c41-7226-4b58-b8c8-8aa7b749be16_____39.jpg_____.jpg%2F2025-05-17-18%3A52%3A21?alt=media&token=14fad877-e6bd-4bd5-a50c-a56554437a29",
+      "imageUrlRef": "files/c1738c41-7226-4b58-b8c8-8aa7b749be16_____39.jpg_____.jpg/2025-05-17-18:52:21",
+      "_id": {
+        "$oid": "6893599da35cdcffbf92b86c"
+      }
+    }
+  ],
+  "description": "Mẫu mới về",
+  "sold": 2,
+  "rating": 0,
+  "reviewCount": 0,
+  "tags": [
+    {
+      "$oid": "68935033b9d0f639669292ea"
+    },
+    {
+      "$oid": "68935033b9d0f639669292e8"
+    },
+    {
+      "$oid": "68935033b9d0f639669292e7"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-04-09T15:22:06.521Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-06T13:33:17.105Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935032b9d0f63966929290"
+  },
+  "name": "Áo Training Sân Nhỏ MiniPitch",
+  "isActive": false,
+  "category": {
+    "$oid": "68935032b9d0f639669292de"
+  },
+  "discount": 0,
+  "price": 550000,
+  "variants": [
+    {
+      "color": {
+        "$oid": "68935033b9d0f639669292fd"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292f3"
+      },
+      "stock": 24,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2Fde11d6f8-1464-48f5-b8f3-9081a88737ac_____39.jpg_____.jpg%2F2025-05-17-18%3A52%3A03?alt=media&token=c41c24cd-9eb5-40b2-98a8-51a1dd07cdb0",
+      "imageUrlRef": "files/de11d6f8-1464-48f5-b8f3-9081a88737ac_____39.jpg_____.jpg/2025-05-17-18:52:03",
+      "_id": {
+        "$oid": "68935995a35cdcffbf92b83a"
+      }
+    }
+  ],
+  "description": "Mẫu mới 2025",
+  "sold": 1,
+  "rating": 0,
+  "reviewCount": 0,
+  "tags": [
+    {
+      "$oid": "68935033b9d0f639669292e6"
+    },
+    {
+      "$oid": "68935033b9d0f639669292e7"
+    },
+    {
+      "$oid": "68935033b9d0f639669292e9"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-04-10T10:28:49.001Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-06T13:33:09.460Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935032b9d0f63966929292"
+  },
+  "name": "Áo Bóng Đá Phản Quang NightStrike",
+  "isActive": true,
+  "category": {
+    "$oid": "68935032b9d0f639669292e2"
+  },
+  "discount": 0,
+  "price": 550000,
+  "variants": [
+    {
+      "color": {
+        "$oid": "68935033b9d0f639669292f7"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292f1"
+      },
+      "stock": 100,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2F487c485e-0438-4a9f-9587-08dd5ae8bcf3_____14.jpg_____.jpg%2F2025-05-20-09%3A55%3A10?alt=media&token=7d5f7940-858c-46ba-8c91-ead385d0a1e7",
+      "imageUrlRef": "files/dd4421a1-7146-43e5-9248-7136c720ff9d_____13.jpg_____.jpg/2025-05-20-09:55:10",
+      "_id": {
+        "$oid": "6893598e07c28c5f2ab4141b"
+      }
+    },
+    {
+      "color": {
+        "$oid": "68935033b9d0f639669292f6"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292ef"
+      },
+      "stock": 100,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2Fdd4421a1-7146-43e5-9248-7136c720ff9d_____13.jpg_____.jpg%2F2025-05-20-09%3A55%3A10?alt=media&token=06bd410c-fbe6-401a-94eb-5a3ff622bc70",
+      "imageUrlRef": "files/0cc7ed6c-4841-4bd3-9403-7a51f243b078_____12.jpg_____.jpg/2025-05-20-09:55:10",
+      "_id": {
+        "$oid": "6893598e07c28c5f2ab4141c"
+      }
+    },
+    {
+      "color": {
+        "$oid": "68935033b9d0f639669292fd"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292ee"
+      },
+      "stock": 100,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2F430e91ab-1be2-4624-acc9-3ff6a49e4197_____12.jpg_____.jpg%2F2025-05-20-09%3A55%3A10?alt=media&token=dac1eae4-a851-4d7b-a15a-c21841a196bd",
+      "imageUrlRef": "files/430e91ab-1be2-4624-acc9-3ff6a49e4197_____12.jpg_____.jpg/2025-05-20-09:55:10",
+      "_id": {
+        "$oid": "6893598e07c28c5f2ab4141d"
+      }
+    }
+  ],
+  "description": "Mẫu mới 2025",
+  "sold": 0,
+  "rating": 0,
+  "reviewCount": 0,
+  "tags": [
+    {
+      "$oid": "68935033b9d0f639669292e8"
+    },
+    {
+      "$oid": "68935033b9d0f639669292e7"
+    },
+    {
+      "$oid": "68935033b9d0f639669292e6"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-04-10T10:35:04.392Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-06T13:33:02.642Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935032b9d0f63966929299"
+  },
+  "name": "Áo Đấu Bóng Đá KidKick Jersey",
+  "isActive": true,
+  "category": {
+    "$oid": "68935032b9d0f639669292e3"
+  },
+  "discount": 0,
+  "price": 750000,
+  "variants": [
+    {
+      "color": {
+        "$oid": "68935033b9d0f639669292fe"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292f2"
+      },
+      "stock": 81,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2F59cdd590-f9f8-4043-91ae-87e0bf686011_____17.jpg_____.jpg%2F2025-05-20-09%3A54%3A07?alt=media&token=88450568-3fe4-41d9-ac4f-f980364085b4",
+      "imageUrlRef": "files/bc45d912-b1da-48f0-9f1f-4b17577c08f7_____17.jpg_____.jpg/2025-05-20-09:54:07",
+      "_id": {
+        "$oid": "6893598607c28c5f2ab413c3"
+      }
+    },
+    {
+      "color": {
+        "$oid": "68935033b9d0f639669292f7"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292f3"
+      },
+      "stock": 90,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2F922f001d-954c-4baf-b4b4-ba44a3a8e838_____15.jpg_____.jpg%2F2025-05-20-09%3A54%3A07?alt=media&token=2b28da71-f9ed-4de9-9d9f-fdfee5eb1b6c",
+      "imageUrlRef": "files/59cdd590-f9f8-4043-91ae-87e0bf686011_____17.jpg_____.jpg/2025-05-20-09:54:07",
+      "_id": {
+        "$oid": "6893598607c28c5f2ab413c4"
+      }
+    },
+    {
+      "color": {
+        "$oid": "68935033b9d0f639669292ff"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292f2"
+      },
+      "stock": 85,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2Fd7077d49-7e42-4388-8d96-0b86cade8d90_____16.jpg_____.jpg%2F2025-05-20-09%3A54%3A07?alt=media&token=19900e2a-0530-4242-8016-dc9ed0dc0b44",
+      "imageUrlRef": "files/d7077d49-7e42-4388-8d96-0b86cade8d90_____16.jpg_____.jpg/2025-05-20-09:54:07",
+      "_id": {
+        "$oid": "6893598607c28c5f2ab413c5"
+      }
+    }
+  ],
+  "description": "mẫu mới 2025",
+  "sold": 20,
+  "rating": 0,
+  "reviewCount": 0,
+  "tags": [
+    {
+      "$oid": "68935033b9d0f639669292e9"
+    },
+    {
+      "$oid": "68935033b9d0f639669292e7"
+    },
+    {
+      "$oid": "68935033b9d0f639669292e6"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-04-10T10:39:38.875Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-06T13:32:54.895Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935032b9d0f639669292a0"
+  },
+  "name": "Áo Bóng Đá Nam StreetLegend",
+  "isActive": true,
+  "category": {
+    "$oid": "68935032b9d0f639669292df"
+  },
+  "discount": 0,
+  "price": 700000,
+  "variants": [
+    {
+      "color": {
+        "$oid": "68935033b9d0f63966929301"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292f2"
+      },
+      "stock": 95,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2F568c0d07-4ddb-493a-8bf2-bf2787a49cfb_____20.jpg_____.jpg%2F2025-05-20-09%3A52%3A12?alt=media&token=5802ec5f-79cb-4804-ade9-15ee8b89b7b7",
+      "imageUrlRef": "files/568c0d07-4ddb-493a-8bf2-bf2787a49cfb_____20.jpg_____.jpg/2025-05-20-09:52:12",
+      "_id": {
+        "$oid": "6893597ca35cdcffbf92b7da"
+      }
+    },
+    {
+      "color": {
+        "$oid": "68935033b9d0f639669292fa"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292f3"
+      },
+      "stock": 99,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2Fb668ab67-b972-4f17-88b6-5e68ae30a2c8_____19.jpg_____.jpg%2F2025-05-20-09%3A52%3A12?alt=media&token=9232ce28-0ab9-402a-9a4a-6b519ae5ff1f",
+      "imageUrlRef": "files/586621e3-4353-42a1-9341-7dc898ab25f8_____20.jpg_____.jpg/2025-05-20-09:52:12",
+      "_id": {
+        "$oid": "6893597ca35cdcffbf92b7db"
+      }
+    },
+    {
+      "color": {
+        "$oid": "68935033b9d0f639669292fe"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292ee"
+      },
+      "stock": 96,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2Face557ea-0a99-4d51-9f47-75ce31c9e2b7_____18.jpg_____.jpg%2F2025-05-20-09%3A52%3A12?alt=media&token=b1e068a0-4a9f-4538-809d-0b1f7e1d9251",
+      "imageUrlRef": "files/1e2ab43f-369b-43cd-8440-a3ea280ee972_____19.jpg_____.jpg/2025-05-20-09:52:12",
+      "_id": {
+        "$oid": "6893597ca35cdcffbf92b7dc"
+      }
+    }
+  ],
+  "description": "Mẫu 2025",
+  "sold": 5,
+  "rating": 0,
+  "reviewCount": 0,
+  "tags": [
+    {
+      "$oid": "68935033b9d0f639669292ea"
+    },
+    {
+      "$oid": "68935033b9d0f639669292ec"
+    },
+    {
+      "$oid": "68935033b9d0f639669292e6"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-04-10T10:42:49.372Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-06T13:32:44.918Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935032b9d0f639669292a7"
+  },
+  "name": "Áo Đấu Ghi Số Theo Yêu Cầu PlayerID",
+  "isActive": true,
+  "category": {
+    "$oid": "68935032b9d0f639669292df"
+  },
+  "discount": 2,
+  "price": 500000,
+  "variants": [
+    {
+      "color": {
+        "$oid": "68935033b9d0f639669292f5"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292f0"
+      },
+      "stock": 98,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2F433f2c09-c383-4257-acba-4706c1a9feed_____23.jpg_____.jpg%2F2025-05-20-09%3A50%3A06?alt=media&token=52956693-9fc7-4668-bb18-1e0465481c8f",
+      "imageUrlRef": "files/85503b45-c1a0-4bad-bd33-73be887548b7_____24.jpg_____.jpg/2025-05-20-09:50:06",
+      "_id": {
+        "$oid": "6893597307c28c5f2ab4139f"
+      }
+    },
+    {
+      "color": {
+        "$oid": "68935033b9d0f639669292f7"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292ef"
+      },
+      "stock": 100,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2F077f2044-b8af-4645-b47b-392874bac5e1_____22.jpg_____.jpg%2F2025-05-20-09%3A50%3A06?alt=media&token=0e694783-608d-476a-828a-fa4e4536ce1c",
+      "imageUrlRef": "files/75907b6f-a817-447b-9494-b344c6ee9802_____24.jpg_____.jpg/2025-05-20-09:50:06",
+      "_id": {
+        "$oid": "6893597307c28c5f2ab413a0"
+      }
+    },
+    {
+      "color": {
+        "$oid": "68935033b9d0f639669292ff"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292ef"
+      },
+      "stock": 99,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2F75907b6f-a817-447b-9494-b344c6ee9802_____24.jpg_____.jpg%2F2025-05-20-09%3A50%3A06?alt=media&token=645e9db4-9241-4d95-b47d-3e3075f1f5af",
+      "imageUrlRef": "files/4f875814-1bbd-49af-9fae-a173d8b9ccac_____23.jpg_____.jpg/2025-05-20-09:50:06",
+      "_id": {
+        "$oid": "6893597307c28c5f2ab413a1"
+      }
+    }
+  ],
+  "description": "sdasdasd",
+  "sold": 4,
+  "rating": 0,
+  "reviewCount": 0,
+  "tags": [
+    {
+      "$oid": "68935033b9d0f639669292ea"
+    },
+    {
+      "$oid": "68935033b9d0f639669292e7"
+    },
+    {
+      "$oid": "68935033b9d0f639669292e8"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-04-10T13:12:45.071Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-06T13:32:35.831Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935032b9d0f639669292ae"
+  },
+  "name": "Áo Game Sân Khách Rebel Jersey",
+  "isActive": true,
+  "category": {
+    "$oid": "68935032b9d0f639669292e0"
+  },
+  "discount": 0,
+  "price": 550000,
+  "variants": [
+    {
+      "color": {
+        "$oid": "68935033b9d0f639669292f6"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292f2"
+      },
+      "stock": 98,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2Fc53d48b9-d2c7-4c2a-b804-15b213893807_____25.jpg_____.jpg%2F2025-05-20-09%3A48%3A19?alt=media&token=c6a47928-4bfc-4a6f-a4e9-904eb1227eac",
+      "imageUrlRef": "files/28b25e1b-ca0f-4fea-85ec-0fa6866238ac_____27.jpg_____.jpg/2025-05-20-09:48:19",
+      "_id": {
+        "$oid": "6893596b07c28c5f2ab41369"
+      }
+    },
+    {
+      "color": {
+        "$oid": "68935033b9d0f639669292f7"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292f1"
+      },
+      "stock": 100,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2F28b25e1b-ca0f-4fea-85ec-0fa6866238ac_____27.jpg_____.jpg%2F2025-05-20-09%3A48%3A19?alt=media&token=f32be46e-1807-4baa-ae1b-85f301ee3e00",
+      "imageUrlRef": "files/3f4c52d7-81be-443f-b333-23ad476e5a85_____27.jpg_____.jpg/2025-05-20-09:48:19",
+      "_id": {
+        "$oid": "6893596b07c28c5f2ab4136a"
+      }
+    },
+    {
+      "color": {
+        "$oid": "68935033b9d0f63966929304"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292ef"
+      },
+      "stock": 100,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2Fb5749b92-213a-4ca9-8b58-eb6ca8fd2229_____26.jpg_____.jpg%2F2025-05-20-09%3A48%3A19?alt=media&token=31a2008d-d34c-49e6-9b13-d3bdd9c67beb",
+      "imageUrlRef": "files/b5749b92-213a-4ca9-8b58-eb6ca8fd2229_____26.jpg_____.jpg/2025-05-20-09:48:19",
+      "_id": {
+        "$oid": "6893596b07c28c5f2ab4136b"
+      }
+    }
+  ],
+  "description": "Mẫu 2025",
+  "sold": 4,
+  "rating": 0,
+  "reviewCount": 0,
+  "tags": [
+    {
+      "$oid": "68935033b9d0f639669292ec"
+    },
+    {
+      "$oid": "68935033b9d0f639669292e6"
+    },
+    {
+      "$oid": "68935033b9d0f639669292e7"
+    },
+    {
+      "$oid": "68935033b9d0f639669292e8"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-04-10T13:56:12.403Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-06T13:32:27.754Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935032b9d0f639669292b5"
+  },
+  "name": "Áo Bóng Đá Cổ Tròn FlexFit",
+  "isActive": false,
+  "category": {
+    "$oid": "68935032b9d0f639669292e1"
+  },
+  "discount": 0,
+  "price": 550000,
+  "variants": [
+    {
+      "color": {
+        "$oid": "68935033b9d0f639669292fe"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292f3"
+      },
+      "stock": 200,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2F6a0915d8-0046-4ae6-a554-9dd70b9a6f7e_____10.jpg_____.jpg%2F2025-05-17-19%3A09%3A20?alt=media&token=b5cc102a-7095-4079-956c-524606654791",
+      "imageUrlRef": "files/6a0915d8-0046-4ae6-a554-9dd70b9a6f7e_____10.jpg_____.jpg/2025-05-17-19:09:20",
+      "_id": {
+        "$oid": "6893582907c28c5f2ab41018"
+      }
+    }
+  ],
+  "description": "Mẫu 2025",
+  "sold": 12,
+  "rating": 0,
+  "reviewCount": 0,
+  "tags": [
+    {
+      "$oid": "67e65978fcc355be76ef6bb8"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-04-10T14:00:19.708Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-06T13:27:05.724Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935032b9d0f639669292b7"
+  },
+  "name": "Áo Đấu Thiết Kế Theo Yêu Cầu CustomPro",
+  "isActive": true,
+  "category": {
+    "$oid": "68935032b9d0f639669292e0"
+  },
+  "discount": 0,
+  "price": 550000,
+  "variants": [
+    {
+      "color": {
+        "$oid": "68935033b9d0f639669292fb"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292f3"
+      },
+      "stock": 96,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2Fdceefcf6-e376-44ed-936c-7d0e3cd733cf_____30.jpg_____.jpg%2F2025-05-20-09%3A44%3A06?alt=media&token=7b3c2adc-cd38-4b51-bf70-ff4c55beebe0",
+      "imageUrlRef": "files/c384f4cc-2cc0-40b9-b2ee-edffff22c0a7_____28.jpg_____.jpg/2025-05-20-09:44:06",
+      "_id": {
+        "$oid": "6893595107c28c5f2ab41325"
+      }
+    },
+    {
+      "color": {
+        "$oid": "68935033b9d0f639669292f6"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292ef"
+      },
+      "stock": 99,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2Fc384f4cc-2cc0-40b9-b2ee-edffff22c0a7_____28.jpg_____.jpg%2F2025-05-20-09%3A44%3A06?alt=media&token=0deb5e81-aea4-4e4a-863e-05b19afe2f28",
+      "imageUrlRef": "files/71b95632-2ede-4340-aa9f-babf45ff1550_____30.jpg_____.jpg/2025-05-20-09:44:06",
+      "_id": {
+        "$oid": "6893595107c28c5f2ab41326"
+      }
+    },
+    {
+      "color": {
+        "$oid": "68935033b9d0f639669292fa"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292ee"
+      },
+      "stock": 100,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2F297d71fc-6243-44a2-bddf-f6d4ad416e7a_____29.jpg_____.jpg%2F2025-05-20-09%3A43%3A03?alt=media&token=483d7470-c8d7-46a0-a96f-a3b6a4dacb0e",
+      "imageUrlRef": "files/b92d904f-710f-4390-bc4b-656ef1d3cc02_____30.jpg_____.jpg/2025-05-20-09:43:03",
+      "_id": {
+        "$oid": "6893595107c28c5f2ab41327"
+      }
+    }
+  ],
+  "description": "Mẫu 2025",
+  "sold": 5,
+  "rating": 0,
+  "reviewCount": 0,
+  "tags": [
+    {
+      "$oid": "68935033b9d0f639669292ea"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-04-10T14:01:29.336Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-06T13:32:01.856Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935032b9d0f639669292be"
+  },
+  "name": "Áo Tập Luyện Elite Training Jersey",
+  "isActive": true,
+  "category": {
+    "$oid": "68935032b9d0f639669292de"
+  },
+  "discount": 0,
+  "price": 550000,
+  "variants": [
+    {
+      "color": {
+        "$oid": "68935033b9d0f639669292fd"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292f3"
+      },
+      "stock": 93,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2F38f141c8-6320-4ae5-9f6c-0dc46e058c67_____34.jpg_____.jpg%2F2025-05-20-09%3A41%3A54?alt=media&token=fcec185b-bca7-47af-9c0e-02d8f19a1b1b",
+      "imageUrlRef": "files/38f141c8-6320-4ae5-9f6c-0dc46e058c67_____34.jpg_____.jpg/2025-05-20-09:41:54",
+      "_id": {
+        "$oid": "6893594aa35cdcffbf92b6f7"
+      }
+    },
+    {
+      "color": {
+        "$oid": "68935033b9d0f63966929305"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292f3"
+      },
+      "stock": 97,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2F14ea1bb6-a537-4092-931d-172cf5ccb888_____33.jpg_____.jpg%2F2025-05-20-09%3A41%3A54?alt=media&token=a4866480-c381-473b-a543-41942e81983a",
+      "imageUrlRef": "files/14ea1bb6-a537-4092-931d-172cf5ccb888_____33.jpg_____.jpg/2025-05-20-09:41:54",
+      "_id": {
+        "$oid": "6893594aa35cdcffbf92b6f8"
+      }
+    },
+    {
+      "color": {
+        "$oid": "68935033b9d0f63966929303"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292f3"
+      },
+      "stock": 100,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2Ff158daee-397a-489a-9f98-438dbf296808_____32.jpg_____.jpg%2F2025-05-20-09%3A40%3A47?alt=media&token=e9ab4a78-3321-47da-8f59-fc6d124db884",
+      "imageUrlRef": "files/738ce373-8169-4e27-a044-f77a6c606701_____32.jpg_____.jpg/2025-05-20-09:40:47",
+      "_id": {
+        "$oid": "6893594aa35cdcffbf92b6f9"
+      }
+    }
+  ],
+  "description": "Mẫu mới ",
+  "sold": 10,
+  "rating": 0,
+  "reviewCount": 0,
+  "tags": [
+    {
+      "$oid": "68935033b9d0f639669292ea"
+    },
+    {
+      "$oid": "68935033b9d0f639669292e8"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-04-10T14:29:43.329Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-06T13:31:54.252Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935032b9d0f639669292c5"
+  },
+  "name": "Áo Đấu Bóng Đá Vortex Speed",
+  "isActive": true,
+  "category": {
+    "$oid": "68935032b9d0f639669292de"
+  },
+  "discount": 0,
+  "price": 550000,
+  "variants": [
+    {
+      "color": {
+        "$oid": "68935033b9d0f639669292fe"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292ee"
+      },
+      "stock": 93,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2F6656f05b-6de3-459f-8d60-6e8823a50ddd_____10.jpg_____.jpg%2F2025-05-20-10%3A03%3A34?alt=media&token=e8dbb556-25f9-41cc-82eb-936d2a35bb4c",
+      "imageUrlRef": "files/cd850ded-559a-4efe-90fa-e15a292db248_____10.jpg_____.jpg/2025-05-20-10:03:34",
+      "_id": {
+        "$oid": "6893593ea35cdcffbf92b6e1"
+      }
+    },
+    {
+      "color": {
+        "$oid": "68935033b9d0f63966929300"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292f0"
+      },
+      "stock": 100,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2Ffdf2c956-9209-46c2-bdff-5b84db0694bf_____8.jpg_____.jpg%2F2025-05-20-10%3A03%3A34?alt=media&token=167f772d-dd60-416e-b20e-23d6f1248085",
+      "imageUrlRef": "files/6f27f3fe-8433-49f8-99d0-fa5517baefd4_____8.jpg_____.jpg/2025-05-20-10:03:34",
+      "_id": {
+        "$oid": "6893593ea35cdcffbf92b6e2"
+      }
+    },
+    {
+      "color": {
+        "$oid": "68935033b9d0f639669292f6"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292f1"
+      },
+      "stock": 75,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2F58627437-e11c-4eac-90ea-4c53460c07d3_____9.jpg_____.jpg%2F2025-05-20-10%3A03%3A34?alt=media&token=900231e0-f252-4b2d-8ac8-99d5a48afe6e",
+      "imageUrlRef": "files/fdf2c956-9209-46c2-bdff-5b84db0694bf_____8.jpg_____.jpg/2025-05-20-10:03:34",
+      "_id": {
+        "$oid": "6893593ea35cdcffbf92b6e3"
+      }
+    }
+  ],
+  "description": "Mẫu 2025",
+  "sold": 39,
+  "rating": 0,
+  "reviewCount": 0,
+  "tags": [
+    {
+      "$oid": "68935033b9d0f639669292ea"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-04-10T14:32:49.742Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-06T13:31:42.566Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935032b9d0f639669292cc"
+  },
+  "name": "Áo Đá Banh Đội Nhóm PowerTeam",
+  "isActive": true,
+  "category": {
+    "$oid": "68935032b9d0f639669292e4"
+  },
+  "discount": 10,
+  "price": 700000,
+  "variants": [
+    {
+      "color": {
+        "$oid": "68935033b9d0f63966929303"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292f2"
+      },
+      "stock": 27,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2Fda85d2f2-749a-4e6b-8f4f-d6c4bae4ee7b_____38.jpg_____.jpg%2F2025-05-20-09%3A33%3A22?alt=media&token=333671bd-9db7-4bb4-b0b4-1173afb79a74",
+      "imageUrlRef": "files/da85d2f2-749a-4e6b-8f4f-d6c4bae4ee7b_____38.jpg_____.jpg/2025-05-20-09:33:22",
+      "_id": {
+        "$oid": "6893593507c28c5f2ab41265"
+      }
+    },
+    {
+      "color": {
+        "$oid": "68935033b9d0f639669292f7"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292f1"
+      },
+      "stock": 94,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2Fcbf56e19-47dc-45ab-a830-bd08d1a18a47_____39.jpg_____.jpg%2F2025-05-20-09%3A33%3A22?alt=media&token=6dfd73ca-e195-4fee-902c-094462499134",
+      "imageUrlRef": "files/8b7220b5-8cdf-4f4d-9d50-6d73c6fb6701_____40.jpg_____.jpg/2025-05-20-09:33:22",
+      "_id": {
+        "$oid": "6893593507c28c5f2ab41266"
+      }
+    },
+    {
+      "color": {
+        "$oid": "68935033b9d0f639669292ff"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292f3"
+      },
+      "stock": 97,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2F8b7220b5-8cdf-4f4d-9d50-6d73c6fb6701_____40.jpg_____.jpg%2F2025-05-20-09%3A33%3A22?alt=media&token=d24a5f83-41e5-401b-8055-92d57952a3e1",
+      "imageUrlRef": "files/6ac68ecc-4e5b-4518-a0cc-d648342698ad_____40.jpg_____.jpg/2025-05-20-09:33:22",
+      "_id": {
+        "$oid": "6893593507c28c5f2ab41267"
+      }
+    }
+  ],
+  "description": "Áo thể thao siêu đẹp",
+  "sold": 86,
+  "rating": 0,
+  "reviewCount": 0,
+  "tags": [
+    {
+      "$oid": "68935033b9d0f639669292e7"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-05-13T14:09:58.547Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-06T13:31:33.173Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935032b9d0f639669292d3"
+  },
+  "name": "Áo 2025",
+  "isActive": false,
+  "category": {
+    "$oid": "68935032b9d0f639669292e0"
+  },
+  "discount": 10,
+  "price": 1000000,
+  "variants": [
+    {
+      "color": {
+        "$oid": "68935033b9d0f639669292ff"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292f1"
+      },
+      "stock": 85,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2Fea3732ff-40fa-4231-8848-423c0c2dc56c_____40.jpg_____.jpg%2F2025-05-25-21%3A26%3A23?alt=media&token=d9fb7009-e81c-485f-9ce3-0cc3187da54b",
+      "imageUrlRef": "files/ea3732ff-40fa-4231-8848-423c0c2dc56c_____40.jpg_____.jpg/2025-05-25-21:26:23",
+      "_id": {
+        "$oid": "68935932a35cdcffbf92b6a6"
+      }
+    },
+    {
+      "color": {
+        "$oid": "68935033b9d0f63966929306"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292f3"
+      },
+      "stock": 99,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2Fd00207ed-d1ee-4b75-8e04-5999a1650a3d_____36.jpg_____.jpg%2F2025-05-25-21%3A26%3A23?alt=media&token=a9dac94c-5367-4376-ba4e-1242cab1ffb6",
+      "imageUrlRef": "files/d00207ed-d1ee-4b75-8e04-5999a1650a3d_____36.jpg_____.jpg/2025-05-25-21:26:23",
+      "_id": {
+        "$oid": "68935932a35cdcffbf92b6a7"
+      }
+    }
+  ],
+  "description": "Mẫu mới về",
+  "sold": 16,
+  "rating": 0,
+  "reviewCount": 0,
+  "tags": [
+    {
+      "$oid": "68935033b9d0f639669292e8"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-05-25T14:26:25.942Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-06T13:31:30.343Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935032b9d0f639669292d6"
+  },
+  "name": "111",
+  "isActive": false,
+  "category": {
+    "$oid": "68935032b9d0f639669292e4"
+  },
+  "discount": 0,
+  "price": 1100000,
+  "variants": [
+    {
+      "color": {
+        "$oid": "68935033b9d0f639669292fd"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292ee"
+      },
+      "stock": 10,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2Fefcacd3c-c0ba-49b1-bb09-7a0bda28c105_____trc.jpg_____.jpg%2F2025-05-28-02%3A59%3A31?alt=media&token=b974a56f-d1e6-40dc-ba6a-4abff85a2cb3",
+      "imageUrlRef": "files/50d3dbcb-593b-4c8b-8363-f275eb621e5e_____trc.jpg_____.jpg/2025-05-28-02:59:31",
+      "_id": {
+        "$oid": "6893593007c28c5f2ab41201"
+      }
+    },
+    {
+      "color": {
+        "$oid": "68935033b9d0f63966929307"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292f3"
+      },
+      "stock": 10,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2F50d3dbcb-593b-4c8b-8363-f275eb621e5e_____trc.jpg_____.jpg%2F2025-05-28-02%3A59%3A31?alt=media&token=510123be-d6d1-493c-b60f-f7f1af79120c",
+      "imageUrlRef": "files/efcacd3c-c0ba-49b1-bb09-7a0bda28c105_____trc.jpg_____.jpg/2025-05-28-02:59:31",
+      "_id": {
+        "$oid": "6893593007c28c5f2ab41202"
+      }
+    }
+  ],
+  "description": "áo đẹp",
+  "sold": 0,
+  "rating": 0,
+  "reviewCount": 0,
+  "tags": [
+    {
+      "$oid": "68935033b9d0f639669292e6"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-05-27T19:59:33.028Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-06T13:31:28.460Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935032b9d0f639669292d9"
+  },
+  "name": "Áo thể thao",
+  "isActive": false,
+  "category": {
+    "$oid": "68935032b9d0f639669292de"
+  },
+  "discount": 0,
+  "price": 1000000,
+  "variants": [
+    {
+      "color": {
+        "$oid": "68935033b9d0f639669292fb"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292f3"
+      },
+      "stock": 100,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2F93f6e9d0-699e-40af-a65d-c418c7ac231e_____3.jpg_____.jpg%2F2025-05-28-22%3A20%3A12?alt=media&token=6415ee91-460a-4d67-8e27-01e654ee7bf1",
+      "imageUrlRef": "files/93f6e9d0-699e-40af-a65d-c418c7ac231e_____3.jpg_____.jpg/2025-05-28-22:20:12",
+      "_id": {
+        "$oid": "6893592a07c28c5f2ab411d4"
+      }
+    }
+  ],
+  "description": "vvv",
+  "sold": 0,
+  "rating": 0,
+  "reviewCount": 0,
+  "tags": [
+    {
+      "$oid": "68935033b9d0f639669292e8"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-05-28T15:20:14.084Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-06T13:31:22.766Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935032b9d0f639669292db"
+  },
+  "name": "Áo bóng đá nam ",
+  "isActive": true,
+  "category": {
+    "$oid": "68935032b9d0f639669292e0"
+  },
+  "discount": 0,
+  "price": 200000,
+  "variants": [
+    {
+      "color": {
+        "$oid": "68935033b9d0f639669292fb"
+      },
+      "size": {
+        "$oid": "68935033b9d0f639669292ee"
+      },
+      "stock": 18,
+      "image": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/files%2Fb4641374-f7d4-4464-9293-2c42072eda0d_____2.jpg_____.jpg%2F2025-07-29-23%3A30%3A16?alt=media&token=6fcba12b-2209-4d0d-a76f-5c6c8469dacd",
+      "imageUrlRef": "files/b4641374-f7d4-4464-9293-2c42072eda0d_____2.jpg_____.jpg/2025-07-29-23:30:16",
+      "_id": {
+        "$oid": "6893571da35cdcffbf92b2b3"
+      }
+    }
+  ],
+  "description": "aaaaa",
+  "sold": 2,
+  "rating": 0,
+  "reviewCount": 0,
+  "tags": [
+    {
+      "$oid": "67e65978fcc355be76ef6bb8"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-07-29T16:25:32.006Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-06T13:22:37.530Z"
+  }
+}]

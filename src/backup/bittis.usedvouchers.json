@@ -1,0 +1,44 @@
+[{
+  "_id": {
+    "$oid": "683740960eafc056d99bd1e3"
+  },
+  "voucherCode": "QC5R42VF",
+  "userId": {
+    "$oid": "67e65978fcc355be76ef6b9c"
+  },
+  "usageCount": 1,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6837d35952781c490031feb7"
+  },
+  "voucherCode": "ZU0VIQL6",
+  "userId": {
+    "$oid": "682be2f7011809ba76b4cd3a"
+  },
+  "usageCount": 2,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68406a2e7f1553b2c02e4ff3"
+  },
+  "voucherCode": "N8BQ3E3D",
+  "userId": {
+    "$oid": "682be2f7011809ba76b4cd3a"
+  },
+  "usageCount": 1,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6888f9c581c4e0fb05e9dcac"
+  },
+  "voucherCode": "3C41DFE2",
+  "userId": {
+    "$oid": "6888f3d481c4e0fb05e9d094"
+  },
+  "usageCount": 1,
+  "__v": 0
+}]

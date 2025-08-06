@@ -1,0 +1,95 @@
+[{
+  "_id": {
+    "$oid": "68935033b9d0f63966929309"
+  },
+  "email": "caop87081@gmail.com",
+  "password": "$2a$10$aL6kqNh7gMZrhPz5ZRkESeK/26jZiJzsy6.1fyz2HT6IVazEIHkl2",
+  "name": "Phát",
+  "phone": "0325916627",
+  "role": "user",
+  "isActive": true,
+  "avatar": "https://firebasestorage.googleapis.com/v0/b/morata-a9eba.appspot.com/o/images%2F1318148.png%2F2025-08-03-12%3A53%3A20?alt=media&token=e05bf23a-572e-404d-be00-ee928d01114e",
+  "wishList": [],
+  "createdAt": {
+    "$date": "2025-07-25T12:48:08.131Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-03T05:53:28.639Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935033b9d0f6396692930a"
+  },
+  "email": "admin@gmail.com",
+  "password": "$2b$12$75gUviedZmC1pi2AZzaNpu0jlHoRrrvN8S9mY/GPKRqB8Qu6eD5XK",
+  "name": "Admin",
+  "phone": "0976878654",
+  "role": "admin",
+  "isActive": true,
+  "avatar": "http://localhost:8000/static/anhdd.png",
+  "wishList": [],
+  "createdAt": {
+    "$date": "2025-07-25T13:30:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-07-25T13:21:01.526Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935033b9d0f6396692930b"
+  },
+  "email": "phuongthao1008.cv@gmail.com",
+  "password": "$2a$10$n0auiAnyTzhnxkMpxKqE7uUx04N4x6nMtZPFltkVG8T4FG5sQ8J2S",
+  "name": "Nguyễn Thị Phương Thảo",
+  "phone": "0862325011",
+  "role": "user",
+  "isActive": true,
+  "avatar": "http://localhost:8000/static/anhdd.png",
+  "wishList": [],
+  "createdAt": {
+    "$date": "2025-07-25T16:45:28.190Z"
+  },
+  "updatedAt": {
+    "$date": "2025-07-25T16:47:09.644Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935033b9d0f6396692930c"
+  },
+  "email": "hoanthph40189@fpt.edu.vn",
+  "password": "$2a$10$I5.VXPtJdSsXIOVpibxwjOL/E0N9olxJDS2EP02GvO2CuyIelzS6m",
+  "name": "hoan",
+  "phone": "0866585465",
+  "role": "user",
+  "isActive": true,
+  "avatar": "http://localhost:8000/static/anhdd.png",
+  "wishList": [],
+  "createdAt": {
+    "$date": "2025-07-29T15:28:33.457Z"
+  },
+  "updatedAt": {
+    "$date": "2025-07-29T15:29:10.787Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935033b9d0f6396692930d"
+  },
+  "email": "tranhuyhoan04@gmail.com",
+  "password": "$2a$10$ydkzmJ.bxbOYMuMl/Trfv.Qqw6.zjC84R64E50fhZ9V1vBkMMzq7m",
+  "name": "Hoàn",
+  "phone": "0866585465",
+  "role": "user",
+  "isActive": true,
+  "avatar": "http://localhost:8000/static/anhdd.png",
+  "wishList": [],
+  "createdAt": {
+    "$date": "2025-07-29T16:16:20.098Z"
+  },
+  "updatedAt": {
+    "$date": "2025-07-29T16:17:01.713Z"
+  }
+}]

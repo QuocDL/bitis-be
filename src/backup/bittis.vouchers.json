@@ -1,0 +1,338 @@
+[{
+  "_id": {
+    "$oid": "68935037b9d0f63966929429"
+  },
+  "name": "Giảm 10%",
+  "code": "ZU0VIQL6",
+  "maxUsage": 90,
+  "discountType": "percentage",
+  "voucherDiscount": 10,
+  "maxDiscountAmount": 50000,
+  "status": true,
+  "minimumOrderPrice": 10000,
+  "startDate": {
+    "$date": "2025-05-17T09:30:24.300Z"
+  },
+  "endDate": {
+    "$date": "2025-05-30T17:00:00.000Z"
+  },
+  "usagePerUser": 5,
+  "createdAt": {
+    "$date": "2025-05-16T15:03:36.896Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-19T19:59:11.385Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935037b9d0f6396692942a"
+  },
+  "name": "Giảm 5%",
+  "code": "7SJ4H7OJ",
+  "maxUsage": 100,
+  "discountType": "percentage",
+  "voucherDiscount": 5,
+  "maxDiscountAmount": 200000,
+  "status": true,
+  "minimumOrderPrice": 10000,
+  "startDate": {
+    "$date": "2025-05-17T09:29:38.200Z"
+  },
+  "endDate": {
+    "$date": "2025-05-30T17:00:00.000Z"
+  },
+  "usagePerUser": 3,
+  "createdAt": {
+    "$date": "2025-05-16T15:55:58.369Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-19T19:58:43.060Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935037b9d0f6396692942b"
+  },
+  "name": "Mã Giảm 10.000đ",
+  "code": "8HW74QOB",
+  "maxUsage": 250,
+  "discountType": "fixed",
+  "voucherDiscount": 10000,
+  "maxDiscountAmount": 0,
+  "status": true,
+  "minimumOrderPrice": 200000,
+  "startDate": {
+    "$date": "2025-05-17T09:58:24.700Z"
+  },
+  "endDate": {
+    "$date": "2025-05-23T17:00:00.000Z"
+  },
+  "usagePerUser": 10,
+  "createdAt": {
+    "$date": "2025-05-17T09:58:14.506Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-17T09:58:25.523Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935037b9d0f6396692942c"
+  },
+  "name": "Giảm giá 25%",
+  "code": "S5GFV1MC",
+  "maxUsage": 20,
+  "discountType": "percentage",
+  "voucherDiscount": 25,
+  "maxDiscountAmount": 1000000,
+  "status": false,
+  "minimumOrderPrice": 500000,
+  "startDate": {
+    "$date": "2025-05-17T13:41:10.500Z"
+  },
+  "endDate": {
+    "$date": "2025-05-23T17:00:00.000Z"
+  },
+  "usagePerUser": 1,
+  "createdAt": {
+    "$date": "2025-05-17T13:41:14.563Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-04T01:40:34.963Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935037b9d0f6396692942d"
+  },
+  "name": "Mã giảm 50.000đ",
+  "code": "SX78VPFC",
+  "maxUsage": 5,
+  "discountType": "fixed",
+  "voucherDiscount": 50000,
+  "maxDiscountAmount": 0,
+  "status": true,
+  "minimumOrderPrice": 250000,
+  "startDate": {
+    "$date": "2025-05-17T13:45:45.100Z"
+  },
+  "endDate": {
+    "$date": "2025-05-23T17:00:00.000Z"
+  },
+  "usagePerUser": 1,
+  "createdAt": {
+    "$date": "2025-05-17T13:46:11.902Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-19T19:57:54.591Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935037b9d0f6396692942e"
+  },
+  "name": "Giảm 90%",
+  "code": "QC5R42VF",
+  "maxUsage": 1,
+  "discountType": "percentage",
+  "voucherDiscount": 90,
+  "maxDiscountAmount": 100000,
+  "status": true,
+  "minimumOrderPrice": 10000,
+  "startDate": {
+    "$date": "2025-05-19T15:06:31.900Z"
+  },
+  "endDate": {
+    "$date": "2025-05-30T17:00:00.000Z"
+  },
+  "usagePerUser": 1,
+  "createdAt": {
+    "$date": "2025-05-19T15:06:39.092Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-28T16:48:14.098Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935037b9d0f6396692942f"
+  },
+  "name": "Giảm sốc ",
+  "code": "AAO72YM5",
+  "maxUsage": 10,
+  "discountType": "percentage",
+  "voucherDiscount": 50,
+  "maxDiscountAmount": 2000000,
+  "status": true,
+  "minimumOrderPrice": 3000000,
+  "startDate": {
+    "$date": "2025-05-20T03:09:32.500Z"
+  },
+  "endDate": {
+    "$date": "2025-05-23T17:00:00.000Z"
+  },
+  "usagePerUser": 2,
+  "createdAt": {
+    "$date": "2025-05-20T03:09:40.187Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-20T03:09:40.187Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935037b9d0f63966929430"
+  },
+  "name": "Giảm 20%",
+  "code": "N8BQ3E3D",
+  "maxUsage": 1,
+  "discountType": "percentage",
+  "voucherDiscount": 20,
+  "maxDiscountAmount": 100000,
+  "status": true,
+  "minimumOrderPrice": 300000,
+  "startDate": {
+    "$date": "2025-05-20T15:19:40.000Z"
+  },
+  "endDate": {
+    "$date": "2025-06-29T17:00:00.000Z"
+  },
+  "usagePerUser": 1,
+  "createdAt": {
+    "$date": "2025-05-20T15:19:57.656Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-28T15:27:03.059Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935037b9d0f63966929431"
+  },
+  "name": "Tri ân",
+  "code": "9VL038EV",
+  "maxUsage": 10,
+  "discountType": "fixed",
+  "voucherDiscount": 50000,
+  "maxDiscountAmount": 0,
+  "status": true,
+  "minimumOrderPrice": 200000,
+  "startDate": {
+    "$date": "2025-05-20T17:11:07.400Z"
+  },
+  "endDate": {
+    "$date": "2025-05-23T17:00:00.000Z"
+  },
+  "usagePerUser": 5,
+  "createdAt": {
+    "$date": "2025-05-20T17:11:13.249Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-20T17:11:13.249Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935037b9d0f63966929432"
+  },
+  "name": "Voucher",
+  "code": "SVM6IIW6",
+  "maxUsage": 10,
+  "discountType": "fixed",
+  "voucherDiscount": 10000,
+  "maxDiscountAmount": 0,
+  "status": false,
+  "minimumOrderPrice": 100000,
+  "startDate": {
+    "$date": "2025-05-21T17:00:00.000Z"
+  },
+  "endDate": {
+    "$date": "2025-05-30T10:32:56.700Z"
+  },
+  "usagePerUser": 1,
+  "createdAt": {
+    "$date": "2025-05-22T14:37:47.761Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-28T16:18:57.410Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935037b9d0f63966929433"
+  },
+  "name": "Giảm ngày mới",
+  "code": "PNCNUR47",
+  "maxUsage": 2,
+  "discountType": "percentage",
+  "voucherDiscount": 15,
+  "maxDiscountAmount": 200000,
+  "status": true,
+  "minimumOrderPrice": 500000,
+  "startDate": {
+    "$date": "2025-05-19T17:00:00.000Z"
+  },
+  "endDate": {
+    "$date": "2025-05-30T17:00:00.000Z"
+  },
+  "usagePerUser": 3,
+  "createdAt": {
+    "$date": "2025-05-28T15:21:45.144Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-29T01:44:25.256Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935037b9d0f63966929434"
+  },
+  "name": "Ưu đãi mùa hè ",
+  "code": "F7CWEP9R",
+  "maxUsage": 5,
+  "discountType": "percentage",
+  "voucherDiscount": 60,
+  "maxDiscountAmount": 500000,
+  "status": true,
+  "minimumOrderPrice": 1000000,
+  "startDate": {
+    "$date": "2025-06-03T17:00:00.000Z"
+  },
+  "endDate": {
+    "$date": "2025-06-13T17:00:00.000Z"
+  },
+  "usagePerUser": 2,
+  "createdAt": {
+    "$date": "2025-06-04T15:47:58.162Z"
+  },
+  "updatedAt": {
+    "$date": "2025-06-04T16:30:21.588Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68935037b9d0f63966929435"
+  },
+  "name": "FFACV",
+  "code": "3C41DFE2",
+  "maxUsage": 3,
+  "discountType": "percentage",
+  "voucherDiscount": 100,
+  "maxDiscountAmount": 200000,
+  "status": true,
+  "minimumOrderPrice": 110000,
+  "startDate": {
+    "$date": "2025-07-29T16:38:20.400Z"
+  },
+  "endDate": {
+    "$date": "2025-07-29T17:00:00.000Z"
+  },
+  "usagePerUser": 1,
+  "createdAt": {
+    "$date": "2025-07-29T16:38:50.246Z"
+  },
+  "updatedAt": {
+    "$date": "2025-07-29T16:39:52.275Z"
+  }
+}]
